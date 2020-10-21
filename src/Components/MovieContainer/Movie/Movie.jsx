@@ -1,7 +1,8 @@
 import React from 'react'
+import "./Movie.scss";
 
 
-const HomePage = () => {
+const Movie = () => {
     return (
         <div>
 
@@ -9,4 +10,4 @@ const HomePage = () => {
     )
 }
 
-export default HomePage;
+export default Movie;

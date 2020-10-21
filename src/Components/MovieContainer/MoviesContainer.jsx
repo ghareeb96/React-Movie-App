@@ -1,4 +1,5 @@
 import React from 'react'
+import "./MovieContainers.scss";
 
 
 const MovieContainer = () => {

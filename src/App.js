@@ -1,30 +1,30 @@
 import React, { Component } from 'react';
+import "./app.scss";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from "react-router-dom";
-import Nav from './Components/Header';
+import Nav from './Components/Header/Header';
+import HomePage from './Components/HomePage/HomePage';
+import WatchList from './Components/WatchListPage/WatchList';
+import WatchedList from './Components/WatchedListPage/WatchedList';
 
 
 export class App extends Component {
   render() {
     return (
-      // <Router>
-      <div>
-        <Nav />
+      <Router>
+        <div>
+          <Nav />
+          <Switch>
+            <Route path="/" exact component={HomePage} />
+            <Route path="/watchedList" component={WatchedList} />
+            <Route path="/watchList" component={WatchList} />
+          </Switch>
 
-        {/* <Switch> */}
-        {/* <Route path="/" exact component={Home} />
-            <Route path="/about" component={About} />
-            <Route path="/contact" component={Contact} />
-            <Route path="/qrCode" component={QrCode} />
-            <Route path="/movies" exact component={Movies} />
-            <Route path="/movies/:movie" component={Movie} /> */}
-        {/* </Switch> */}
-
-      </div>
-      // </Router>
+        </div>
+      </Router>
     )
   }
 }
