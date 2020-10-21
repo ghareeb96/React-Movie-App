@@ -6,14 +6,14 @@ const Nav = () => {
         <header>
             <nav>
                 <div className="logo">
-                    <h1>Logo</h1>
+                    <h1>Hello Friend</h1>
                 </div>
                 <ul>
-                    <li><Link className="links" to="/">Home</Link></li>
+                    {/* <li><Link className="links" to="/">Home</Link></li>
                     <li><Link className="links" to="/about">About</Link></li>
                     <li><Link className="links" to="/contact">Contact Us</Link></li>
                     <li><Link className="links" to="/qrCode">Qr Code</Link></li>
-                    <li><Link className="links" to="/movies">Movies</Link></li>
+                    <li><Link className="links" to="/movies">Movies</Link></li> */}
                 </ul>
 
             </nav>
