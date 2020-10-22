@@ -31,7 +31,7 @@ header {
     }
 
     nav {
-        position: fixed;
+        position: absolute;
         width: 100%;
         height: 10vh;
         margin: auto;
@@ -83,20 +83,54 @@ header {
 
                 a {
                     color: $primary-color;
-                    border: 1px solid $primary-color;
-                    padding: 1rem 2rem;
-                    border-radius: 10px;
+                    // border: 1px solid $primary-color;
+                    padding: 0.6rem 1rem;
+                    border-radius: 5px;
                     outline: none;
                     text-decoration: none;
                     transition: all 0.3s ease-out;
                     font-weight: 500;
+                    display: flex;
 
                     &:hover {
                         background: $primary-color;
                         color: $secondary-color;
                     }
+
+                    .icon {
+                        font-size: 2rem;
+                    }
                 }
             }
         }
+    }
+
+    .back-to-top {
+        position: fixed;
+        right: 5%;
+        bottom: 5%;
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        // border: 1px solid $primary-color;
+        transition: all 0.3s ease-out;
+
+        .icon {
+            font-size: 4rem;
+            color: $primary-color;
+            transition: all 0.3s ease-out;
+        }
+
+        &:hover {
+            background: $primary-color;
+
+            .icon {
+                color: $secondary-color;
+            }
+        }
+
     }
 }

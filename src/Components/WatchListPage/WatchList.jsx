@@ -4,8 +4,10 @@ import "./Watchlist.scss";
 
 const WatchList = () => {
     return (
-        <div>
-            <h1 classname="intro">WatchList</h1>
+        <div className="watch-list" >
+            <div className="slogan">
+                <h1>Watch List</h1>
+            </div>
         </div>
     )
 }

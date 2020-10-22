@@ -4,8 +4,10 @@ import SearchForm from "./SearchForm";
 
 const HomePage = () => {
     return (
-        <div>
-            <h1>Home Page</h1>
+        <div className="home-page" >
+
+            <div className="slogan"><h1>Home Page</h1></div>
+
             <SearchForm />
         </div>
     )
