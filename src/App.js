@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import "./app.scss";
 import {
   BrowserRouter as Router,
@@ -10,23 +10,30 @@ import HomePage from './Components/HomePage/HomePage';
 import WatchList from './Components/WatchListPage/WatchList';
 import WatchedList from './Components/WatchedListPage/WatchedList';
 
+const App = () => {
+  return (
+    <Router>
+      <div >
+        <Nav />
+        <Switch>
 
-export class App extends Component {
-  render() {
-    return (
-      <Router>
-        <div >
-          <Nav />
-          <Switch>
-            <Route path="/" exact component={HomePage} />
-            <Route path="/watchedList" component={WatchedList} />
-            <Route path="/watchList" component={WatchList} />
-          </Switch>
+          <Route path="/" exact>
+            <HomePage />
+          </Route>
 
-        </div>
-      </Router>
-    )
-  }
+          <Route path="/watchedList" >
+            <WatchedList />
+          </Route>
+
+          <Route path="/watchList">
+            <WatchList />
+          </Route>
+
+        </Switch>
+
+      </div>
+    </Router>
+  )
 }
 
 export default App;

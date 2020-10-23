@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import "./Header.scss";
-
+import staticBg from "./static-bg.jpg"
 import { ArrowUpward, Home, AddToQueue, LibraryAddCheck } from '@material-ui/icons';
-// import bg from "./0.jpg"
+
+
+
 
 const Nav = () => {
 
@@ -27,6 +29,9 @@ const Nav = () => {
                     src={require(`${source()}`)}
                     alt="Background"
                 />
+            </div>
+            <div className="static-bg">
+                <img src={staticBg} alt="" />
             </div>
             <nav>
                 <div className="logo-container">

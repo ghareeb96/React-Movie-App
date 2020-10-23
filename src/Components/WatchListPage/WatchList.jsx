@@ -6,7 +6,7 @@ const WatchList = () => {
     return (
         <div className="watch-list" >
             <div className="slogan">
-                <h1>Watch List</h1>
+                <h1>Watchlist</h1>
             </div>
         </div>
     )
