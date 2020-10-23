@@ -1,6 +1,7 @@
 import React from 'react';
 import "./homePage.scss";
 import SearchForm from "./SearchForm";
+import MoviesContainer from "../MoviesContainer/MoviesContainer"
 import { Button } from "@material-ui/core";
 
 const HomePage = (props) => {
@@ -29,6 +30,9 @@ const HomePage = (props) => {
                 setSearchText={props.setSearchText}
                 movies={props.movies}
                 setMovies={props.setMovies}
+            />
+            <MoviesContainer
+                movies={props.movies}
             />
         </div>
     )

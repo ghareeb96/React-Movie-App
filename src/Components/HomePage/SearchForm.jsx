@@ -39,13 +39,13 @@ const SearchForm = (props) => {
     }
 
     const searchMovies = (searchText) => {
-        fetch(`https://api.themoviedb.org/3/movie/550?api_key=${api_key}`)
+        // fetch(`https://api.themoviedb.org/3/movie/550?api_key=${api_key}`)
+        fetch(`https://api.themoviedb.org/3/search/multi?api_key=${api_key}&query=${searchText}`)
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                props.setMovies(data.results);
             })
     }
-
 
     return (
         <div className="search-form" id="search-form" >
