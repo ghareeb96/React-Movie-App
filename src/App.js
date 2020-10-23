@@ -11,6 +11,10 @@ import WatchList from './Components/WatchListPage/WatchList';
 import WatchedList from './Components/WatchedListPage/WatchedList';
 
 const App = () => {
+
+  const [searchText, setSearchText] = useState("");
+  const [movies, setMovies] = useState([]);
+
   return (
     <Router>
       <div >
@@ -18,7 +22,12 @@ const App = () => {
         <Switch>
 
           <Route path="/" exact>
-            <HomePage />
+            <HomePage
+              searchText={searchText}
+              setSearchText={setSearchText}
+              movies={movies}
+              setMovies={setMovies}
+            />
           </Route>
 
           <Route path="/watchedList" >

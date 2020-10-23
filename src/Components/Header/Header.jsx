@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import "./Header.scss";
 import staticBg from "./static-bg.jpg"
@@ -16,17 +16,18 @@ const Nav = () => {
     //     console.log(window.outerHeight);
     // })
 
-    const source = () => {
-        let src = Math.floor(Math.random() * 3)
-        return ("./backgrounds/" + src + ".jpg");
-    }
+    const [source] = useState(Math.floor(Math.random() * 3));
+
+
+
+
 
     return (
 
         <header>
             <div className="bg" id="header">
                 <img
-                    src={require(`${source()}`)}
+                    src={require(`./backgrounds/${source}.jpg`)}
                     alt="Background"
                 />
             </div>
@@ -63,6 +64,8 @@ const Nav = () => {
 
             </nav>
             <a href="#header"><div className="back-to-top"> <ArrowUpward className="icon" /> </div></a>
+
+            <div className="divider"></div>
         </header>
     )
 }

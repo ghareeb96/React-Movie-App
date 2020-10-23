@@ -24,7 +24,12 @@ const HomePage = (props) => {
 
             </div>
 
-            <SearchForm />
+            <SearchForm
+                searchText={props.searchText}
+                setSearchText={props.setSearchText}
+                movies={props.movies}
+                setMovies={props.setMovies}
+            />
         </div>
     )
 }
