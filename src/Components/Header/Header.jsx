@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import "./Header.scss";
 import staticBg from "./static-bg.jpg"
-import { ArrowUpward, Home, AddToQueue, LibraryAddCheck } from '@material-ui/icons';
+import { ArrowUpward, TrendingUp, AddToQueue, LibraryAddCheck, Search, Grade } from '@material-ui/icons';
 
 
 
@@ -25,29 +25,57 @@ const Nav = () => {
     return (
 
         <header>
-            <div className="bg" id="header">
+            {/* <div className="bg" id="header">
                 <img
                     src={require(`./backgrounds/${source}.jpg`)}
                     alt="Background"
                 />
-            </div>
+            </div> */}
             <div className="static-bg">
                 <img src={staticBg} alt="" />
             </div>
             <nav>
                 <div className="logo-container">
-                    <div className="logo">
-                        <h1><span>My</span>Mdb</h1>
+                    <Link className="links" to="/">
+                        <div className="logo">
+                            <h1><span>My</span>Mdb</h1>
+                        </div>
+                    </Link>
+                    <div className="logo-slogan">
+                        <p>Discover somthing to Watch</p>
                     </div>
                 </div>
 
                 <ul>
 
-                    <li>
+                    {/* <li>
                         <Link className="links" to="/">
                             <i><Home className="icon" /></i>&nbsp; Home
                         </Link>
+                    </li> */}
+
+
+                    <li>
+                        <Link className="links" to="/watchList">
+                            <i><Search className="icon" /></i>&nbsp;
+                            Search
+                        </Link>
                     </li>
+
+
+                    <li>
+                        <Link className="links" to="/watchList">
+                            <i><TrendingUp className="icon" /></i>&nbsp; Trinding
+                        </Link>
+                    </li>
+
+
+                    <li>
+                        <Link className="links" to="/watchList">
+                            <i><Grade className="icon" /></i>&nbsp; Top Rated
+                        </Link>
+                    </li>
+
 
                     <li>
                         <Link className="links" to="/watchList">
@@ -65,7 +93,7 @@ const Nav = () => {
             </nav>
             <a href="#header"><div className="back-to-top"> <ArrowUpward className="icon" /> </div></a>
 
-            <div className="divider"></div>
+            {/* <div className="divider"></div> */}
         </header>
     )
 }
