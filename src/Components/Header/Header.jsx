@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import "./Header.scss";
 import staticBg from "./static-bg.jpg"
-import { ArrowUpward, TrendingUp, AddToQueue, LibraryAddCheck, Search, Grade } from '@material-ui/icons';
+import { AddToQueue, LibraryAddCheck, Search, Grade } from '@material-ui/icons';
 
 
 
@@ -16,7 +16,7 @@ const Nav = () => {
     //     console.log(window.outerHeight);
     // })
 
-    const [source] = useState(Math.floor(Math.random() * 3));
+    // const [source] = useState(Math.floor(Math.random() * 3));
 
 
 
@@ -42,7 +42,7 @@ const Nav = () => {
                         </div>
                     </Link>
                     <div className="logo-slogan">
-                        <p>Discover somthing to Watch</p>
+                        <p>Discover something to Watch</p>
                     </div>
                 </div>
 
@@ -56,22 +56,22 @@ const Nav = () => {
 
 
                     <li>
-                        <Link className="links" to="/watchList">
+                        <Link className="links" to="/search">
                             <i><Search className="icon" /></i>&nbsp;
                             Search
                         </Link>
                     </li>
 
 
-                    <li>
-                        <Link className="links" to="/watchList">
+                    {/* <li>
+                        <Link className="links" to="/trending">
                             <i><TrendingUp className="icon" /></i>&nbsp; Trinding
                         </Link>
-                    </li>
+                    </li> */}
 
 
                     <li>
-                        <Link className="links" to="/watchList">
+                        <Link className="links" to="/top_rated">
                             <i><Grade className="icon" /></i>&nbsp; Top Rated
                         </Link>
                     </li>
@@ -91,7 +91,7 @@ const Nav = () => {
                 </ul>
 
             </nav>
-            <a href="#header"><div className="back-to-top"> <ArrowUpward className="icon" /> </div></a>
+            {/* <a href="#header"><div className="back-to-top"> <ArrowUpward className="icon" /> </div></a> */}
 
             {/* <div className="divider"></div> */}
         </header>

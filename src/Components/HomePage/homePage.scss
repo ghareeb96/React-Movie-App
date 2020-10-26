@@ -5,38 +5,89 @@
     min-height: 100vh;
 
     .slogan {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
         width: 100%;
-        font-family: 'Teko', sans-serif;
-
-        h3 {
-            color: $primary-color;
-            font-size: 6rem;
-            text-align: center;
-            letter-spacing: 2px;
-        }
-
-        .btn {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            .start-btn {
-                padding: 1rem 2rem;
-                font-size: 1.5rem;
-            }
-        }
-    }
-
-    .search-form {
+        height: 30vh;
+        margin: 20vh 0;
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
-        height: 100vh;
-        width: 30%;
-        margin: auto;
+        background: rgba($tirtiary_color, 0.5);
+
+        h2 {
+            font-size: 8rem;
+            letter-spacing: 4px;
+            color: white;
+            font-family: "teko";
+        }
     }
+
+    .container {
+        width: 80%;
+        margin: auto;
+        border: 2px $secondary_color solid;
+        border-radius: 10px;
+        // margin-bottom: 3rem;
+
+        .legend {
+            height: auto;
+            background: $primary-color;
+
+            h3 {
+                color: $fourth_color;
+                text-align: center;
+                font-size: 3rem;
+                padding: 1rem;
+            }
+        }
+
+        .items-container {
+            // width: 100%;
+            background: rgba($tirtiary_color, 0.7);
+            padding: 1rem;
+        }
+    }
+
+    .divider {
+        height: 5px;
+        width: 90%;
+        background-color: $fourth_color;
+        margin: 20px auto;
+    }
+
+    // .slogan {
+    //     position: absolute;
+    //     top: 50%;
+    //     left: 50%;
+    //     transform: translate(-50%, -50%);
+    //     width: 100%;
+    //     font-family: 'Teko', sans-serif;
+
+    //     h3 {
+    //         color: $primary-color;
+    //         font-size: 6rem;
+    //         text-align: center;
+    //         letter-spacing: 2px;
+    //     }
+
+    //     .btn {
+    //         display: flex;
+    //         justify-content: center;
+    //         align-items: center;
+
+    //         .start-btn {
+    //             padding: 1rem 2rem;
+    //             font-size: 1.5rem;
+    //         }
+    //     }
+    // }
+
+    // .search-form {
+    //     display: flex;
+    //     align-items: center;
+    //     justify-content: center;
+    //     height: 100vh;
+    //     width: 30%;
+    //     margin: auto;
+    // }
 }

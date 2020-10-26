@@ -2,7 +2,7 @@
 
 header {
     width: 100%;
-    height: 100vh;
+    height: 15vh;
     position: relative;
 
     // .bg {
@@ -76,7 +76,8 @@ header {
         align-items: center;
         justify-content: space-between;
         background: $primary-color;
-        border-bottom: solid 2px $fourth_color;
+        border-bottom: solid 4px $secondary_color;
+        z-index: 3;
         // background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 0) 100%);
 
         .logo-container {
