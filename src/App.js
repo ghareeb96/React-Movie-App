@@ -9,11 +9,11 @@ import Nav from './Components/Header/Header';
 import HomePage from './Components/HomePage/HomePage';
 import WatchList from './Components/WatchListPage/WatchList';
 import WatchedList from './Components/WatchedListPage/WatchedList';
+import Search from './Components/SearchPage/Search';
+import TopRated from './Components/TopRatedPage/TopRated';
 
 const App = () => {
 
-  const [searchText, setSearchText] = useState("");
-  const [movies, setMovies] = useState([]);
 
   return (
     <Router>
@@ -22,12 +22,7 @@ const App = () => {
         <Switch>
 
           <Route path="/" exact>
-            <HomePage
-              searchText={searchText}
-              setSearchText={setSearchText}
-              movies={movies}
-              setMovies={setMovies}
-            />
+            <HomePage />
           </Route>
 
           <Route path="/watchedList" >
@@ -36,6 +31,14 @@ const App = () => {
 
           <Route path="/watchList">
             <WatchList />
+          </Route>
+
+          <Route path="/search">
+            <Search />
+          </Route>
+
+          <Route path="/topRated">
+            <TopRated />
           </Route>
 
         </Switch>

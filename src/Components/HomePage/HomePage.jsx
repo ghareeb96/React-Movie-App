@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import "./homePage.scss";
-// import SearchForm from "./SearchForm";
 import MoviesContainer from "../MoviesContainer/MoviesContainer"
-// import { Button } from "@material-ui/core";
 
 const HomePage = () => {
 
     const api_key = "137436a3a883e2b94597a24e32d9d6b8";
-    let page = 1;
 
+    //* =============Popular Movies====================
 
     const [popularMovies, setPopularMovies] = useState([]);
     const popular_movies = () => {
@@ -18,6 +16,7 @@ const HomePage = () => {
     }
 
 
+    //* ==============Popular TV Shows =======================
     const [popularTV, setPopularTV] = useState([]);
     const popular_TV = () => {
         fetch(`https://api.themoviedb.org/3/tv/popular?api_key=${api_key}`)
@@ -25,9 +24,20 @@ const HomePage = () => {
             .then(data => setPopularTV(data.results))
     }
 
+
+    //* ================Trending =============================
+    const [trending, setTrending] = useState([]);
+    const trends = () => {
+        fetch(`https://api.themoviedb.org/3/trending/all/week?api_key=${api_key}`)
+            .then(res => res.json())
+            .then(data => setTrending(data.results))
+    }
+
+
     useEffect(() => {
         popular_movies();
-        popular_TV()
+        popular_TV();
+        trends();
     }, []);
 
 
@@ -36,7 +46,7 @@ const HomePage = () => {
 
             <div className="slogan">
                 <h2>Welcome To MyMdb</h2>
-                <h2>Discover, Search and Watch</h2>
+                <h2>Discover, Search and Make Your Watchlist</h2>
             </div>
 
             <div className="container">
@@ -57,7 +67,17 @@ const HomePage = () => {
                 <div className="items-container">
                     <MoviesContainer movies={popularTV} />
                 </div>
+            </div>
 
+            <div className="divider"></div>
+
+            <div className="container">
+                <div className="legend">
+                    <h3>Trending This Week</h3>
+                </div>
+                <div className="items-container">
+                    <MoviesContainer movies={trending} />
+                </div>
             </div>
 
 

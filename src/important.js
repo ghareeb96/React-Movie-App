@@ -29,7 +29,7 @@
 
     //!=======================================================================================================================
 
-    get_latest = `https://api.themoviedb.org/3/${item_type}/latest?api_key=${api_key}&page=${page_no}`
+    // get_latest = `https://api.themoviedb.org/3/${item_type}/latest?api_key=${api_key}&page=${page_no}`
 
     get_popular = `https://api.themoviedb.org/3/${item_type}/popular?api_key=${api_key}&page=${page_no}`
 
