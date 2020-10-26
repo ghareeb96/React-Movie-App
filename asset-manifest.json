@@ -1,27 +1,24 @@
 {
   "files": {
-    "main.css": "/React-Movie-App/static/css/main.cfc100de.chunk.css",
-    "main.js": "/React-Movie-App/static/js/main.281273c8.chunk.js",
-    "main.js.map": "/React-Movie-App/static/js/main.281273c8.chunk.js.map",
+    "main.css": "/React-Movie-App/static/css/main.01f5fdf9.chunk.css",
+    "main.js": "/React-Movie-App/static/js/main.9dabefda.chunk.js",
+    "main.js.map": "/React-Movie-App/static/js/main.9dabefda.chunk.js.map",
     "runtime-main.js": "/React-Movie-App/static/js/runtime-main.5e18f0ac.js",
     "runtime-main.js.map": "/React-Movie-App/static/js/runtime-main.5e18f0ac.js.map",
-    "static/js/2.8ec66cb4.chunk.js": "/React-Movie-App/static/js/2.8ec66cb4.chunk.js",
-    "static/js/2.8ec66cb4.chunk.js.map": "/React-Movie-App/static/js/2.8ec66cb4.chunk.js.map",
+    "static/js/2.97402f91.chunk.js": "/React-Movie-App/static/js/2.97402f91.chunk.js",
+    "static/js/2.97402f91.chunk.js.map": "/React-Movie-App/static/js/2.97402f91.chunk.js.map",
     "index.html": "/React-Movie-App/index.html",
-    "precache-manifest.9330ff3496395325853829cef71a4cf4.js": "/React-Movie-App/precache-manifest.9330ff3496395325853829cef71a4cf4.js",
+    "precache-manifest.b137864204e6a6eb1b897fff6db29c61.js": "/React-Movie-App/precache-manifest.b137864204e6a6eb1b897fff6db29c61.js",
     "service-worker.js": "/React-Movie-App/service-worker.js",
-    "static/css/main.cfc100de.chunk.css.map": "/React-Movie-App/static/css/main.cfc100de.chunk.css.map",
-    "static/js/2.8ec66cb4.chunk.js.LICENSE": "/React-Movie-App/static/js/2.8ec66cb4.chunk.js.LICENSE",
-    "static/media/0.jpg": "/React-Movie-App/static/media/0.aa2aa993.jpg",
-    "static/media/1.jpg": "/React-Movie-App/static/media/1.0af8103e.jpg",
-    "static/media/2.jpg": "/React-Movie-App/static/media/2.578047fd.jpg",
+    "static/css/main.01f5fdf9.chunk.css.map": "/React-Movie-App/static/css/main.01f5fdf9.chunk.css.map",
+    "static/js/2.97402f91.chunk.js.LICENSE": "/React-Movie-App/static/js/2.97402f91.chunk.js.LICENSE",
     "static/media/WatchedList.scss": "/React-Movie-App/static/media/impact.f1290202.ttf",
     "static/media/static-bg.jpg": "/React-Movie-App/static/media/static-bg.253549d8.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.5e18f0ac.js",
-    "static/js/2.8ec66cb4.chunk.js",
-    "static/css/main.cfc100de.chunk.css",
-    "static/js/main.281273c8.chunk.js"
+    "static/js/2.97402f91.chunk.js",
+    "static/css/main.01f5fdf9.chunk.css",
+    "static/js/main.9dabefda.chunk.js"
   ]
 }
