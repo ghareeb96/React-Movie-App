@@ -19,21 +19,23 @@ const TopRated = () => {
 
     useEffect(() => {
         const get_top_movies = () => {
-            fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${api_key}&language=ar&region=DE&page=${movie_page}`)
+            fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${api_key}&page=${movie_page}`)
                 .then(res => res.json())
                 .then(data => {
                     setTopRatedMovies(oldArray => oldArray.concat(data.results));
                 })
+
         }
         get_top_movies();
     }, [movie_page]);
 
     useEffect(() => {
         const get_top_tv = () => {
-            fetch(`https://api.themoviedb.org/3/tv/top_rated?api_key=${api_key}&language=en-US&page=${tv_page}`)
+            fetch(`https://api.themoviedb.org/3/tv/top_rated?api_key=${api_key}&page=${tv_page}`)
                 .then(res => res.json())
                 .then(data => {
                     setTopRatedTV(oldArray => oldArray.concat(data.results));
+                    console.log(topRatedTV);
                 })
         }
         get_top_tv();

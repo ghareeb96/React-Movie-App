@@ -7,12 +7,14 @@ const MoviesContainer = (props) => {
 
     return (
         <div className="movies-container">
-            {props.movies.filter(item => item.poster_path).map((item) => (
-                <Movie
-                    poster={item.poster_path}
-                    key={item.id}
-                />
-            ))}
+            {props.movies.filter(item => item.poster_path)
+                .filter(item => item.original_language !== "ja")
+                .map((item) => (
+                    <Movie
+                        movie={item}
+                        key={item.id}
+                    />
+                ))}
 
         </div>
     )

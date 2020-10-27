@@ -1,6 +1,9 @@
 @import "../../mainStyles.scss";
 
 .movie {
+    position: relative;
+    border: 6px solid $primary_color;
+
     .img {
         width: 250px;
         height: auto;
@@ -8,6 +11,30 @@
         img {
             width: 100%;
             height: 100%;
+        }
+    }
+
+    button {
+        position: absolute;
+        width: 100%;
+        // height: 30px;
+        left: 0;
+        bottom: 0;
+        background: $primary_color;
+        color: $fourth_color;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        margin: 0;
+        font-size: 3rem;
+        letter-spacing: 2px;
+        padding: 0.5rem;
+        font-family: "teko";
+        transition: all 0.2s ease-out;
+        border-top: 4px solid $primary_color;
+
+        &:hover {
+            background-color: $secondary_color;
         }
     }
 }
