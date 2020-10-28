@@ -11,6 +11,7 @@ import WatchList from './Components/WatchListPage/WatchList';
 import WatchedList from './Components/WatchedListPage/WatchedList';
 import Search from './Components/SearchPage/Search';
 import TopRated from './Components/TopRatedPage/TopRated';
+import MovieDetails from './Components/MovieDetails/MovieDetails';
 
 const App = () => {
 
@@ -40,6 +41,8 @@ const App = () => {
           <Route path="/topRated">
             <TopRated />
           </Route>
+
+          <Route path="/movieDetails/:id" component={MovieDetails} />
 
         </Switch>
 

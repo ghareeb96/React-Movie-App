@@ -35,11 +35,10 @@ const TopRated = () => {
                 .then(res => res.json())
                 .then(data => {
                     setTopRatedTV(oldArray => oldArray.concat(data.results));
-                    console.log(topRatedTV);
                 })
         }
         get_top_tv();
-    }, [tv_page])
+    }, [tv_page]);
 
 
     return (

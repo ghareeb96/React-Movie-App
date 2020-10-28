@@ -10,7 +10,8 @@ const Movie = (props) => {
             <div className="img">
                 <img src={`https://image.tmdb.org/t/p/w500/${props.movie.poster_path}`} alt="poster" />
             </div>
-            <Link to={`/MovieDetails/${props.movie.name ? props.movie.name : props.movie.title}`}>
+
+            <Link to={`/movieDetails/${props.movie.id}`}>
                 <button className="details-btn">More Details</button>
             </Link>
         </div>

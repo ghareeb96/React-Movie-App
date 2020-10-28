@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import "./Search.scss";
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
@@ -35,13 +35,15 @@ const Search = () => {
 
     const [searchedItems, setSearchedItems] = useState([]);
     const [searchText, setSearchText] = useState("");
+    const [page, setPage] = useState(1);
     const classes = useStyles();
+
 
     const inputHandler = (e) => {
         setSearchText(e.target.value);
     }
 
-    const searchItems = (searchText) => {
+    const searchItems = () => {
         // fetch(`https://api.themoviedb.org/3/movie/550?api_key=${api_key}`)
         fetch(`https://api.themoviedb.org/3/search/multi?api_key=${api_key}&query=${searchText}`)
             .then(res => res.json())
@@ -49,6 +51,22 @@ const Search = () => {
                 setSearchedItems(data.results);
             })
     }
+
+    useEffect(() => {
+        const search = () => {
+            // fetch(`https://api.themoviedb.org/3/movie/550?api_key=${api_key}`)
+            fetch(`https://api.themoviedb.org/3/search/multi?api_key=${api_key}&query=${searchText}&page=${page}`)
+                .then(res => res.json())
+                .then(data => {
+                    setSearchedItems(oldArray => oldArray.concat(data.results));
+                })
+        }
+        if (page !== 1) {
+            search();
+        }
+
+    }, [page])
+
     return (
         <div className="search" >
             <div className="search-form">
@@ -76,6 +94,12 @@ const Search = () => {
                 <div className="items-container">
                     <MoviesContainer movies={searchedItems} />
                 </div>
+                <button
+                    className="more"
+                    onClick={() => setPage(page + 1)}
+                >
+                    Load More ...
+                    </button>
             </div>
         </div>
     )
