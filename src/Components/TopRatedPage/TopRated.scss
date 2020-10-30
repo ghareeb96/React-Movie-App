@@ -28,14 +28,21 @@
 
         .more {
             width: 100%;
-            // height: 4rem;
             background: $secondary_color;
             font-size: 3rem;
             border: none;
-            color: $fourth_color;
             outline: none;
             cursor: pointer;
             padding: 1rem;
+
+
+            a {
+                color: $fourth_color;
+                text-decoration: none;
+                width: 100%;
+                display: block;
+                text-align: center;
+            }
 
         }
     }

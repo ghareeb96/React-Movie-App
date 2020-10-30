@@ -49,6 +49,7 @@ const Search = () => {
             .then(res => res.json())
             .then(data => {
                 setSearchedItems(data.results);
+                setPage(1);
             })
     }
 
@@ -60,6 +61,8 @@ const Search = () => {
                 .then(data => {
                     setSearchedItems(oldArray => oldArray.concat(data.results));
                 })
+            window.initialScrollTop = 0;
+            console.log(window)
         }
         if (page !== 1) {
             search();
@@ -92,14 +95,12 @@ const Search = () => {
 
             <div className="container">
                 <div className="items-container">
-                    <MoviesContainer movies={searchedItems} />
+                    <MoviesContainer movies={searchedItems}
+                        type="movie" />
                 </div>
-                <button
-                    className="more"
-                    onClick={() => setPage(page + 1)}
-                >
-                    Load More ...
-                    </button>
+                <div className="more">
+                    <a href="#movie" onClick={() => setPage(page + 1)}>Load More</a>
+                </div>
             </div>
         </div>
     )

@@ -15,7 +15,7 @@ const MoviesContainer = (props) => {
                         key={item.id}
                     />
                 ))}
-
+            <div className="scroll-handler" id={`${props.type === "movie" ? "movie" : "tv"}`}></div>
         </div>
     )
 }

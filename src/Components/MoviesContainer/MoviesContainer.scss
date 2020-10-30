@@ -5,6 +5,12 @@
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: 5rem 2rem;
     justify-items: center;
+    position: relative;
+
     // width: 90%;
     // margin: 10% auto;
+    .scroll-handler {
+        position: absolute;
+        top: 97%;
+    }
 }

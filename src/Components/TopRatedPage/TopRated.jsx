@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+
 import "./TopRated.scss";
 import MoviesContainer from "../MoviesContainer/MoviesContainer"
 
@@ -44,37 +45,34 @@ const TopRated = () => {
     return (
         <div className="top-rated" >
 
-            <div className="container">
+            <div className="container" id="movieContainer">
                 <div className="legend">
                     <h3>Top Rated Movies</h3>
                 </div>
                 <div className="items-container">
                     <MoviesContainer
-                        movies={topRatedMovies} />
+                        movies={topRatedMovies}
+                        type="movie" />
                 </div>
-                <button
-                    className="more"
-                    onClick={() => setMoviePage(movie_page + 1)}
-                >
-                    Load More ...
-                    </button>
+                <div className="more">
+                    <a href="#movie" onClick={() => setMoviePage(movie_page + 1)}>Load More</a>
+                </div>
             </div>
 
             <div className="divider"></div>
 
-            <div className="container">
+            <div id="tvContainer" className="container">
                 <div className="legend">
                     <h3>Top Rated TV Shows</h3>
                 </div>
                 <div className="items-container">
                     <MoviesContainer
-                        movies={topRatedTV} />
+                        movies={topRatedTV}
+                        type="tv" />
                 </div>
-                <button
-                    className="more"
-                    onClick={() => setTVPage(tv_page + 1)}
-                >
-                    Load More ...</button>
+                <div className="more">
+                    <a href="#tv" onClick={() => setTVPage(tv_page + 1)}>Load More</a>
+                </div>
             </div>
         </div>
     )

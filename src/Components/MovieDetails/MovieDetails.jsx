@@ -13,16 +13,18 @@ const MovieDetails = ({ match }) => {
         const fetchData = () => {
             fetch(`https://api.themoviedb.org/3/movie/${match.params.id}?api_key=${api_key}`)
                 .then(res => res.json())
-                .then(data => console.log(data))
+                .then(data => getMovie(data))
         }
-        fetchData()
+        fetchData();
     }, [])
 
 
-    console.log(match.params.id)
+
     return (
         <div>
-
+            <div className="img">
+                <img src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`} alt="lol" />
+            </div>
         </div>
     )
 }
