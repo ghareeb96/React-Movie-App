@@ -21,9 +21,27 @@ const MovieDetails = ({ match }) => {
 
 
     return (
-        <div>
-            <div className="img">
-                <img src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`} alt="lol" />
+        <div className="movie-details">
+            <div className="bg-img">
+                <img src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`} />
+            </div>
+
+            <div className="details">
+                <div className="left-section">
+                    <div className="poster">
+                        <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="" />
+                    </div>
+                    <div className="btns">
+                        <button className="watch-list">Add To Watchlist</button>
+                        <button className="watched-list">Add To Watchedlist</button>
+                    </div>
+                </div>
+
+                <div className="right-section">
+
+                </div>
+
+
             </div>
         </div>
     )
