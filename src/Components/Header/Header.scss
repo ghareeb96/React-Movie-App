@@ -2,40 +2,8 @@
 
 header {
     width: 100%;
-    height: 15vh;
+    height: 10vh;
     position: relative;
-
-    // .bg {
-    //     position: absolute;
-    //     width: 100%;
-    //     height: 100%;
-    //     top: 0;
-    //     left: 0;
-    //     filter: blur(2px);
-    //     // mask-image: -webkit-gradient(linear, left top, left bottom,
-    //     //         from(rgba($tirtiary_color, 1)), to(rgba($tirtiary_color, 0)));
-
-
-
-    //     img {
-    //         width: 100%;
-    //         height: 100%;
-    //         object-fit: cover;
-    //         object-position: center;
-    //         // mask-image: -webkit-gradient(linear, left top, left bottom,
-    //         //         from(rgba($tirtiary_color, 1)), to(rgba($tirtiary_color, 0)));
-
-    //     }
-
-    //     &::after {
-    //         content: "";
-    //         position: absolute;
-    //         width: 100%;
-    //         height: 100%;
-    //         top: 0;
-    //         left: 0;
-    //     }
-    // }
 
     .static-bg {
         width: 100%;
@@ -158,41 +126,4 @@ header {
         }
     }
 
-    .back-to-top {
-        position: fixed;
-        right: 5%;
-        bottom: 5%;
-        height: 50px;
-        width: 50px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        // border: 1px solid $primary-color;
-        transition: all 0.3s ease-out;
-
-        .icon {
-            font-size: 4rem;
-            color: $primary-color;
-            transition: all 0.3s ease-out;
-        }
-
-        &:hover {
-            background: $primary-color;
-
-            .icon {
-                color: $secondary-color;
-            }
-        }
-
-    }
-
-    .divider {
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        height: 2px;
-        background: rgb(253, 195, 37);
-    }
 }

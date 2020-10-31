@@ -20,12 +20,9 @@ const MovieDetails = ({ match }) => {
 
 
 
+    console.log(movie)
     return (
         <div className="movie-details">
-            <div className="bg-img">
-                <img src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`} />
-            </div>
-
             <div className="details">
                 <div className="left-section">
                     <div className="poster">
@@ -38,6 +35,12 @@ const MovieDetails = ({ match }) => {
                 </div>
 
                 <div className="right-section">
+                    <div className="bg-img">
+                        <img src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`} />
+                    </div>
+                    <h1 className="title">
+                        {movie.title}
+                    </h1>
 
                 </div>
 
