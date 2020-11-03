@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/React-Movie-App/static/css/main.4e318895.chunk.css",
-    "main.js": "/React-Movie-App/static/js/main.3e8cb925.chunk.js",
-    "main.js.map": "/React-Movie-App/static/js/main.3e8cb925.chunk.js.map",
+    "main.css": "/React-Movie-App/static/css/main.5ed50901.chunk.css",
+    "main.js": "/React-Movie-App/static/js/main.54cad1ce.chunk.js",
+    "main.js.map": "/React-Movie-App/static/js/main.54cad1ce.chunk.js.map",
     "runtime-main.js": "/React-Movie-App/static/js/runtime-main.5e18f0ac.js",
     "runtime-main.js.map": "/React-Movie-App/static/js/runtime-main.5e18f0ac.js.map",
-    "static/js/2.8e0afd17.chunk.js": "/React-Movie-App/static/js/2.8e0afd17.chunk.js",
-    "static/js/2.8e0afd17.chunk.js.map": "/React-Movie-App/static/js/2.8e0afd17.chunk.js.map",
+    "static/js/2.6de7ffeb.chunk.js": "/React-Movie-App/static/js/2.6de7ffeb.chunk.js",
+    "static/js/2.6de7ffeb.chunk.js.map": "/React-Movie-App/static/js/2.6de7ffeb.chunk.js.map",
     "index.html": "/React-Movie-App/index.html",
-    "precache-manifest.35490aa3d9780a6b158bd3070de8a51f.js": "/React-Movie-App/precache-manifest.35490aa3d9780a6b158bd3070de8a51f.js",
+    "precache-manifest.32eab8ef8c5e1cce5f1559dd27bdbb34.js": "/React-Movie-App/precache-manifest.32eab8ef8c5e1cce5f1559dd27bdbb34.js",
     "service-worker.js": "/React-Movie-App/service-worker.js",
-    "static/css/main.4e318895.chunk.css.map": "/React-Movie-App/static/css/main.4e318895.chunk.css.map",
-    "static/js/2.8e0afd17.chunk.js.LICENSE": "/React-Movie-App/static/js/2.8e0afd17.chunk.js.LICENSE",
-    "static/media/TopRated.scss": "/React-Movie-App/static/media/impact.f1290202.ttf",
+    "static/css/main.5ed50901.chunk.css.map": "/React-Movie-App/static/css/main.5ed50901.chunk.css.map",
+    "static/js/2.6de7ffeb.chunk.js.LICENSE": "/React-Movie-App/static/js/2.6de7ffeb.chunk.js.LICENSE",
+    "static/media/TVDetails.scss": "/React-Movie-App/static/media/impact.f1290202.ttf",
     "static/media/static-bg.jpg": "/React-Movie-App/static/media/static-bg.253549d8.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.5e18f0ac.js",
-    "static/js/2.8e0afd17.chunk.js",
-    "static/css/main.4e318895.chunk.css",
-    "static/js/main.3e8cb925.chunk.js"
+    "static/js/2.6de7ffeb.chunk.js",
+    "static/css/main.5ed50901.chunk.css",
+    "static/js/main.54cad1ce.chunk.js"
   ]
 }
