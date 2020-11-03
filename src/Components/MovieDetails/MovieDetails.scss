@@ -177,6 +177,51 @@
                 }
             }
 
+            .cast {
+                display: flex;
+                flex-direction: row;
+                width: 90%;
+                margin: 2rem;
+                border: 3px solid $primary_color;
+
+                .left {
+                    background: $primary_color;
+                    padding: 2rem;
+                    font-family: 'Bebas Neue', cursive;
+                    letter-spacing: 2px;
+                    font-size: 2rem;
+                    color: $fourth_color;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .right {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                    grid-gap: 2rem;
+                    width: 90%;
+                    padding: 1rem;
+
+
+                    .profile-container {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        height: 100px;
+                        width: 100px;
+
+                        img {
+                            border-radius: 50%;
+                            height: 100%;
+                            width: 100%;
+                            object-fit: cover;
+                            object-position: center;
+                        }
+                    }
+                }
+            }
+
         }
 
 

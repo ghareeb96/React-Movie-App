@@ -8,13 +8,23 @@ const MovieDetails = ({ match }) => {
 
 
     const [movie, getMovie] = useState({});
+    const [credits, setCredits] = useState([]);
     const fetchData = () => {
         fetch(`https://api.themoviedb.org/3/movie/${match.params.id}?api_key=${api_key}`)
             .then(res => res.json())
             .then(data => getMovie(data))
     }
+
+    const getCredits = () => {
+        fetch(`https://api.themoviedb.org/3/movie/${match.params.id}/credits?api_key=${api_key}`)
+            .then(res => res.json())
+            .then(data => setCredits(data.cast))
+    }
+    console.log(credits);
+
     useEffect(() => {
         fetchData();
+        getCredits();
     }, [])
 
     if (movie.genres) {
@@ -56,6 +66,25 @@ const MovieDetails = ({ match }) => {
                             </div>
                             <div className="right">
                                 <p>{movie.overview}</p>
+                            </div>
+                        </div>
+
+                        <div className="cast">
+                            <div className="left">
+                                <h2>Cast</h2>
+                            </div>
+                            <div className="right">
+                                {credits
+                                    .filter(item => item.profile_path !== null)
+                                    .filter((item, index) => index < 8)
+                                    .map((character) => {
+                                        return (
+                                            <div key={character.id} className="profile-container">
+                                                <img src={`https://image.tmdb.org/t/p/w500${character.profile_path}`}
+                                                    alt="Profile" />
+                                            </div>
+                                        )
+                                    })}
                             </div>
                         </div>
 
