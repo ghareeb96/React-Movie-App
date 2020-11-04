@@ -181,6 +181,7 @@
                 display: flex;
                 flex-direction: row;
                 width: 90%;
+                // height: 150px;
                 margin: 2rem;
                 border: 3px solid $primary_color;
 
@@ -194,25 +195,29 @@
                     display: flex;
                     align-items: center;
                     justify-content: center;
+                    // width: 15%;
                 }
 
                 .right {
                     display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-                    grid-gap: 2rem;
-                    width: 90%;
+                    background: $secondary_color;
+                    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                    grid-gap: 0.5rem;
+                    width: 100%;
                     padding: 1rem;
+                    justify-items: center;
 
 
                     .profile-container {
                         display: flex;
                         align-items: center;
                         justify-content: center;
-                        height: 100px;
-                        width: 100px;
+                        height: auto;
+                        width: 100%;
+                        border: 2px solid $fourth_color;
 
                         img {
-                            border-radius: 50%;
+                            // border-radius: 50%;
                             height: 100%;
                             width: 100%;
                             object-fit: cover;
