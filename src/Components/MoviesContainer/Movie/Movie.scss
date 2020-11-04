@@ -3,6 +3,9 @@
 .movie {
     position: relative;
     border: 6px solid $primary_color;
+    display: flex;
+    flex-direction: column;
+    height: 450px;
 
     .img {
         width: 250px;
@@ -11,30 +14,36 @@
         img {
             width: 100%;
             height: 100%;
+            object-position: center;
+            object-fit: cover;
         }
     }
 
-    button {
-        position: absolute;
-        width: 100%;
-        // height: 30px;
-        left: 0;
-        bottom: 0;
-        background: $primary_color;
-        color: $fourth_color;
-        outline: none;
-        border: none;
-        cursor: pointer;
-        margin: 0;
-        font-size: 3rem;
-        letter-spacing: 2px;
-        padding: 0.5rem;
-        font-family: "teko";
-        transition: all 0.2s ease-out;
-        border-top: 4px solid $primary_color;
+    a {
+        height: 100%;
 
-        &:hover {
-            background-color: $secondary_color;
+        button {
+            // position: absolute;
+            width: 100%;
+            height: 100%;
+            // left: 0;
+            // bottom: 0;
+            background: $primary_color;
+            color: $fourth_color;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            margin: 0;
+            font-size: 3rem;
+            letter-spacing: 2px;
+            padding: 0.5rem;
+            font-family: "teko";
+            transition: all 0.2s ease-out;
+            border-top: 4px solid $primary_color;
+
+            &:hover {
+                background-color: $secondary_color;
+            }
         }
     }
 }
