@@ -187,15 +187,15 @@
 
                 .cast {
                     display: flex;
-                    flex-direction: row;
+                    flex-direction: column;
                     width: 90%;
                     // height: 150px;
                     margin: 2rem;
                     border: 3px solid $primary_color;
 
-                    .left {
+                    .top {
                         background: $primary_color;
-                        padding: 2rem;
+                        padding: 1rem;
                         font-family: 'Bebas Neue', cursive;
                         letter-spacing: 2px;
                         font-size: 2rem;
@@ -206,7 +206,7 @@
                         // width: 15%;
                     }
 
-                    .right {
+                    .body {
                         display: grid;
                         background: rgba($secondary_color, 0.5);
                         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));

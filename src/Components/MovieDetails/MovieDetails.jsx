@@ -99,12 +99,12 @@ const MovieDetails = ({ match }) => {
                             </div>
 
                             <div className="cast">
-                                <div className="left">
+                                <div className="top">
                                     <h2>Cast</h2>
                                 </div>
-                                <div className="right">
+                                <div className="body">
                                     {credits
-                                        .filter((item, index) => item.profile_path !== null && index < 8)
+                                        .filter((item, index) => item.profile_path !== null && index < 12)
                                         .map((character) => {
                                             return (
                                                 <div key={character.id} className="profile-container">
