@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import "./MovieDetails.scss";
+import { Link } from "react-router-dom";
 
 const api_key = "137436a3a883e2b94597a24e32d9d6b8";
 
@@ -109,6 +110,9 @@ const MovieDetails = ({ match }) => {
                                                 <div key={character.id} className="profile-container">
                                                     <img src={`https://image.tmdb.org/t/p/w500${character.profile_path}`}
                                                         alt="Profile" />
+                                                    <div className="name">
+                                                        <p>{character.name}</p>
+                                                    </div>
                                                 </div>
                                             )
                                         })}
@@ -125,10 +129,15 @@ const MovieDetails = ({ match }) => {
                                                 .filter((item, index) => item.poster_path !== null && index < 10)
                                                 .map((item) => {
                                                     return (
-                                                        <div key={item.id} className="container">
+                                                        // <Link to={`/${item.first_air_date ? "TVDetails" : "movieDetails"}/${item.id}`} >
+                                                        <div key={item.id} className="container" >
                                                             <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
                                                                 alt="Poster" />
+                                                            <div className="pop-up">
+                                                                <p>{item.title}</p>
+                                                            </div>
                                                         </div>
+                                                        /* </Link> */
                                                     )
                                                 })}
                                         </div>
@@ -149,6 +158,9 @@ const MovieDetails = ({ match }) => {
                                                         <div key={item.id} className="container">
                                                             <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
                                                                 alt="Poster" />
+                                                            <div className="pop-up">
+                                                                <p>{item.title}</p>
+                                                            </div>
                                                         </div>
                                                     )
                                                 })}

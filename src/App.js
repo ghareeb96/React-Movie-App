@@ -43,7 +43,7 @@ const App = () => {
             <TopRated />
           </Route>
 
-          <Route path="/movieDetails/:id" component={MovieDetails} />
+          <Route path="/movieDetails/:id" component={MovieDetails} exact />
 
           <Route path="/TVDetails/:id" component={TVDetails} />
 
