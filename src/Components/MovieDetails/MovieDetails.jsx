@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import "./MovieDetails.scss";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 const api_key = "137436a3a883e2b94597a24e32d9d6b8";
 
@@ -12,7 +12,57 @@ const MovieDetails = ({ match }) => {
     const [credits, setCredits] = useState([]);
     const [similar, setSimilar] = useState([]);
     const [recommends, setRecommends] = useState([]);
+    const [watched, setWatched] = useState([]);
+    const [watchlist, setWatchlist] = useState([]);
 
+
+
+    const addToWatched = () => {
+        if (watched.length === 0) {
+            setWatched(old => [...old, match.params.id]);
+            // console.log(watched)
+        } else {
+            const found = watched.filter(item => item === match.params.id)
+            // console.log(found)
+            if (found.length === 0) {
+                setWatched([...watched, match.params.id])
+                localStorage.setItem("watched", JSON.stringify(watched))
+            } else {
+                setWatched(old => old.filter(item => item !== match.params.id))
+                localStorage.setItem("watched", JSON.stringify(watched))
+            }
+        }
+    }
+    const addToWatchlist = () => {
+        if (watchlist.length === 0) {
+            setWatchlist(old => [...old, match.params.id]);
+            // console.log(watched)
+        } else {
+            const found = watchlist.filter(item => item === match.params.id)
+            // console.log(found)
+            if (found.length === 0) {
+                setWatchlist([...watchlist, match.params.id])
+                localStorage.setItem("watchlist", JSON.stringify(watchlist))
+            } else {
+                setWatchlist(old => old.filter(item => item !== match.params.id))
+                localStorage.setItem("watchlist", JSON.stringify(watchlist))
+            }
+        }
+    }
+
+    let watchlisted = false;
+    watchlist.map(item => {
+        if (item === match.params.id) {
+            watchlisted = true;
+        }
+    })
+
+    let watchedlisted = false;
+    watched.map(item => {
+        if (item === match.params.id) {
+            watchedlisted = true;
+        }
+    })
 
     const fetchData = () => {
         fetch(`https://api.themoviedb.org/3/movie/${match.params.id}?api_key=${api_key}`)
@@ -39,11 +89,29 @@ const MovieDetails = ({ match }) => {
     }
 
     useEffect(() => {
+        if (localStorage.getItem("watched") === null) {
+            setWatched([]);
+        } else {
+            setWatched(JSON.parse(localStorage.getItem("watched")))
+        }
+
+        if (localStorage.getItem("watchlist") === null) {
+            setWatchlist([]);
+        } else {
+            setWatchlist(JSON.parse(localStorage.getItem("watchlist")))
+        }
+
         fetchData();
         getCredits();
         getSimilar();
         getRecommends();
-    }, [])
+    }, []);
+    useEffect(() => {
+        localStorage.setItem("watched", JSON.stringify(watched))
+    }, [watched])
+    useEffect(() => {
+        localStorage.setItem("watchlist", JSON.stringify(watchlist))
+    }, [watchlist])
 
     if (movie.genres) {
         return (
@@ -57,8 +125,8 @@ const MovieDetails = ({ match }) => {
                             <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="" />
                         </div>
                         <div className="btns">
-                            <button className="watch-list">Add To Watchlist</button>
-                            <button className="watched-list">Add To Watchedlist</button>
+                            <button className={watchlisted ? "watch-list done" : "watch-list"} onClick={addToWatchlist}>{watchlisted ? "In Your Watchlist" : "Add To Watchlist"}</button>
+                            <button className={watchedlisted ? "watched-list done" : "watched-list"} onClick={addToWatched}>{watchedlisted ? "Watched" : "Add To Watchedlist"}</button>
                         </div>
                     </div>
 

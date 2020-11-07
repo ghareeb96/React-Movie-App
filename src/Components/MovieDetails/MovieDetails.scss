@@ -85,6 +85,10 @@
                     cursor: pointer;
                     transition: all 0.2s ease-out;
 
+                    &.done {
+                        background: $secondary_color;
+                    }
+
                     &:hover {
                         background: $secondary_color;
                     }

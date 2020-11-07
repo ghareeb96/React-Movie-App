@@ -36,7 +36,6 @@ const TVDetails = ({ match }) => {
             .then(res => res.json())
             .then(data => setRecommends(data.results))
     }
-    console.log(tvShow);
 
     useEffect(() => {
         fetchData();

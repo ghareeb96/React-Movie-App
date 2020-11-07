@@ -53,6 +53,8 @@
             border-right: 3px solid $secondary_color;
             z-index: 2;
 
+
+
             .poster {
                 width: 90%;
                 height: 70%;
@@ -85,11 +87,17 @@
                     cursor: pointer;
                     transition: all 0.2s ease-out;
 
+                    &.done {
+                        background: $secondary_color;
+                    }
+
                     &:hover {
                         background: $secondary_color;
                     }
 
+
                 }
+
             }
         }
 
