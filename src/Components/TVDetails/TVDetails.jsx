@@ -11,6 +11,55 @@ const TVDetails = ({ match }) => {
     const [credits, setCredits] = useState([]);
     const [similar, setSimilar] = useState([]);
     const [recommends, setRecommends] = useState([]);
+    const [watched, setWatched] = useState([]);
+    const [watchlist, setWatchlist] = useState([]);
+
+    const addToWatched = () => {
+        if (watched.length === 0) {
+            setWatched(old => [...old, match.params.id]);
+            // console.log(watched)
+        } else {
+            const found = watched.filter(item => item === match.params.id)
+            // console.log(found)
+            if (found.length === 0) {
+                setWatched([...watched, match.params.id])
+                localStorage.setItem("watchedTV", JSON.stringify(watched))
+            } else {
+                setWatched(old => old.filter(item => item !== match.params.id))
+                localStorage.setItem("watchedTV", JSON.stringify(watched))
+            }
+        }
+    }
+    const addToWatchlist = () => {
+        if (watchlist.length === 0) {
+            setWatchlist(old => [...old, match.params.id]);
+            // console.log(watched)
+        } else {
+            const found = watchlist.filter(item => item === match.params.id)
+            // console.log(found)
+            if (found.length === 0) {
+                setWatchlist([...watchlist, match.params.id])
+                localStorage.setItem("watchlistTV", JSON.stringify(watchlist))
+            } else {
+                setWatchlist(old => old.filter(item => item !== match.params.id))
+                localStorage.setItem("watchlistTV", JSON.stringify(watchlist))
+            }
+        }
+    }
+
+    let watchlisted = false;
+    watchlist.map(item => {
+        if (item === match.params.id) {
+            watchlisted = true;
+        }
+    })
+
+    let watchedlisted = false;
+    watched.map(item => {
+        if (item === match.params.id) {
+            watchedlisted = true;
+        }
+    })
 
 
     const fetchData = () => {
@@ -38,11 +87,29 @@ const TVDetails = ({ match }) => {
     }
 
     useEffect(() => {
+        if (localStorage.getItem("watchedTV") === null) {
+            setWatched([]);
+        } else {
+            setWatched(JSON.parse(localStorage.getItem("watchedTV")))
+        }
+
+        if (localStorage.getItem("watchlistTV") === null) {
+            setWatchlist([]);
+        } else {
+            setWatchlist(JSON.parse(localStorage.getItem("watchlistTV")))
+        }
         fetchData();
         getCredits();
         getSimilar();
         getRecommends();
     }, [])
+    useEffect(() => {
+        localStorage.setItem("watchedTV", JSON.stringify(watched))
+    }, [watched])
+    useEffect(() => {
+        localStorage.setItem("watchlistTV", JSON.stringify(watchlist))
+    }, [watchlist])
+
 
 
     if (tvShow.genres) {
@@ -57,8 +124,8 @@ const TVDetails = ({ match }) => {
                             <img src={`https://image.tmdb.org/t/p/w500${tvShow.poster_path}`} alt="" />
                         </div>
                         <div className="btns">
-                            <button className="watch-list">Add To Watchlist</button>
-                            <button className="watched-list">Add To Watchedlist</button>
+                            <button className={watchlisted ? "watch-list done" : "watch-list"} onClick={addToWatchlist}>{watchlisted ? "In Your Watchlist" : "Add To Watchlist"}</button>
+                            <button className={watchedlisted ? "watched-list done" : "watched-list"} onClick={addToWatched}>{watchedlisted ? "Watched" : "Add To Watchedlist"}</button>
                         </div>
                     </div>
 

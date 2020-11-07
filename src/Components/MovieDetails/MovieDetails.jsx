@@ -26,10 +26,10 @@ const MovieDetails = ({ match }) => {
             // console.log(found)
             if (found.length === 0) {
                 setWatched([...watched, match.params.id])
-                localStorage.setItem("watched", JSON.stringify(watched))
+                localStorage.setItem("watchedMovies", JSON.stringify(watched))
             } else {
                 setWatched(old => old.filter(item => item !== match.params.id))
-                localStorage.setItem("watched", JSON.stringify(watched))
+                localStorage.setItem("watchedMovies", JSON.stringify(watched))
             }
         }
     }
@@ -42,10 +42,10 @@ const MovieDetails = ({ match }) => {
             // console.log(found)
             if (found.length === 0) {
                 setWatchlist([...watchlist, match.params.id])
-                localStorage.setItem("watchlist", JSON.stringify(watchlist))
+                localStorage.setItem("watchlistMovies", JSON.stringify(watchlist))
             } else {
                 setWatchlist(old => old.filter(item => item !== match.params.id))
-                localStorage.setItem("watchlist", JSON.stringify(watchlist))
+                localStorage.setItem("watchlistMovies", JSON.stringify(watchlist))
             }
         }
     }
@@ -89,16 +89,16 @@ const MovieDetails = ({ match }) => {
     }
 
     useEffect(() => {
-        if (localStorage.getItem("watched") === null) {
+        if (localStorage.getItem("watchedMovies") === null) {
             setWatched([]);
         } else {
-            setWatched(JSON.parse(localStorage.getItem("watched")))
+            setWatched(JSON.parse(localStorage.getItem("watchedMovies")))
         }
 
-        if (localStorage.getItem("watchlist") === null) {
+        if (localStorage.getItem("watchlistMovies") === null) {
             setWatchlist([]);
         } else {
-            setWatchlist(JSON.parse(localStorage.getItem("watchlist")))
+            setWatchlist(JSON.parse(localStorage.getItem("watchlistMovies")))
         }
 
         fetchData();
@@ -107,10 +107,10 @@ const MovieDetails = ({ match }) => {
         getRecommends();
     }, []);
     useEffect(() => {
-        localStorage.setItem("watched", JSON.stringify(watched))
+        localStorage.setItem("watchedMovies", JSON.stringify(watched))
     }, [watched])
     useEffect(() => {
-        localStorage.setItem("watchlist", JSON.stringify(watchlist))
+        localStorage.setItem("watchlistMovies", JSON.stringify(watchlist))
     }, [watchlist])
 
     if (movie.genres) {
