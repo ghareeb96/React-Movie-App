@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import "./TVDetails.scss";
+import { Link } from "react-router-dom";
 
 const api_key = "137436a3a883e2b94597a24e32d9d6b8";
 
@@ -13,6 +14,7 @@ const TVDetails = ({ match }) => {
     const [recommends, setRecommends] = useState([]);
     const [watched, setWatched] = useState([]);
     const [watchlist, setWatchlist] = useState([]);
+    const [id, setId] = useState(match.params.id);
 
     const addToWatched = () => {
         if (watched.length === 0) {
@@ -63,25 +65,25 @@ const TVDetails = ({ match }) => {
 
 
     const fetchData = () => {
-        fetch(`https://api.themoviedb.org/3/tv/${match.params.id}?api_key=${api_key}`)
+        fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=${api_key}`)
             .then(res => res.json())
             .then(data => getTvShow(data))
     }
 
     const getCredits = () => {
-        fetch(`https://api.themoviedb.org/3/tv/${match.params.id}/credits?api_key=${api_key}`)
+        fetch(`https://api.themoviedb.org/3/tv/${id}/credits?api_key=${api_key}`)
             .then(res => res.json())
             .then(data => setCredits(data.cast))
     }
 
     const getSimilar = () => {
-        fetch(`https://api.themoviedb.org/3/tv/${match.params.id}/similar?api_key=${api_key}`)
+        fetch(`https://api.themoviedb.org/3/tv/${id}/similar?api_key=${api_key}`)
             .then(res => res.json())
             .then(data => setSimilar(data.results))
     }
 
     const getRecommends = () => {
-        fetch(`https://api.themoviedb.org/3/tv/${match.params.id}/recommendations?api_key=${api_key}`)
+        fetch(`https://api.themoviedb.org/3/tv/${id}/recommendations?api_key=${api_key}`)
             .then(res => res.json())
             .then(data => setRecommends(data.results))
     }
@@ -102,7 +104,7 @@ const TVDetails = ({ match }) => {
         getCredits();
         getSimilar();
         getRecommends();
-    }, [])
+    }, [id])
     useEffect(() => {
         localStorage.setItem("watchedTV", JSON.stringify(watched))
     }, [watched])
@@ -211,15 +213,16 @@ const TVDetails = ({ match }) => {
                                                 .filter((item, index) => item.poster_path !== null && index < 10)
                                                 .map((item) => {
                                                     return (
-                                                        // <Link to={`/${item.first_air_date ? "TVDetails" : "movieDetails"}/${item.id}`} >
-                                                        <div key={item.id} className="container" >
-                                                            <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
-                                                                alt="Poster" />
-                                                            <div className="pop-up">
-                                                                <p>{item.name}</p>
+                                                        <Link to={`/${item.first_air_date ? "TVDetails" : "movieDetails"}/${item.id}`}
+                                                            onClick={() => setId(item.id)}>
+                                                            <div key={item.id} className="container" >
+                                                                <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
+                                                                    alt="Poster" />
+                                                                <div className="pop-up">
+                                                                    <p>{item.name}</p>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        /* </Link> */
+                                                        </Link>
                                                     )
                                                 })}
                                         </div>
@@ -237,13 +240,16 @@ const TVDetails = ({ match }) => {
                                                 .filter((item, index) => item.poster_path !== null && index < 10)
                                                 .map((item) => {
                                                     return (
-                                                        <div key={item.id} className="container">
-                                                            <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
-                                                                alt="Poster" />
-                                                            <div className="pop-up">
-                                                                <p>{item.name}</p>
+                                                        <Link to={`/${item.first_air_date ? "TVDetails" : "movieDetails"}/${item.id}`}
+                                                            onClick={() => setId(item.id)}>
+                                                            <div key={item.id} className="container">
+                                                                <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
+                                                                    alt="Poster" />
+                                                                <div className="pop-up">
+                                                                    <p>{item.name}</p>
+                                                                </div>
                                                             </div>
-                                                        </div>
+                                                        </Link>
                                                     )
                                                 })}
                                         </div>

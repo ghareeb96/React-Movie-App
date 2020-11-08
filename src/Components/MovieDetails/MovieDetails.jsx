@@ -14,6 +14,8 @@ const MovieDetails = ({ match }) => {
     const [recommends, setRecommends] = useState([]);
     const [watched, setWatched] = useState([]);
     const [watchlist, setWatchlist] = useState([]);
+    const [id, setId] = useState(match.params.id);
+
 
 
 
@@ -65,30 +67,31 @@ const MovieDetails = ({ match }) => {
     })
 
     const fetchData = () => {
-        fetch(`https://api.themoviedb.org/3/movie/${match.params.id}?api_key=${api_key}`)
+        fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${api_key}`)
             .then(res => res.json())
             .then(data => getMovie(data))
     }
 
     const getCredits = () => {
-        fetch(`https://api.themoviedb.org/3/movie/${match.params.id}/credits?api_key=${api_key}`)
+        fetch(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=${api_key}`)
             .then(res => res.json())
             .then(data => setCredits(data.cast))
     }
 
     const getSimilar = () => {
-        fetch(`https://api.themoviedb.org/3/movie/${match.params.id}/similar?api_key=${api_key}`)
+        fetch(`https://api.themoviedb.org/3/movie/${id}/similar?api_key=${api_key}`)
             .then(res => res.json())
             .then(data => setSimilar(data.results))
     }
 
     const getRecommends = () => {
-        fetch(`https://api.themoviedb.org/3/movie/${match.params.id}/recommendations?api_key=${api_key}`)
+        fetch(`https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${api_key}`)
             .then(res => res.json())
             .then(data => setRecommends(data.results))
     }
 
     useEffect(() => {
+
         if (localStorage.getItem("watchedMovies") === null) {
             setWatched([]);
         } else {
@@ -105,7 +108,7 @@ const MovieDetails = ({ match }) => {
         getCredits();
         getSimilar();
         getRecommends();
-    }, []);
+    }, [id]);
     useEffect(() => {
         localStorage.setItem("watchedMovies", JSON.stringify(watched))
     }, [watched])
@@ -197,15 +200,16 @@ const MovieDetails = ({ match }) => {
                                                 .filter((item, index) => item.poster_path !== null && index < 10)
                                                 .map((item) => {
                                                     return (
-                                                        // <Link to={`/${item.first_air_date ? "TVDetails" : "movieDetails"}/${item.id}`} >
-                                                        <div key={item.id} className="container" >
-                                                            <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
-                                                                alt="Poster" />
-                                                            <div className="pop-up">
-                                                                <p>{item.title}</p>
+                                                        <Link to={`/${item.first_air_date ? "TVDetails" : "movieDetails"}/${item.id}`}
+                                                            onClick={() => setId(item.id)}>
+                                                            <div key={item.id} className="container" >
+                                                                <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
+                                                                    alt="Poster" />
+                                                                <div className="pop-up">
+                                                                    <p>{item.title}</p>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        /* </Link> */
+                                                        </Link>
                                                     )
                                                 })}
                                         </div>
@@ -223,13 +227,16 @@ const MovieDetails = ({ match }) => {
                                                 .filter((item, index) => item.poster_path !== null && index < 10)
                                                 .map((item) => {
                                                     return (
-                                                        <div key={item.id} className="container">
-                                                            <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
-                                                                alt="Poster" />
-                                                            <div className="pop-up">
-                                                                <p>{item.title}</p>
+                                                        <Link to={`/${item.first_air_date ? "TVDetails" : "movieDetails"}/${item.id}`}
+                                                            onClick={() => setId(item.id)}>
+                                                            <div key={item.id} className="container">
+                                                                <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
+                                                                    alt="Poster" />
+                                                                <div className="pop-up">
+                                                                    <p>{item.title}</p>
+                                                                </div>
                                                             </div>
-                                                        </div>
+                                                        </Link>
                                                     )
                                                 })}
                                         </div>
