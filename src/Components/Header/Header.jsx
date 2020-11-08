@@ -13,7 +13,7 @@ const Nav = () => {
             </div>
             <nav>
                 <div className="logo-container">
-                    <Link className="links" to="/">
+                    <Link className="links" to="/React-Movie-App/">
                         <div className="logo">
                             <h1><span>My</span>Mdb</h1>
                         </div>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import "./MovieDetails.scss";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const api_key = "137436a3a883e2b94597a24e32d9d6b8";
 

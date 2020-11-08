@@ -44,6 +44,7 @@ const Search = () => {
     }
 
     const searchItems = () => {
+
         // fetch(`https://api.themoviedb.org/3/movie/550?api_key=${api_key}`)
         fetch(`https://api.themoviedb.org/3/search/multi?api_key=${api_key}&query=${searchText}`)
             .then(res => res.json())
@@ -79,12 +80,16 @@ const Search = () => {
                         placeholder="Search for Anything ..."
                         value={searchText}
                         onChange={inputHandler}
+                        autoFocus={true}
                     />
                     <IconButton
-                        type="button"
+                        type="submit"
                         className={classes.iconButton}
                         aria-label="search"
-                        onClick={() => searchItems(searchText)}
+                        onClick={(e) => {
+                            e.preventDefault()
+                            searchItems(searchText)
+                        }}
                     >
                         <SearchIcon
                             className={classes.searchIcon}

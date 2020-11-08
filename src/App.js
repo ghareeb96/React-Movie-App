@@ -23,7 +23,7 @@ const App = () => {
         <Nav />
         <Switch>
 
-          <Route path="/" exact>
+          <Route path="/React-Movie-App/" exact>
             <HomePage />
           </Route>
 
