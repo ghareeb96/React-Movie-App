@@ -2,19 +2,29 @@
 
 
 .watched-list {
-    .slogan {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 100%;
-        font-family: 'Teko', sans-serif;
+    .container {
+        width: 80%;
+        margin: 5vh auto;
+        border: 2px $secondary_color solid;
+        border-radius: 10px;
 
-        h1 {
-            color: $primary-color;
-            font-size: 10rem;
-            text-align: center;
-            letter-spacing: 4px;
+        .legend {
+            height: auto;
+            background: $primary-color;
+
+            h3 {
+                color: $fourth_color;
+                text-align: center;
+                font-size: 3rem;
+                padding: 1rem;
+            }
         }
+
+        .items-container {
+            // width: 100%;
+            background: rgba($tirtiary_color, 0.7);
+            padding: 1rem;
+        }
+
     }
 }
