@@ -1,24 +1,24 @@
 {
   "files": {
     "main.css": "/React-Movie-App/static/css/main.881d7c67.chunk.css",
-    "main.js": "/React-Movie-App/static/js/main.d030fdaf.chunk.js",
-    "main.js.map": "/React-Movie-App/static/js/main.d030fdaf.chunk.js.map",
+    "main.js": "/React-Movie-App/static/js/main.e2e286fb.chunk.js",
+    "main.js.map": "/React-Movie-App/static/js/main.e2e286fb.chunk.js.map",
     "runtime-main.js": "/React-Movie-App/static/js/runtime-main.5e18f0ac.js",
     "runtime-main.js.map": "/React-Movie-App/static/js/runtime-main.5e18f0ac.js.map",
-    "static/js/2.d74c3806.chunk.js": "/React-Movie-App/static/js/2.d74c3806.chunk.js",
-    "static/js/2.d74c3806.chunk.js.map": "/React-Movie-App/static/js/2.d74c3806.chunk.js.map",
+    "static/js/2.ee15a746.chunk.js": "/React-Movie-App/static/js/2.ee15a746.chunk.js",
+    "static/js/2.ee15a746.chunk.js.map": "/React-Movie-App/static/js/2.ee15a746.chunk.js.map",
     "index.html": "/React-Movie-App/index.html",
-    "precache-manifest.1d3fe707c6afb6879ca295576735216f.js": "/React-Movie-App/precache-manifest.1d3fe707c6afb6879ca295576735216f.js",
+    "precache-manifest.4c43e4d32cffbe4b1a14021ddcec7a16.js": "/React-Movie-App/precache-manifest.4c43e4d32cffbe4b1a14021ddcec7a16.js",
     "service-worker.js": "/React-Movie-App/service-worker.js",
     "static/css/main.881d7c67.chunk.css.map": "/React-Movie-App/static/css/main.881d7c67.chunk.css.map",
-    "static/js/2.d74c3806.chunk.js.LICENSE": "/React-Movie-App/static/js/2.d74c3806.chunk.js.LICENSE",
+    "static/js/2.ee15a746.chunk.js.LICENSE": "/React-Movie-App/static/js/2.ee15a746.chunk.js.LICENSE",
     "static/media/TVDetails.scss": "/React-Movie-App/static/media/impact.f1290202.ttf",
     "static/media/static-bg.jpg": "/React-Movie-App/static/media/static-bg.253549d8.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.5e18f0ac.js",
-    "static/js/2.d74c3806.chunk.js",
+    "static/js/2.ee15a746.chunk.js",
     "static/css/main.881d7c67.chunk.css",
-    "static/js/main.d030fdaf.chunk.js"
+    "static/js/main.e2e286fb.chunk.js"
   ]
 }
