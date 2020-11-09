@@ -23,29 +23,29 @@ const App = () => {
         <Nav />
         <Switch>
 
-          <Route path="/React-Movie-App/" exact>
+          <Route exact path="/React-Movie-App/" >
             <HomePage />
           </Route>
 
-          <Route path="/watchedList" >
+          <Route exact path="/watchedList" >
             <WatchedList />
           </Route>
 
-          <Route path="/watchList">
+          <Route exact path="/watchList">
             <WatchList />
           </Route>
 
-          <Route path="/search">
+          <Route exact path="/search">
             <Search />
           </Route>
 
-          <Route path="/topRated">
+          <Route exact path="/topRated">
             <TopRated />
           </Route>
 
-          <Route path="/movieDetails/:id" component={MovieDetails} exact />
+          <Route exact path="/movieDetails/:id" component={MovieDetails} />
 
-          <Route path="/TVDetails/:id" component={TVDetails} />
+          <Route exact path="/TVDetails/:id" component={TVDetails} />
 
         </Switch>
 

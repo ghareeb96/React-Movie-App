@@ -1,10 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import "./Header.scss";
 import staticBg from "./static-bg.jpg"
 import { AddToQueue, LibraryAddCheck, Search, Grade } from '@material-ui/icons';
 
 const Nav = () => {
+
+    useEffect(() => {
+        if (localStorage.getItem("watchedMovies") === null) {
+            localStorage.setItem("watchedMovies", JSON.stringify([]));
+        }
+        if (localStorage.getItem("watchlistMovies") === null) {
+            localStorage.setItem("watchlistMovies", JSON.stringify([]));
+        }
+        if (localStorage.getItem("watchedTV") === null) {
+            localStorage.setItem("watchedTV", JSON.stringify([]));
+        }
+        if (localStorage.getItem("watchlistTV") === null) {
+            localStorage.setItem("watchlistTV", JSON.stringify([]));
+        }
+    })
     return (
 
         <header>

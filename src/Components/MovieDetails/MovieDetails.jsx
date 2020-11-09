@@ -17,7 +17,9 @@ const MovieDetails = ({ match }) => {
     const [id, setId] = useState(match.params.id);
 
 
-
+    useEffect(() => {
+        setId(match.params.id);
+    })
 
     const addToWatched = () => {
         if (watched.length === 0) {
@@ -200,9 +202,10 @@ const MovieDetails = ({ match }) => {
                                                 .filter((item, index) => item.poster_path !== null && index < 10)
                                                 .map((item) => {
                                                     return (
-                                                        <Link to={`/${item.first_air_date ? "TVDetails" : "movieDetails"}/${item.id}`}
+                                                        <Link key={item.id}
+                                                            to={`/${item.first_air_date ? "TVDetails" : "movieDetails"}/${item.id}`}
                                                             onClick={() => setId(item.id)}>
-                                                            <div key={item.id} className="container" >
+                                                            <div className="container" >
                                                                 <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
                                                                     alt="Poster" />
                                                                 <div className="pop-up">
@@ -227,9 +230,9 @@ const MovieDetails = ({ match }) => {
                                                 .filter((item, index) => item.poster_path !== null && index < 10)
                                                 .map((item) => {
                                                     return (
-                                                        <Link to={`/${item.first_air_date ? "TVDetails" : "movieDetails"}/${item.id}`}
+                                                        <Link key={item.id} to={`/${item.first_air_date ? "TVDetails" : "movieDetails"}/${item.id}`}
                                                             onClick={() => setId(item.id)}>
-                                                            <div key={item.id} className="container">
+                                                            <div className="container">
                                                                 <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
                                                                     alt="Poster" />
                                                                 <div className="pop-up">

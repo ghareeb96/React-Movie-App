@@ -5,8 +5,7 @@ import { Link } from "react-router-dom";
 const api_key = "137436a3a883e2b94597a24e32d9d6b8";
 
 
-const TVDetails = ({ match }) => {
-
+const TVDetails = ({ match, location }) => {
 
     const [tvShow, getTvShow] = useState({});
     const [credits, setCredits] = useState([]);
@@ -15,6 +14,10 @@ const TVDetails = ({ match }) => {
     const [watched, setWatched] = useState([]);
     const [watchlist, setWatchlist] = useState([]);
     const [id, setId] = useState(match.params.id);
+
+    useEffect(() => {
+        setId(match.params.id);
+    })
 
     const addToWatched = () => {
         if (watched.length === 0) {
@@ -104,7 +107,7 @@ const TVDetails = ({ match }) => {
         getCredits();
         getSimilar();
         getRecommends();
-    }, [id])
+    }, [id, location.key])
     useEffect(() => {
         localStorage.setItem("watchedTV", JSON.stringify(watched))
     }, [watched])
@@ -213,9 +216,9 @@ const TVDetails = ({ match }) => {
                                                 .filter((item, index) => item.poster_path !== null && index < 10)
                                                 .map((item) => {
                                                     return (
-                                                        <Link to={`/${item.first_air_date ? "TVDetails" : "movieDetails"}/${item.id}`}
+                                                        <Link key={item.id} to={`/${item.first_air_date ? "TVDetails" : "movieDetails"}/${item.id}`}
                                                             onClick={() => setId(item.id)}>
-                                                            <div key={item.id} className="container" >
+                                                            <div className="container" >
                                                                 <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
                                                                     alt="Poster" />
                                                                 <div className="pop-up">
@@ -240,9 +243,9 @@ const TVDetails = ({ match }) => {
                                                 .filter((item, index) => item.poster_path !== null && index < 10)
                                                 .map((item) => {
                                                     return (
-                                                        <Link to={`/${item.first_air_date ? "TVDetails" : "movieDetails"}/${item.id}`}
+                                                        <Link key={item.id} to={`/${item.first_air_date ? "TVDetails" : "movieDetails"}/${item.id}`}
                                                             onClick={() => setId(item.id)}>
-                                                            <div key={item.id} className="container">
+                                                            <div className="container">
                                                                 <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
                                                                     alt="Poster" />
                                                                 <div className="pop-up">
