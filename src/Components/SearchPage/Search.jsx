@@ -45,7 +45,6 @@ const Search = () => {
 
     const searchItems = () => {
 
-        // fetch(`https://api.themoviedb.org/3/movie/550?api_key=${api_key}`)
         fetch(`https://api.themoviedb.org/3/search/multi?api_key=${api_key}&query=${searchText}`)
             .then(res => res.json())
             .then(data => {
@@ -56,14 +55,12 @@ const Search = () => {
 
     useEffect(() => {
         const search = () => {
-            // fetch(`https://api.themoviedb.org/3/movie/550?api_key=${api_key}`)
             fetch(`https://api.themoviedb.org/3/search/multi?api_key=${api_key}&query=${searchText}&page=${page}`)
                 .then(res => res.json())
                 .then(data => {
                     setSearchedItems(oldArray => oldArray.concat(data.results));
                 })
-            window.initialScrollTop = 0;
-            console.log(window)
+
         }
         if (page !== 1) {
             search();

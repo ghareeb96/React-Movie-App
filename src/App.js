@@ -14,12 +14,13 @@ import TopRated from './Components/TopRatedPage/TopRated';
 import MovieDetails from './Components/MovieDetails/MovieDetails';
 import TVDetails from './Components/TVDetails/TVDetails';
 
+
 const App = () => {
 
 
   return (
-    <Router>
-      <div >
+    <div >
+      <Router>
         <Nav />
         <Switch>
 
@@ -49,8 +50,9 @@ const App = () => {
 
         </Switch>
 
-      </div>
-    </Router>
+      </Router>
+
+    </div>
   )
 }
 
