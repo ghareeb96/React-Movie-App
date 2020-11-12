@@ -13,6 +13,7 @@ import Search from './Components/SearchPage/Search';
 import TopRated from './Components/TopRatedPage/TopRated';
 import MovieDetails from './Components/MovieDetails/MovieDetails';
 import TVDetails from './Components/TVDetails/TVDetails';
+import Person from './Components/Person/Person';
 
 
 const App = () => {
@@ -47,6 +48,8 @@ const App = () => {
           <Route exact path="/movieDetails/:id" component={MovieDetails} />
 
           <Route exact path="/TVDetails/:id" component={TVDetails} />
+
+          <Route exact path="/Person/:id" component={Person} />
 
         </Switch>
 

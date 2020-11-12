@@ -1,22 +1,21 @@
 import React, { useEffect, useState } from 'react'
-import "./TVDetails.scss";
+import "./Person.scss";
 import { Link } from "react-router-dom";
 import { Planets } from 'react-preloaders';
 
 const api_key = "137436a3a883e2b94597a24e32d9d6b8";
 
 
-const TVDetails = ({ match }) => {
+const Person = ({ match }) => {
 
 
-    const [tvShow, getTvShow] = useState({});
-    const [credits, setCredits] = useState([]);
-    const [similar, setSimilar] = useState([]);
-    const [recommends, setRecommends] = useState([]);
+    const [person, getPerson] = useState({});
+    const [movies, setMovies] = useState([]);
+    const [tvShows, setTvShows] = useState([]);
     const [favourites, setFavourites] = useState([]);
-    const [watchlist, setWatchlist] = useState([]);
     const [id, setId] = useState(match.params.id);
     const [loading, setLoading] = useState(true)
+
 
     useEffect(() => {
         setId(match.params.id);
@@ -24,13 +23,13 @@ const TVDetails = ({ match }) => {
 
     const addToFav = () => {
         if (favourites.length === 0) {
-            setFavourites(old => [...old, { id: match.params.id, type: "tv" }]);
+            setFavourites(old => [...old, { id: match.params.id, type: "person" }]);
             // console.log(watched)
         } else {
             const found = favourites.filter(item => item.id === match.params.id)
             // console.log(found)
             if (found.length === 0) {
-                setFavourites([...favourites, { id: match.params.id, type: "tv" }])
+                setFavourites([...favourites, { id: match.params.id, type: "person" }])
                 localStorage.setItem("favourites", JSON.stringify(favourites))
             } else {
                 setFavourites(old => old.filter(item => item.id !== match.params.id))
@@ -38,29 +37,8 @@ const TVDetails = ({ match }) => {
             }
         }
     }
-    const addToWatchlist = () => {
-        if (watchlist.length === 0) {
-            setWatchlist(old => [...old, { id: match.params.id, type: "tv" }]);
-            // console.log(watched)
-        } else {
-            const found = watchlist.filter(item => item.id === match.params.id)
-            // console.log(found)
-            if (found.length === 0) {
-                setWatchlist([...watchlist, { id: match.params.id, type: "tv" }])
-                localStorage.setItem("watchlist", JSON.stringify(watchlist))
-            } else {
-                setWatchlist(old => old.filter(item => item.id !== match.params.id))
-                localStorage.setItem("watchlist", JSON.stringify(watchlist))
-            }
-        }
-    }
 
-    let watchlisted = false;
-    watchlist.map(item => {
-        if (item.id === match.params.id) {
-            watchlisted = true;
-        }
-    })
+
 
     let favourited = false;
     favourites.map(item => {
@@ -69,103 +47,94 @@ const TVDetails = ({ match }) => {
         }
     })
 
-
     const fetchData = () => {
-        fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=${api_key}`)
+        fetch(`https://api.themoviedb.org/3/person/${id}?api_key=${api_key}`)
             .then(res => res.json())
-            .then(data => getTvShow(data))
+            .then(data => getPerson(data))
     }
 
-    const getCredits = () => {
-        fetch(`https://api.themoviedb.org/3/tv/${id}/credits?api_key=${api_key}`)
+    const getMovies = () => {
+        fetch(`https://api.themoviedb.org/3/person/${id}/movie_credits?api_key=${api_key}`)
             .then(res => res.json())
-            .then(data => setCredits(data.cast))
+            .then(data => setMovies(data.crew))
     }
 
-    const getSimilar = () => {
-        fetch(`https://api.themoviedb.org/3/tv/${id}/similar?api_key=${api_key}`)
+    const getTvShows = () => {
+        fetch(`https://api.themoviedb.org/3/person/${id}/tv_credits?api_key=${api_key}`)
             .then(res => res.json())
-            .then(data => setSimilar(data.results))
-    }
-
-    const getRecommends = () => {
-        fetch(`https://api.themoviedb.org/3/tv/${id}/recommendations?api_key=${api_key}`)
-            .then(res => res.json())
-            .then(data => setRecommends(data.results))
-            .then(setLoading(false))
+            .then(data => setTvShows(data.crew))
     }
 
     useEffect(() => {
+
         if (localStorage.getItem("favourites") === null) {
             setFavourites([]);
         } else {
             setFavourites(JSON.parse(localStorage.getItem("favourites")))
         }
 
-        if (localStorage.getItem("watchlist") === null) {
-            setWatchlist([]);
-        } else {
-            setWatchlist(JSON.parse(localStorage.getItem("watchlist")))
-        }
         fetchData();
-        getCredits();
-        getSimilar();
-        getRecommends();
-    }, [id])
+        getMovies();
+        getTvShows();
+    }, [id]);
     useEffect(() => {
         localStorage.setItem("favourites", JSON.stringify(favourites))
     }, [favourites])
-    useEffect(() => {
-        localStorage.setItem("watchlist", JSON.stringify(watchlist))
-    }, [watchlist])
 
-
-
-    if (tvShow.genres) {
+    if (person.id) {
         return (
             <>
-                <div className="tv-details">
+                <div className="person-details">
                     <div className="details">
                         <div className="bg-img">
-                            <img src={`https://image.tmdb.org/t/p/w500${tvShow.backdrop_path}`} />
                         </div>
                         <div className="left-section">
                             <div className="poster">
-                                <img src={`https://image.tmdb.org/t/p/w500${tvShow.poster_path}`} alt="" />
+                                <img src={`https://image.tmdb.org/t/p/w500${person.profile_path}`} alt="" />
                             </div>
                             <div className="btns">
-                                <button className={watchlisted ? "watch-list done" : "watch-list"} onClick={addToWatchlist}>{watchlisted ? "In Your Watchlist" : "Add To Watchlist"}</button>
                                 <button className={favourited ? "favourite done" : "favourite"} onClick={addToFav}>{favourited ? "Favourite" : "Add To Favourite"}</button>
                             </div>
                         </div>
 
                         <div className="right-section">
 
-                            <div className="right-details">
+                            {/* <div className="right-details">
                                 <div className="title">
                                     <h1>
-                                        {`${tvShow.name}  (${tvShow.first_air_date.slice(0, 4)} - ${tvShow.last_air_date.slice(0, 4)})`}
+                                        {`${movie.title}  (${movie.release_date.slice(0, 4)})`}
                                     </h1>
                                 </div>
+
+                                {movie.tagline !== "" ?
+
+                                    <div className="tagline">
+                                        <h2>"{movie.tagline}"</h2>"
+                                    </div>
+
+                                    :
+                                    ""
+                                }
 
 
                                 <div className="genres">
                                     <ul>
-                                        {tvShow.genres.map(item => {
+                                        {movie.genres.map(item => {
                                             return (<li key={item.id} >{item.name}</li>)
                                         })}
                                     </ul>
                                 </div>
-                                {tvShow.overview ?
+                                {movie.overview ?
                                     <div className="overview">
                                         <div className="left">
                                             <h2>Overview</h2>
                                         </div>
                                         <div className="right">
-                                            <p>{tvShow.overview}</p>
+                                            <p>{movie.overview}</p>
                                         </div>
                                     </div>
                                     : ""}
+
                                 {credits.length === 0 ? "" :
                                     <div className="cast">
                                         <div className="top">
@@ -173,7 +142,7 @@ const TVDetails = ({ match }) => {
                                         </div>
                                         <div className="body">
                                             {credits
-                                                .filter((item, index) => item.profile_path !== null && index < 14)
+                                                .filter((item, index) => item.profile_path !== null && index < 12)
                                                 .map((character) => {
                                                     return (
                                                         <div key={character.id} className="profile-container">
@@ -189,31 +158,6 @@ const TVDetails = ({ match }) => {
                                     </div>
                                 }
                                 {
-                                    tvShow.seasons.length === 0 ? "" :
-                                        <div className="seasons">
-                                            <div className="top">
-                                                <h2>Seasons</h2>
-                                            </div>
-                                            <div className="body">
-                                                {tvShow.seasons
-                                                    .filter((item) => item.poster_path !== null)
-                                                    .map((item) => {
-                                                        return (
-                                                            // <Link to={`/${item.first_air_date ? "TVDetails" : "movieDetails"}/${item.id}`} >
-                                                            <div key={item.id} className="container" >
-                                                                <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
-                                                                    alt="Poster" />
-                                                                <div className="pop-up">
-                                                                    <p>{item.name}</p>
-                                                                </div>
-                                                            </div>
-                                                            /* </Link> */
-                                                        )
-                                                    })}
-                                            </div>
-                                        </div>
-                                }
-                                {
                                     similar.length === 0 ? "" :
                                         <div className="similar">
                                             <div className="top">
@@ -224,13 +168,14 @@ const TVDetails = ({ match }) => {
                                                     .filter((item, index) => item.poster_path !== null && index < 10)
                                                     .map((item) => {
                                                         return (
-                                                            <Link key={item.id} to={`/${item.first_air_date ? "TVDetails" : "movieDetails"}/${item.id}`}
+                                                            <Link key={item.id}
+                                                                to={`/${item.first_air_date ? "TVDetails" : "movieDetails"}/${item.id}`}
                                                                 onClick={() => setId(item.id)}>
                                                                 <div className="container" >
                                                                     <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
                                                                         alt="Poster" />
                                                                     <div className="pop-up">
-                                                                        <p>{item.name}</p>
+                                                                        <p>{item.title}</p>
                                                                     </div>
                                                                 </div>
                                                             </Link>
@@ -257,7 +202,7 @@ const TVDetails = ({ match }) => {
                                                                     <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
                                                                         alt="Poster" />
                                                                     <div className="pop-up">
-                                                                        <p>{item.name}</p>
+                                                                        <p>{item.title}</p>
                                                                     </div>
                                                                 </div>
                                                             </Link>
@@ -266,7 +211,7 @@ const TVDetails = ({ match }) => {
                                             </div>
                                         </div>
                                 }
-                            </div>
+                            </div> */}
                         </div>
 
 
@@ -275,16 +220,16 @@ const TVDetails = ({ match }) => {
                 <Planets
                     color="#fdc325"
                     background="#011A27"
-                    customLoading={loading}
+                    // customLoading={loading}
                     time={2000} />
             </>
+
         )
     } else {
         return (
-            <div className="movie-details"></div>
+            <div className="person-details"></div>
         )
     }
 }
 
-
-export default TVDetails;
+export default Person;

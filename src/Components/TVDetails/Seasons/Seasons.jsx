@@ -13,59 +13,59 @@ const TVDetails = ({ match }) => {
     const [credits, setCredits] = useState([]);
     const [similar, setSimilar] = useState([]);
     const [recommends, setRecommends] = useState([]);
-    const [favourites, setFavourites] = useState([]);
+    const [watched, setWatched] = useState([]);
     const [watchlist, setWatchlist] = useState([]);
     const [id, setId] = useState(match.params.id);
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         setId(match.params.id);
-    }, [match.params.id])
+    })
 
-    const addToFav = () => {
-        if (favourites.length === 0) {
-            setFavourites(old => [...old, { id: match.params.id, type: "tv" }]);
+    const addToWatched = () => {
+        if (watched.length === 0) {
+            setWatched(old => [...old, match.params.id]);
             // console.log(watched)
         } else {
-            const found = favourites.filter(item => item.id === match.params.id)
+            const found = watched.filter(item => item === match.params.id)
             // console.log(found)
             if (found.length === 0) {
-                setFavourites([...favourites, { id: match.params.id, type: "tv" }])
-                localStorage.setItem("favourites", JSON.stringify(favourites))
+                setWatched([...watched, match.params.id])
+                localStorage.setItem("watchedTV", JSON.stringify(watched))
             } else {
-                setFavourites(old => old.filter(item => item.id !== match.params.id))
-                localStorage.setItem("favourites", JSON.stringify(favourites))
+                setWatched(old => old.filter(item => item !== match.params.id))
+                localStorage.setItem("watchedTV", JSON.stringify(watched))
             }
         }
     }
     const addToWatchlist = () => {
         if (watchlist.length === 0) {
-            setWatchlist(old => [...old, { id: match.params.id, type: "tv" }]);
+            setWatchlist(old => [...old, match.params.id]);
             // console.log(watched)
         } else {
-            const found = watchlist.filter(item => item.id === match.params.id)
+            const found = watchlist.filter(item => item === match.params.id)
             // console.log(found)
             if (found.length === 0) {
-                setWatchlist([...watchlist, { id: match.params.id, type: "tv" }])
-                localStorage.setItem("watchlist", JSON.stringify(watchlist))
+                setWatchlist([...watchlist, match.params.id])
+                localStorage.setItem("watchlistTV", JSON.stringify(watchlist))
             } else {
-                setWatchlist(old => old.filter(item => item.id !== match.params.id))
-                localStorage.setItem("watchlist", JSON.stringify(watchlist))
+                setWatchlist(old => old.filter(item => item !== match.params.id))
+                localStorage.setItem("watchlistTV", JSON.stringify(watchlist))
             }
         }
     }
 
     let watchlisted = false;
     watchlist.map(item => {
-        if (item.id === match.params.id) {
+        if (item === match.params.id) {
             watchlisted = true;
         }
     })
 
-    let favourited = false;
-    favourites.map(item => {
-        if (item.id === match.params.id) {
-            favourited = true;
+    let watchedlisted = false;
+    watched.map(item => {
+        if (item === match.params.id) {
+            watchedlisted = true;
         }
     })
 
@@ -96,16 +96,16 @@ const TVDetails = ({ match }) => {
     }
 
     useEffect(() => {
-        if (localStorage.getItem("favourites") === null) {
-            setFavourites([]);
+        if (localStorage.getItem("watchedTV") === null) {
+            setWatched([]);
         } else {
-            setFavourites(JSON.parse(localStorage.getItem("favourites")))
+            setWatched(JSON.parse(localStorage.getItem("watchedTV")))
         }
 
-        if (localStorage.getItem("watchlist") === null) {
+        if (localStorage.getItem("watchlistTV") === null) {
             setWatchlist([]);
         } else {
-            setWatchlist(JSON.parse(localStorage.getItem("watchlist")))
+            setWatchlist(JSON.parse(localStorage.getItem("watchlistTV")))
         }
         fetchData();
         getCredits();
@@ -113,10 +113,10 @@ const TVDetails = ({ match }) => {
         getRecommends();
     }, [id])
     useEffect(() => {
-        localStorage.setItem("favourites", JSON.stringify(favourites))
-    }, [favourites])
+        localStorage.setItem("watchedTV", JSON.stringify(watched))
+    }, [watched])
     useEffect(() => {
-        localStorage.setItem("watchlist", JSON.stringify(watchlist))
+        localStorage.setItem("watchlistTV", JSON.stringify(watchlist))
     }, [watchlist])
 
 
@@ -135,7 +135,7 @@ const TVDetails = ({ match }) => {
                             </div>
                             <div className="btns">
                                 <button className={watchlisted ? "watch-list done" : "watch-list"} onClick={addToWatchlist}>{watchlisted ? "In Your Watchlist" : "Add To Watchlist"}</button>
-                                <button className={favourited ? "favourite done" : "favourite"} onClick={addToFav}>{favourited ? "Favourite" : "Add To Favourite"}</button>
+                                <button className={watchedlisted ? "watched-list done" : "watched-list"} onClick={addToWatched}>{watchedlisted ? "Watched" : "Add To Watchedlist"}</button>
                             </div>
                         </div>
 

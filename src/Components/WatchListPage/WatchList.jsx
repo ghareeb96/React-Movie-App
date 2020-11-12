@@ -31,26 +31,30 @@ const WatchList = () => {
 
     return (
         <div className="watch-list" >
-            <div className="container" >
-                <div className="legend">
-                    <h3>Movies Watchlist</h3>
+            {movies.length === 0 ? "" :
+                <div className="container" >
+                    <div className="legend">
+                        <h3>Movies Watchlist</h3>
+                    </div>
+                    <div className="items-container">
+                        <MoviesContainer
+                            movies={movies}
+                            type="movie" />
+                    </div>
                 </div>
-                <div className="items-container">
-                    <MoviesContainer
-                        movies={movies}
-                        type="movie" />
+            }
+            {tvShows.length === 0 ? "" :
+                <div className="container" >
+                    <div className="legend">
+                        <h3>TV Shows Watchlist</h3>
+                    </div>
+                    <div className="items-container">
+                        <MoviesContainer
+                            movies={tvShows}
+                            type="tv" />
+                    </div>
                 </div>
-            </div>
-            <div className="container" >
-                <div className="legend">
-                    <h3>TV Shows Watchlist</h3>
-                </div>
-                <div className="items-container">
-                    <MoviesContainer
-                        movies={tvShows}
-                        type="tv" />
-                </div>
-            </div>
+            }
         </div>
     )
 }

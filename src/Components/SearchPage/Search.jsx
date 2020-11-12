@@ -50,6 +50,7 @@ const Search = () => {
             .then(data => {
                 setSearchedItems(data.results);
                 setPage(1);
+                console.log(data.results)
             })
     }
 
