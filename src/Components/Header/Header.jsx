@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import "./Header.scss";
 import staticBg from "./static-bg.jpg"
-import { AddToQueue, LibraryAddCheck, Search, Grade } from '@material-ui/icons';
+import { AddToQueue, Star, Search, Grade } from '@material-ui/icons';
 
 const Nav = () => {
 
@@ -57,8 +57,8 @@ const Nav = () => {
                     </li>
 
                     <li>
-                        <Link className="links" to="/watchedList">
-                            <i><LibraryAddCheck className="icon" /></i>&nbsp; Watched
+                        <Link className="links" to="/favourites">
+                            <i><Star className="icon" /></i>&nbsp; Favourites
                         </Link>
                     </li>
                 </ul>

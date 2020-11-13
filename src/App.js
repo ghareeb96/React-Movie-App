@@ -8,7 +8,7 @@ import {
 import Nav from './Components/Header/Header';
 import HomePage from './Components/HomePage/HomePage';
 import WatchList from './Components/WatchListPage/WatchList';
-import WatchedList from './Components/WatchedListPage/WatchedList';
+import Favourites from './Components/FavouritesPage/Favourites';
 import Search from './Components/SearchPage/Search';
 import TopRated from './Components/TopRatedPage/TopRated';
 import MovieDetails from './Components/MovieDetails/MovieDetails';
@@ -29,8 +29,8 @@ const App = () => {
             <HomePage />
           </Route>
 
-          <Route exact path="/watchedList" >
-            <WatchedList />
+          <Route exact path="/favourites" >
+            <Favourites />
           </Route>
 
           <Route exact path="/watchList">
