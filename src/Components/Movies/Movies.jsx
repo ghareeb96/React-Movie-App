@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import "./MovieDetails.scss";
+import "./Movies.scss";
 import { Link } from "react-router-dom";
 import { Planets } from 'react-preloaders';
+import ItemsContainer from '../ItemsContainer/ItemsContainer';
 
 const api_key = "137436a3a883e2b94597a24e32d9d6b8";
 
 
-const MovieDetails = ({ match }) => {
+const Movies = ({ match }) => {
 
 
     const [movie, getMovie] = useState({});
@@ -26,10 +27,8 @@ const MovieDetails = ({ match }) => {
     const addToFav = () => {
         if (favourites.length === 0) {
             setFavourites(old => [...old, { id: match.params.id, type: "movie" }]);
-            // console.log(watched)
         } else {
             const found = favourites.filter(item => item.id === match.params.id)
-            // console.log(found)
             if (found.length === 0) {
                 setFavourites([...favourites, { id: match.params.id, type: "movie" }])
                 localStorage.setItem("favourites", JSON.stringify(favourites))
@@ -42,10 +41,8 @@ const MovieDetails = ({ match }) => {
     const addToWatchlist = () => {
         if (watchlist.length === 0) {
             setWatchlist(old => [...old, { id: match.params.id, type: "movie" }]);
-            // console.log(watched)
         } else {
             const found = watchlist.filter(item => item.id === match.params.id)
-            // console.log(found)
             if (found.length === 0) {
                 setWatchlist([...watchlist, { id: match.params.id, type: "movie" }])
                 localStorage.setItem("watchlist", JSON.stringify(watchlist))
@@ -114,6 +111,7 @@ const MovieDetails = ({ match }) => {
         getSimilar();
         getRecommends();
     }, [id]);
+
     useEffect(() => {
         localStorage.setItem("favourites", JSON.stringify(favourites))
     }, [favourites])
@@ -206,7 +204,7 @@ const MovieDetails = ({ match }) => {
                                                 <h2>Similar</h2>
                                             </div>
                                             <div className="body">
-                                                {similar
+                                                {/* {similar
                                                     .filter((item, index) => item.poster_path !== null && index < 10)
                                                     .map((item) => {
                                                         return (
@@ -222,7 +220,10 @@ const MovieDetails = ({ match }) => {
                                                                 </div>
                                                             </Link>
                                                         )
-                                                    })}
+                                                    })} */}
+                                                <ItemsContainer
+                                                    item={similar}
+                                                />
                                             </div>
                                         </div>
                                 }
@@ -259,19 +260,19 @@ const MovieDetails = ({ match }) => {
 
                     </div>
                 </div>
-                <Planets
-                    color="#fdc325"
-                    background="#011A27"
-                    customLoading={loading}
-                    time={2000} />
+
             </>
 
         )
     } else {
         return (
-            <div className="movie-details"></div>
+            <Planets
+                color="#fdc325"
+                background="#011A27"
+                time={2000} />
         )
     }
+
 }
 
-export default MovieDetails;
+export default Movies;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import "./Watchlist.scss";
-import MoviesContainer from "../MoviesContainer/MoviesContainer"
+import ItemsContainer from "../ItemsContainer/ItemsContainer"
 
 const api_key = "137436a3a883e2b94597a24e32d9d6b8";
 
@@ -28,8 +28,8 @@ const WatchList = () => {
                         <h3>Watchlist</h3>
                     </div>
                     <div className="items-container">
-                        <MoviesContainer
-                            movies={storedItems}
+                        <ItemsContainer
+                            items={storedItems}
                         />
                     </div>
                 </div>

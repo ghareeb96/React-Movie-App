@@ -1,14 +1,12 @@
 @import "../mainStyles.scss";
 
-.movie-details {
-    // display: none;
+.tv-details {
     height: 90vh;
     width: 100%;
     margin: auto;
     overflow: hidden;
     background: $tirtiary_color;
     position: relative;
-    // border: 3px solid $secondary_color;
 
 
 
@@ -53,6 +51,8 @@
             border-right: 3px solid $secondary_color;
             z-index: 2;
 
+
+
             .poster {
                 width: 90%;
                 height: 70%;
@@ -93,7 +93,9 @@
                         background: $secondary_color;
                     }
 
+
                 }
+
             }
         }
 
@@ -119,20 +121,6 @@
 
                     h1 {
                         font-size: 3.5rem;
-                    }
-                }
-
-                .tagline {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    width: auto;
-                    margin: auto;
-                    height: 6vh;
-
-                    h2 {
-                        font-size: 2.5rem;
-                        color: $fourth_color;
                     }
                 }
 
@@ -181,6 +169,7 @@
                         padding: 2rem;
                         text-align: justify;
                         background: rgba($secondary_color, 0.5);
+                        width: 100%;
 
                         p {
                             font-size: 2rem;
@@ -193,7 +182,6 @@
                     display: flex;
                     flex-direction: column;
                     width: 90%;
-                    // height: 150px;
                     margin: 2rem;
                     border: 3px solid $primary_color;
 
@@ -260,7 +248,8 @@
                 }
 
                 .similar,
-                .recommends {
+                .recommends,
+                .seasons {
                     display: flex;
                     flex-direction: column;
                     width: 90%;

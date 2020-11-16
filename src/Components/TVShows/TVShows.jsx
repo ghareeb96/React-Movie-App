@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import "./TVDetails.scss";
+import "./TVShows.scss";
 import { Link } from "react-router-dom";
 import { Planets } from 'react-preloaders';
 
 const api_key = "137436a3a883e2b94597a24e32d9d6b8";
 
 
-const TVDetails = ({ match }) => {
+const TVShows = ({ match }) => {
 
 
     const [tvShow, getTvShow] = useState({});
@@ -25,10 +25,8 @@ const TVDetails = ({ match }) => {
     const addToFav = () => {
         if (favourites.length === 0) {
             setFavourites(old => [...old, { id: match.params.id, type: "tv" }]);
-            // console.log(watched)
         } else {
             const found = favourites.filter(item => item.id === match.params.id)
-            // console.log(found)
             if (found.length === 0) {
                 setFavourites([...favourites, { id: match.params.id, type: "tv" }])
                 localStorage.setItem("favourites", JSON.stringify(favourites))
@@ -41,10 +39,8 @@ const TVDetails = ({ match }) => {
     const addToWatchlist = () => {
         if (watchlist.length === 0) {
             setWatchlist(old => [...old, { id: match.params.id, type: "tv" }]);
-            // console.log(watched)
         } else {
             const found = watchlist.filter(item => item.id === match.params.id)
-            // console.log(found)
             if (found.length === 0) {
                 setWatchlist([...watchlist, { id: match.params.id, type: "tv" }])
                 localStorage.setItem("watchlist", JSON.stringify(watchlist))
@@ -287,4 +283,4 @@ const TVDetails = ({ match }) => {
 }
 
 
-export default TVDetails;
+export default TVShows;

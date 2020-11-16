@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import "./Favourites.scss";
-import MoviesContainer from "../MoviesContainer/MoviesContainer"
-
-
+import ItemsContainer from "../ItemsContainer/ItemsContainer"
 const api_key = "137436a3a883e2b94597a24e32d9d6b8";
 
 const Favourites = () => {
@@ -16,21 +14,18 @@ const Favourites = () => {
                 .then(res => res.json())
                 .then(data => setItem(old => old.concat(data)))
         })
-
     }, [])
 
-
     return (
-
-        <div className="watched-list"  >
+        <div className="favourites"  >
             {storedItems.length === 0 ? "" :
                 <div className="container" >
                     <div className="legend">
                         <h3>Favourites</h3>
                     </div>
                     <div className="items-container">
-                        <MoviesContainer
-                            movies={storedItems}
+                        <ItemsContainer
+                            items={storedItems}
                         />
                     </div>
                 </div>

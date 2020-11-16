@@ -36,7 +36,7 @@ const Nav = () => {
                 <ul>
 
                     <li>
-                        <Link className="links" to="/search">
+                        <Link className="links" to="/Search">
                             <i><Search className="icon" /></i>&nbsp;
                             Search
                         </Link>
@@ -44,20 +44,20 @@ const Nav = () => {
 
 
                     <li>
-                        <Link className="links" to="/topRated">
+                        <Link className="links" to="/TopRated">
                             <i><Grade className="icon" /></i>&nbsp; Top Rated
                         </Link>
                     </li>
 
 
                     <li>
-                        <Link className="links" to="/watchList">
+                        <Link className="links" to="/WatchList">
                             <i><AddToQueue className="icon" /></i>&nbsp; Watch List
                         </Link>
                     </li>
 
                     <li>
-                        <Link className="links" to="/favourites">
+                        <Link className="links" to="/Favourites">
                             <i><Star className="icon" /></i>&nbsp; Favourites
                         </Link>
                     </li>

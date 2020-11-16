@@ -1,7 +1,7 @@
 @import "../mainStyles.scss";
 
 
-.watched-list {
+.favourites {
     .container {
         width: 80%;
         margin: 5vh auto;
@@ -21,7 +21,6 @@
         }
 
         .items-container {
-            // width: 100%;
             background: rgba($tirtiary_color, 0.7);
             padding: 1rem;
         }

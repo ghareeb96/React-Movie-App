@@ -5,7 +5,7 @@ import Paper from '@material-ui/core/Paper';
 import InputBase from '@material-ui/core/InputBase';
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
-import MoviesContainer from "../MoviesContainer/MoviesContainer"
+import ItemsContainer from "../ItemsContainer/ItemsContainer"
 
 const api_key = "137436a3a883e2b94597a24e32d9d6b8";
 
@@ -98,8 +98,8 @@ const Search = () => {
 
             <div className="container">
                 <div className="items-container">
-                    <MoviesContainer movies={searchedItems}
-                        type="movie" />
+                    <ItemsContainer items={searchedItems}
+                        scroll_type="movie" />
                 </div>
                 <div className="more">
                     <a href="#movie" onClick={() => setPage(page + 1)}>Load More</a>

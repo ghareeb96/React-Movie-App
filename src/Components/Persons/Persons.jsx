@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import "./Person.scss";
+import "./Persons.scss";
 import { Link } from "react-router-dom";
 import { Planets } from 'react-preloaders';
 
 const api_key = "137436a3a883e2b94597a24e32d9d6b8";
 
 
-const Person = ({ match }) => {
+const Persons = ({ match }) => {
 
 
     const [person, getPerson] = useState({});
@@ -185,4 +185,4 @@ const Person = ({ match }) => {
     }
 }
 
-export default Person;
+export default Persons;

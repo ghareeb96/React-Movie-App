@@ -5,15 +5,15 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import Nav from './Components/Header/Header';
+import Header from './Components/Header/Header';
 import HomePage from './Components/HomePage/HomePage';
 import WatchList from './Components/WatchListPage/WatchList';
 import Favourites from './Components/FavouritesPage/Favourites';
 import Search from './Components/SearchPage/Search';
 import TopRated from './Components/TopRatedPage/TopRated';
-import MovieDetails from './Components/MovieDetails/MovieDetails';
-import TVDetails from './Components/TVDetails/TVDetails';
-import Person from './Components/Person/Person';
+import Movies from './Components/Movies/Movies';
+import TVShows from './Components/TVShows/TVShows';
+import Persons from './Components/Persons/Persons';
 
 
 const App = () => {
@@ -22,34 +22,34 @@ const App = () => {
   return (
     <div >
       <Router>
-        <Nav />
+        <Header />
         <Switch>
 
           <Route exact path="/React-Movie-App/" >
             <HomePage />
           </Route>
 
-          <Route exact path="/favourites" >
+          <Route exact path="/Favourites" >
             <Favourites />
           </Route>
 
-          <Route exact path="/watchList">
+          <Route exact path="/WatchList">
             <WatchList />
           </Route>
 
-          <Route exact path="/search">
+          <Route exact path="/Search">
             <Search />
           </Route>
 
-          <Route exact path="/topRated">
+          <Route exact path="/TopRated">
             <TopRated />
           </Route>
 
-          <Route exact path="/movieDetails/:id" component={MovieDetails} />
+          <Route exact path="/Movies/:id" component={Movies} />
 
-          <Route exact path="/TVDetails/:id" component={TVDetails} />
+          <Route exact path="/TVShows/:id" component={TVShows} />
 
-          <Route exact path="/Person/:id" component={Person} />
+          <Route exact path="/Persons/:id" component={Persons} />
 
         </Switch>
 

@@ -1,8 +1,8 @@
 @import "../../mainStyles.scss";
 
-.movie {
+.item {
     position: relative;
-    border: 6px solid $primary_color;
+    border: 3px solid rgb(109, 0, 0);
     display: flex;
     flex-direction: column;
     height: 450px;
@@ -23,11 +23,8 @@
         height: 100%;
 
         button {
-            // position: absolute;
             width: 100%;
             height: 100%;
-            // left: 0;
-            // bottom: 0;
             background: $primary_color;
             color: $fourth_color;
             outline: none;
