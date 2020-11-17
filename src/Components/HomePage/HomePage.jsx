@@ -53,7 +53,7 @@ const HomePage = () => {
                     <div className="legend">
                         <h3>Popular Movies</h3>
                     </div>
-                    <div className="items-container">
+                    <div>
                         <ItemsContainer items={popularMovies} />
                     </div>
                 </div>
@@ -64,7 +64,7 @@ const HomePage = () => {
                     <div className="legend">
                         <h3>Popular TV Shows</h3>
                     </div>
-                    <div className="items-container">
+                    <div>
                         <ItemsContainer items={popularTV} />
                     </div>
                 </div>
@@ -75,7 +75,7 @@ const HomePage = () => {
                     <div className="legend">
                         <h3>Trending This Week</h3>
                     </div>
-                    <div className="items-container">
+                    <div>
                         <ItemsContainer items={trending} />
                     </div>
                 </div>

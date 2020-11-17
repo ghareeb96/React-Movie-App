@@ -95,16 +95,18 @@ const Search = () => {
                     </IconButton>
                 </Paper>
             </div>
+            {
+                searchedItems.length !== 0 ? <div className="container">
+                    <div>
+                        <ItemsContainer items={searchedItems}
+                            scroll_type="movie" />
+                    </div>
+                    <div className="more">
+                        <a href="#movie" onClick={() => setPage(page + 1)}>Load More</a>
+                    </div>
+                </div> : ""
+            }
 
-            <div className="container">
-                <div className="items-container">
-                    <ItemsContainer items={searchedItems}
-                        scroll_type="movie" />
-                </div>
-                <div className="more">
-                    <a href="#movie" onClick={() => setPage(page + 1)}>Load More</a>
-                </div>
-            </div>
         </div>
     )
 }

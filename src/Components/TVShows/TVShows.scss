@@ -195,55 +195,10 @@
                         display: flex;
                         align-items: center;
                         justify-content: center;
-                        // width: 15%;
                     }
 
-                    .body {
-                        display: grid;
-                        background: rgba($secondary_color, 0.5);
-                        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-                        grid-gap: 0.5rem;
-                        width: 100%;
-                        padding: 1rem;
-                        justify-items: center;
-
-
-                        .profile-container {
-                            position: relative;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            height: auto;
-                            width: 100%;
-                            border: 2px solid $fourth_color;
-
-                            img {
-                                // border-radius: 50%;
-                                height: 100%;
-                                width: 100%;
-                                object-fit: cover;
-                                object-position: center;
-                            }
-
-                            .name {
-                                position: absolute;
-                                height: auto;
-                                width: 100%;
-                                background: rgba(black, 0.9);
-                                bottom: 0;
-                                left: 0;
-                                display: flex;
-                                align-items: flex-end;
-                                justify-content: center;
-
-                                p {
-                                    color: white;
-                                    font-size: 2rem;
-                                    text-align: center;
-                                }
-
-                            }
-                        }
+                    .items-container {
+                        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
                     }
                 }
 
@@ -253,7 +208,6 @@
                     display: flex;
                     flex-direction: column;
                     width: 90%;
-                    // height: 150px;
                     margin: 2rem;
                     border: 3px solid $primary_color;
 
@@ -269,58 +223,8 @@
                         justify-content: center;
                     }
 
-                    .body {
-                        display: grid;
-                        background: rgba($secondary_color, 0.5);
+                    .items-container {
                         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-                        grid-gap: 1rem;
-                        width: 100%;
-                        padding: 1rem;
-                        justify-items: center;
-
-
-                        .container {
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            height: auto;
-                            width: 100%;
-                            border: 2px solid $fourth_color;
-                            position: relative;
-
-
-                            img {
-                                // border-radius: 50%;
-                                height: 100%;
-                                width: 100%;
-                                object-fit: cover;
-                                object-position: center;
-                            }
-
-                            .pop-up {
-                                position: absolute;
-                                width: 100%;
-                                height: 100%;
-                                background: rgba($tirtiary_color, 0.9);
-                                display: flex;
-                                justify-content: center;
-                                align-items: center;
-                                opacity: 0;
-                                transition: all 0.3s ease-out;
-
-                                p {
-                                    color: white;
-                                    text-align: center;
-                                    font-size: 3rem;
-                                    pointer-events: none;
-                                    letter-spacing: 1px;
-                                }
-
-                                &:hover {
-                                    opacity: 1;
-                                }
-                            }
-                        }
                     }
 
                 }

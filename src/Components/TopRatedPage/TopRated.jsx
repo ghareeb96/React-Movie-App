@@ -47,7 +47,7 @@ const TopRated = () => {
                     <div className="legend">
                         <h3>Top Rated Movies</h3>
                     </div>
-                    <div className="items-container">
+                    <div>
                         <ItemsContainer
                             items={topRatedMovies}
                             scroll_type="movie" />
@@ -63,7 +63,7 @@ const TopRated = () => {
                     <div className="legend">
                         <h3>Top Rated TV Shows</h3>
                     </div>
-                    <div className="items-container">
+                    <div>
                         <ItemsContainer
                             items={topRatedTV}
                             scroll_type="tv" />

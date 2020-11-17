@@ -23,7 +23,7 @@ const Favourites = () => {
                     <div className="legend">
                         <h3>Favourites</h3>
                     </div>
-                    <div className="items-container">
+                    <div>
                         <ItemsContainer
                             items={storedItems}
                         />

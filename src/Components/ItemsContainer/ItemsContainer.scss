@@ -3,9 +3,11 @@
 .items-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    grid-gap: 5rem 2rem;
+    grid-gap: 2rem;
     justify-items: center;
     position: relative;
+    padding: 2rem;
+    background: rgba($tirtiary_color, 0.7);
 
     .scroll-handler {
         position: absolute;

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import "./Persons.scss";
 import { Link } from "react-router-dom";
 import { Planets } from 'react-preloaders';
+import ItemsContainer from '../ItemsContainer/ItemsContainer';
 
 const api_key = "137436a3a883e2b94597a24e32d9d6b8";
 
@@ -103,34 +104,14 @@ const Persons = ({ match }) => {
                                         {person.name}
                                     </h1>
                                 </div>
-
-
-
-
-
                                 {
-                                    <div className="similar">
+                                    <div className="credits">
                                         <div className="top">
                                             <h2>Credits</h2>
                                         </div>
                                         <div className="body">
-                                            {credits
-                                                .filter(item => item.poster_path !== null)
-                                                .map((item) => {
-                                                    return (
-                                                        <Link key={item.id}
-                                                            to={`/${item.first_air_date ? "TVDetails" : "movieDetails"}/${item.id}`}
-                                                            onClick={() => setId(item.id)}>
-                                                            <div className="container" >
-                                                                <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
-                                                                    alt="Poster" />
-                                                                <div className="pop-up">
-                                                                    <p>{item.first_air_date ? item.name : item.title}</p>
-                                                                </div>
-                                                            </div>
-                                                        </Link>
-                                                    )
-                                                })}
+                                            <ItemsContainer
+                                                items={credits} />
                                         </div>
                                     </div>
                                 }
@@ -142,23 +123,8 @@ const Persons = ({ match }) => {
                                             <h2>Popular Persons</h2>
                                         </div>
                                         <div className="body">
-                                            {popular
-                                                .filter(item => item.poster_path !== null)
-                                                .map((item) => {
-                                                    return (
-                                                        <Link key={item.id}
-                                                            to={`/Person/${item.id}`}
-                                                            onClick={() => setId(item.id)}>
-                                                            <div className="container" >
-                                                                <img src={`https://image.tmdb.org/t/p/w500${item.profile_path}`}
-                                                                    alt="Poster" />
-                                                                <div className="pop-up">
-                                                                    <p>{item.name}</p>
-                                                                </div>
-                                                            </div>
-                                                        </Link>
-                                                    )
-                                                })}
+                                            <ItemsContainer
+                                                items={popular} />
                                         </div>
                                     </div>
                                 }

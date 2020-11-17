@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import "./TVShows.scss";
 import { Link } from "react-router-dom";
 import { Planets } from 'react-preloaders';
+import ItemsContainer from '../ItemsContainer/ItemsContainer';
 
 const api_key = "137436a3a883e2b94597a24e32d9d6b8";
 
@@ -70,6 +71,7 @@ const TVShows = ({ match }) => {
         fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=${api_key}`)
             .then(res => res.json())
             .then(data => getTvShow(data))
+        // .then(setSeasons(tvShow.seasons))
     }
 
     const getCredits = () => {
@@ -90,6 +92,8 @@ const TVShows = ({ match }) => {
             .then(data => setRecommends(data.results))
             .then(setLoading(false))
     }
+
+
 
     useEffect(() => {
         if (localStorage.getItem("favourites") === null) {
@@ -117,7 +121,7 @@ const TVShows = ({ match }) => {
 
 
 
-    if (tvShow.genres) {
+    if (tvShow.seasons) {
         return (
             <>
                 <div className="tv-details">
@@ -168,19 +172,8 @@ const TVShows = ({ match }) => {
                                             <h2>Cast</h2>
                                         </div>
                                         <div className="body">
-                                            {credits
-                                                .filter((item, index) => item.profile_path !== null && index < 14)
-                                                .map((character) => {
-                                                    return (
-                                                        <div key={character.id} className="profile-container">
-                                                            <img src={`https://image.tmdb.org/t/p/w500${character.profile_path}`}
-                                                                alt="Profile" />
-                                                            <div className="name">
-                                                                <p>{character.name}</p>
-                                                            </div>
-                                                        </div>
-                                                    )
-                                                })}
+                                            <ItemsContainer
+                                                items={credits} />
                                         </div>
                                     </div>
                                 }
@@ -191,21 +184,8 @@ const TVShows = ({ match }) => {
                                                 <h2>Seasons</h2>
                                             </div>
                                             <div className="body">
-                                                {tvShow.seasons
-                                                    .filter((item) => item.poster_path !== null)
-                                                    .map((item) => {
-                                                        return (
-                                                            // <Link to={`/${item.first_air_date ? "TVDetails" : "movieDetails"}/${item.id}`} >
-                                                            <div key={item.id} className="container" >
-                                                                <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
-                                                                    alt="Poster" />
-                                                                <div className="pop-up">
-                                                                    <p>{item.name}</p>
-                                                                </div>
-                                                            </div>
-                                                            /* </Link> */
-                                                        )
-                                                    })}
+                                                <ItemsContainer
+                                                    items={tvShow.seasons} />
                                             </div>
                                         </div>
                                 }
@@ -216,22 +196,9 @@ const TVShows = ({ match }) => {
                                                 <h2>Similar</h2>
                                             </div>
                                             <div className="body">
-                                                {similar
-                                                    .filter((item, index) => item.poster_path !== null && index < 10)
-                                                    .map((item) => {
-                                                        return (
-                                                            <Link key={item.id} to={`/${item.first_air_date ? "TVDetails" : "movieDetails"}/${item.id}`}
-                                                                onClick={() => setId(item.id)}>
-                                                                <div className="container" >
-                                                                    <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
-                                                                        alt="Poster" />
-                                                                    <div className="pop-up">
-                                                                        <p>{item.name}</p>
-                                                                    </div>
-                                                                </div>
-                                                            </Link>
-                                                        )
-                                                    })}
+
+                                                <ItemsContainer
+                                                    items={similar} />
                                             </div>
                                         </div>
                                 }
@@ -243,22 +210,8 @@ const TVShows = ({ match }) => {
                                                 <h2>Recommendations</h2>
                                             </div>
                                             <div className="body">
-                                                {recommends
-                                                    .filter((item, index) => item.poster_path !== null && index < 10)
-                                                    .map((item) => {
-                                                        return (
-                                                            <Link key={item.id} to={`/${item.first_air_date ? "TVDetails" : "movieDetails"}/${item.id}`}
-                                                                onClick={() => setId(item.id)}>
-                                                                <div className="container">
-                                                                    <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
-                                                                        alt="Poster" />
-                                                                    <div className="pop-up">
-                                                                        <p>{item.name}</p>
-                                                                    </div>
-                                                                </div>
-                                                            </Link>
-                                                        )
-                                                    })}
+                                                <ItemsContainer
+                                                    items={recommends} />
                                             </div>
                                         </div>
                                 }

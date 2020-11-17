@@ -27,7 +27,7 @@ const WatchList = () => {
                     <div className="legend">
                         <h3>Watchlist</h3>
                     </div>
-                    <div className="items-container">
+                    <div>
                         <ItemsContainer
                             items={storedItems}
                         />

@@ -181,19 +181,8 @@ const Movies = ({ match }) => {
                                             <h2>Cast</h2>
                                         </div>
                                         <div className="body">
-                                            {credits
-                                                .filter((item, index) => item.profile_path !== null && index < 12)
-                                                .map((character) => {
-                                                    return (
-                                                        <div key={character.id} className="profile-container">
-                                                            <img src={`https://image.tmdb.org/t/p/w500${character.profile_path}`}
-                                                                alt="Profile" />
-                                                            <div className="name">
-                                                                <p>{character.name}</p>
-                                                            </div>
-                                                        </div>
-                                                    )
-                                                })}
+                                            <ItemsContainer
+                                                items={credits} />
                                         </div>
                                     </div>
                                 }
@@ -204,25 +193,8 @@ const Movies = ({ match }) => {
                                                 <h2>Similar</h2>
                                             </div>
                                             <div className="body">
-                                                {/* {similar
-                                                    .filter((item, index) => item.poster_path !== null && index < 10)
-                                                    .map((item) => {
-                                                        return (
-                                                            <Link key={item.id}
-                                                                to={`/${item.first_air_date ? "TVDetails" : "movieDetails"}/${item.id}`}
-                                                                onClick={() => setId(item.id)}>
-                                                                <div className="container" >
-                                                                    <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
-                                                                        alt="Poster" />
-                                                                    <div className="pop-up">
-                                                                        <p>{item.title}</p>
-                                                                    </div>
-                                                                </div>
-                                                            </Link>
-                                                        )
-                                                    })} */}
                                                 <ItemsContainer
-                                                    item={similar}
+                                                    items={similar}
                                                 />
                                             </div>
                                         </div>
@@ -235,22 +207,8 @@ const Movies = ({ match }) => {
                                                 <h2>Recommendations</h2>
                                             </div>
                                             <div className="body">
-                                                {recommends
-                                                    .filter((item, index) => item.poster_path !== null && index < 10)
-                                                    .map((item) => {
-                                                        return (
-                                                            <Link key={item.id} to={`/${item.first_air_date ? "TVDetails" : "movieDetails"}/${item.id}`}
-                                                                onClick={() => setId(item.id)}>
-                                                                <div className="container">
-                                                                    <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
-                                                                        alt="Poster" />
-                                                                    <div className="pop-up">
-                                                                        <p>{item.title}</p>
-                                                                    </div>
-                                                                </div>
-                                                            </Link>
-                                                        )
-                                                    })}
+                                                <ItemsContainer
+                                                    items={recommends} />
                                             </div>
                                         </div>
                                 }
