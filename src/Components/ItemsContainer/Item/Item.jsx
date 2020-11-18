@@ -14,11 +14,11 @@ const Item = (props) => {
                     :
                     <img src={`https://image.tmdb.org/t/p/w500${props.item.profile_path}`} alt="poster" />
                 }
-                {/* <div className="popup">
+                <div className="popup">
                     <h2>
                         {props.item.name ? props.item.name : props.item.title}
                     </h2>
-                </div> */}
+                </div>
             </div>
 
             <Link to={`/${props.item.first_air_date ? "TVShows" :

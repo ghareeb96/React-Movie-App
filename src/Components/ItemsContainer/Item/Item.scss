@@ -1,4 +1,8 @@
 @import "../../mainStyles.scss";
+$movie : #330000;
+$tvShow : #001736;
+$person : #113600;
+
 
 .item {
     position: relative;
@@ -10,22 +14,6 @@
         width: 250px;
         height: auto;
 
-        .popup {
-            position: absolute;
-            top: 0;
-            left: 0;
-            background: rgba(black, 0.5);
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            h2 {
-                color: white;
-            }
-        }
-
         img {
             width: 100%;
             height: 100%;
@@ -33,16 +21,44 @@
             object-fit: cover;
             pointer-events: none;
         }
+
+        .popup {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: rgba(black, 0.8);
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.2s ease-out;
+
+            &:hover {
+                opacity: 1;
+            }
+
+
+            h2 {
+                font-family: "teko";
+                color: white;
+                font-size: 4.5rem;
+                letter-spacing: 2px;
+                text-align: center;
+            }
+        }
     }
 
     a {
         height: 100%;
+        z-index: 2;
 
         button {
             width: 100%;
             height: 100%;
             background: $primary_color;
-            color: $fourth_color;
+            color: white;
             outline: none;
             border: none;
             cursor: pointer;
@@ -62,13 +78,49 @@
 }
 
 .tvShow {
-    border: 3px solid #042968;
+    border: 4px solid $tvShow;
+
+    a {
+
+        button {
+            background: $tvShow;
+            border-top: 4px solid $tvShow;
+
+            &:hover {
+                background-color: lighten($tvShow, 5);
+            }
+        }
+    }
 }
 
 .person {
-    border: 3px solid #810d0d;
+    border: 4px solid $person;
+
+    a {
+
+        button {
+            background: $person;
+            border-top: 4px solid $person;
+
+            &:hover {
+                background-color: lighten($person, 5);
+            }
+        }
+    }
 }
 
 .movie {
-    border: 3px solid #115e01;
+    border: 4px solid $movie;
+
+    a {
+
+        button {
+            background: $movie;
+            border-top: 4px solid $movie;
+
+            &:hover {
+                background-color: lighten($movie, 5);
+            }
+        }
+    }
 }
