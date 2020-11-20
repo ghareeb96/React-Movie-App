@@ -142,7 +142,7 @@ const Movies = ({ match }) => {
                             <div className="right-details">
                                 <div className="title">
                                     <h1>
-                                        {`${movie.title}  (${movie.release_date.slice(0, 4)})`}
+                                        {`${movie.original_title}  (${movie.release_date.slice(0, 4)})`}
                                     </h1>
                                 </div>
 

@@ -229,10 +229,101 @@
 
                 }
 
+                .seasons {
+                    .body {
+                        display: grid;
+                        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                        justify-items: center;
+                        // align-items: center;
+                        grid-gap: 1rem;
+                        padding: 1rem;
+
+
+                        .season {
+                            .img {
+                                width: 150px;
+                                height: auto;
+                                position: relative;
+                                cursor: pointer;
+
+                                img {
+                                    width: 100%;
+                                    height: 100%;
+                                    object-position: center;
+                                    object-fit: cover;
+                                    pointer-events: none;
+                                }
+
+                                .popup {
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                    background: rgba(black, 0.8);
+                                    width: 100%;
+                                    height: 100%;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    opacity: 0;
+                                    transition: all 0.2s ease-out;
+
+                                    &:hover {
+                                        opacity: 1;
+                                    }
+
+
+                                    h2 {
+                                        font-family: "teko";
+                                        color: white;
+                                        font-size: 3rem;
+                                        letter-spacing: 2px;
+                                        text-align: center;
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                }
+
 
             }
         }
 
 
+    }
+
+    .modal-container {
+
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        &.open {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            z-index: 3;
+            color: white;
+            font-size: 3rem;
+            z-index: 4;
+
+            .close-btn {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                cursor: pointer;
+            }
+
+        }
+
+        &.close {
+            display: none;
+        }
     }
 }

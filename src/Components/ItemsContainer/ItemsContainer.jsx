@@ -16,6 +16,7 @@ const ItemsContainer = (props) => {
                         type={`${item.first_air_date ? "tvShow" :
                             item.known_for_department ? "person" : "movie"}`}
                         key={`${item.id} ${item.name ? item.name : item.title} `}
+                        detailsId={props.detailsId}
                     />
                 ))}
             <div className="scroll-handler" id={`${props.scroll_type === "movie" ? "movie" : "tv"}`} style={{ top: (window.scrollY - 94) + "px" }}></div>

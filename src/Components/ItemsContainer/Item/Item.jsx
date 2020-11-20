@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 
 const Item = (props) => {
+
     return (
         <div className={`item ${props.type}`} id={`${props.item.id}`}>
             <div className="img">
@@ -16,13 +17,18 @@ const Item = (props) => {
                 }
                 <div className="popup">
                     <h2>
-                        {props.item.name ? props.item.name : props.item.title}
+                        {props.item.name ?
+                            props.item.original_name ? props.item.original_name : props.item.name
+                            : props.item.original_title}
                     </h2>
                 </div>
             </div>
 
             <Link to={`/${props.item.first_air_date ? "TVShows" :
-                props.item.known_for_department ? "Persons" : "Movies"}/${props.item.id}`}>
+                // props.item.episode_count ? `Seasons` :
+                props.item.known_for_department ? "Persons" :
+                    "Movies"}/${props.item.id}`}
+            >
                 <button className="details-btn">More Details</button>
             </Link>
         </div>

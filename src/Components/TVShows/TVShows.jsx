@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import "./TVShows.scss";
 import { Link } from "react-router-dom";
 import { Planets } from 'react-preloaders';
@@ -13,6 +13,7 @@ const TVShows = ({ match }) => {
     const [tvShow, getTvShow] = useState({});
     const [credits, setCredits] = useState([]);
     const [similar, setSimilar] = useState([]);
+    const [season, setSeason] = useState({});
     const [recommends, setRecommends] = useState([]);
     const [favourites, setFavourites] = useState([]);
     const [watchlist, setWatchlist] = useState([]);
@@ -67,6 +68,7 @@ const TVShows = ({ match }) => {
     })
 
 
+
     const fetchData = () => {
         fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=${api_key}`)
             .then(res => res.json())
@@ -92,7 +94,23 @@ const TVShows = ({ match }) => {
             .then(data => setRecommends(data.results))
             .then(setLoading(false))
     }
-
+    const getSeason = (season_no) => {
+        fetch(`https://api.themoviedb.org/3/tv/${id}/season/${season_no}?api_key=${api_key}`)
+            .then(res => res.json())
+            .then(data => setSeason({
+                season: data,
+                modal: true
+            }))
+        // .then(season => console.log(season))
+    }
+    let firstRender = true;
+    useEffect(() => {
+        if (firstRender) {
+            firstRender = false;
+        } else {
+            getSeason();
+        }
+    }, [season])
 
 
     useEffect(() => {
@@ -124,7 +142,9 @@ const TVShows = ({ match }) => {
     if (tvShow.seasons) {
         return (
             <>
+
                 <div className="tv-details">
+
                     <div className="details">
                         <div className="bg-img">
                             <img src={`https://image.tmdb.org/t/p/w500${tvShow.backdrop_path}`} />
@@ -144,7 +164,7 @@ const TVShows = ({ match }) => {
                             <div className="right-details">
                                 <div className="title">
                                     <h1>
-                                        {`${tvShow.name}  (${tvShow.first_air_date.slice(0, 4)} - ${tvShow.last_air_date.slice(0, 4)})`}
+                                        {`${tvShow.original_name}  (${tvShow.first_air_date.slice(0, 4)} - ${tvShow.last_air_date.slice(0, 4)})`}
                                     </h1>
                                 </div>
 
@@ -184,11 +204,40 @@ const TVShows = ({ match }) => {
                                                 <h2>Seasons</h2>
                                             </div>
                                             <div className="body">
-                                                <ItemsContainer
-                                                    items={tvShow.seasons} />
+                                                {tvShow.seasons.filter(item => (item.poster_path || item.profile_path))
+                                                    .map(item => (
+                                                        <div className="season" key={item.id} onClick={() =>
+                                                            getSeason(item.season_number)
+                                                        }>
+                                                            <div className="img">
+                                                                <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} alt="poster" />
+                                                                <div className="popup">
+                                                                    <h2>
+                                                                        {item.name}
+                                                                    </h2>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    ))
+                                                }
                                             </div>
                                         </div>
+
                                 }
+
+                                <div className={`modal-container ${season.modal ? "open" : "close"}`}>
+                                    <div className="modal">
+
+                                    </div>
+                                    <div className="close-btn" onClick={() => setSeason(
+                                        {
+                                            modal: false
+                                        })}>
+                                        X
+                                        </div>
+                                </div>
+
+
                                 {
                                     similar.length === 0 ? "" :
                                         <div className="similar">
@@ -228,9 +277,12 @@ const TVShows = ({ match }) => {
                     time={2000} />
             </>
         )
+
     } else {
         return (
-            <div className="movie-details"></div>
+            <div className="tv-details">
+
+            </div>
         )
     }
 }
