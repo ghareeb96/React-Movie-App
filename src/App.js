@@ -13,7 +13,6 @@ import Search from './Components/SearchPage/Search';
 import TopRated from './Components/TopRatedPage/TopRated';
 import Movies from './Components/Movies/Movies';
 import TVShows from './Components/TVShows/TVShows';
-import Seasons from './Components/TVShows/Seasons/Seasons';
 import Persons from './Components/Persons/Persons';
 
 
