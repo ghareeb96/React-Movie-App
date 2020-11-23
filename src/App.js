@@ -51,7 +51,6 @@ const App = () => {
 
           <Route exact path="/Persons/:id" component={Persons} />
 
-          {/* <Route exact path="/Seasons/:id" component={Seasons} /> */}
         </Switch>
 
       </Router>
