@@ -1,8 +1,9 @@
 @import "../mainStyles.scss";
 
 .items-container {
+    width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     grid-gap: 2rem;
     justify-items: center;
     position: relative;
@@ -11,5 +12,17 @@
 
     .scroll-handler {
         position: absolute;
+    }
+}
+
+@media screen and (max-width : 710px) {
+    .items-container {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+}
+
+@media screen and (max-width : 410px) {
+    .items-container {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     }
 }

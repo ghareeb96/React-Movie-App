@@ -45,8 +45,8 @@ const HomePage = () => {
             <div className="home-page" >
 
                 <div className="slogan">
-                    <h2>Welcome To MyMdb</h2>
-                    <h2>Discover, Search and Make Your Watchlist</h2>
+                    <h2>MyMdb</h2>
+                    <h4>Discover, Search and Make Your Watchlist</h4>
                 </div>
 
                 <div className="container">

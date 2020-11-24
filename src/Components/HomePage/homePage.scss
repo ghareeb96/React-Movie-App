@@ -6,25 +6,38 @@
 
     .slogan {
         width: 100%;
-        height: 30vh;
-        margin: 20vh 0;
+        height: 90vh;
+        margin-bottom: 50px;
         display: flex;
         flex-direction: column;
-        align-items: center;
+        // align-items: center;
         justify-content: center;
-        background: rgba($tirtiary_color, 0.5);
+        background: rgba($tirtiary_color, 0.8);
 
         h2 {
-            font-size: 8rem;
+            font-size: 13rem;
+            letter-spacing: 4px;
+            color: white;
+            font-family: logoFont;
+            text-align: Justify;
+            font-weight: lighter;
+            margin: 20px;
+        }
+
+        h4 {
+            font-weight: lighter;
+            font-size: 4.5rem;
             letter-spacing: 4px;
             color: white;
             font-family: "teko";
-            text-align: center;
+            text-align: justify;
+            margin: 20px;
+
         }
     }
 
     .container {
-        width: 80%;
+        width: 90%;
         margin: auto;
         border: 2px $secondary_color solid;
         border-radius: 10px;
@@ -37,7 +50,10 @@
                 color: $fourth_color;
                 text-align: center;
                 font-size: 3rem;
+                font-family: logoFont;
+                font-weight: lighter;
                 padding: 1rem;
+                letter-spacing: 2px;
             }
         }
 
@@ -49,5 +65,59 @@
         width: 90%;
         background-color: $fourth_color;
         margin: 20px auto;
+    }
+}
+
+// @media screen and (max-width :1240px) {
+//     .home-page {
+//         .slogan {
+//             h2 {
+//                 font-size: 6rem;
+//             }
+
+//             h4 {
+//                 font-size: 3rem;
+
+//             }
+//         }
+//     }
+// }
+
+@media screen and (max-width :768px) {
+    .home-page {
+        .slogan {
+            align-items: center;
+
+            h2 {
+                // font-size: 3.5rem;
+                // letter-spacing: 2px;
+
+
+            }
+
+            h4 {
+                font-size: 3rem;
+                letter-spacing: 2px;
+                text-align: center;
+
+            }
+        }
+    }
+}
+
+@media screen and (max-width :528px) {
+    .home-page {
+        .slogan {
+
+            h2 {
+                font-size: 9rem;
+            }
+
+            h4 {
+                font-size: 2.4rem;
+                letter-spacing: 1px;
+
+            }
+        }
     }
 }

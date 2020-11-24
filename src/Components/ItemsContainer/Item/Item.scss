@@ -124,3 +124,65 @@ $person : #113600;
         }
     }
 }
+
+@media screen and (max-width : 710px) {
+    .item {
+        height: 290px;
+
+        .img {
+            width: 150px;
+
+            .popup {
+
+                h2 {
+
+                    font-size: 2.4rem;
+                }
+            }
+        }
+
+        a {
+
+            button {
+
+                font-size: 2.4rem;
+                letter-spacing: 2px;
+                padding: 0.5rem;
+
+            }
+        }
+
+
+    }
+}
+
+@media screen and (max-width : 410px) {
+    .item {
+        height: 400px;
+
+        .img {
+            width: 220px;
+
+            .popup {
+
+                h2 {
+
+                    font-size: 2.4rem;
+                }
+            }
+        }
+
+        a {
+
+            button {
+
+                font-size: 2.4rem;
+                letter-spacing: 2px;
+                padding: 0.5rem;
+
+            }
+        }
+
+
+    }
+}
