@@ -75,7 +75,7 @@ const Search = () => {
                 <Paper component="form" className={classes.root}>
                     <InputBase
                         className={classes.input}
-                        placeholder="Search for Anything ..."
+                        placeholder="Search here ..."
                         value={searchText}
                         onChange={inputHandler}
                         autoFocus={true}

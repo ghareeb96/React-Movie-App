@@ -4,12 +4,12 @@
 
     .search-form {
         width: 50%;
-        margin: 3rem auto;
+        margin: 10vh auto;
 
     }
 
     .container {
-        width: 80%;
+        width: 90%;
         margin: 5vh auto;
         border: 2px $secondary_color solid;
         border-radius: 10px;
@@ -33,6 +33,30 @@
                 text-align: center;
             }
 
+        }
+    }
+}
+
+@media screen and (max-width : 680px) {
+    .search {
+
+        .search-form {
+            input {
+                font-size: 1.6rem;
+            }
+
+        }
+
+        .container {
+
+
+            .more {
+
+
+
+                a {}
+
+            }
         }
     }
 }
