@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react'
 import "./TVShows.scss";
-import { Link } from "react-router-dom";
 import { Planets } from 'react-preloaders';
 import ItemsContainer from '../ItemsContainer/ItemsContainer';
 
@@ -231,18 +230,22 @@ const TVShows = ({ match }) => {
                                     {season.season ?
                                         <div className="modal">
                                             <div className="close-btn" onClick={() => setSeason({ modal: false })}>&#10005;</div>
-                                            <img src={`https://image.tmdb.org/t/p/w500${season.season.poster_path}`} alt="" />
                                             <div className="modal-details">
                                                 <div className="season-title">
                                                     <h1>{season.season.name}</h1>
                                                 </div>
-                                                <div className="episodes">
-                                                    <h1>Episodes</h1>
-                                                    <ul>
-                                                        {season.season.episodes.map((item, index) => (
-                                                            <li>{`${index + 1} : ${item.name}`}</li>
-                                                        ))}
-                                                    </ul>
+                                                <div className="middle">
+                                                    <div className="img">
+                                                        <img src={`https://image.tmdb.org/t/p/w500${season.season.poster_path}`} alt="" />
+                                                    </div>
+                                                    <div className="episodes">
+                                                        <h1>Episodes</h1>
+                                                        <ul>
+                                                            {season.season.episodes.map((item, index) => (
+                                                                <li>{`${index + 1} : ${item.name}`}</li>
+                                                            ))}
+                                                        </ul>
+                                                    </div>
                                                 </div>
                                                 {season.season.overview ?
                                                     <div className="season-overview">

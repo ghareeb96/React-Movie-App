@@ -1,12 +1,12 @@
 @import "../mainStyles.scss";
 
 .tv-details {
-    height: 90vh;
+    height: calc(100vh - 100px);
     width: 100%;
-    margin: auto;
     overflow: hidden;
     background: $tirtiary_color;
     position: relative;
+    margin-top: 100px;
 
 
 
@@ -15,10 +15,10 @@
         top: 0;
         left: 0;
         width: 100%;
-        height: 100%;
         display: flex;
         flex-direction: row;
         z-index: 1;
+        height: calc(100vh - 100px);
 
         .bg-img {
             width: 100%;
@@ -50,12 +50,15 @@
             background: $primary_color;
             border-right: 3px solid $secondary_color;
             z-index: 2;
+            min-width: 300px;
 
 
 
             .poster {
                 width: 90%;
                 height: 70%;
+                display: flex;
+                align-items: center;
 
                 img {
                     width: 100%;
@@ -104,7 +107,7 @@
             position: relative;
             height: 100%;
             overflow: auto;
-
+            // margin-top: 15px;
 
 
             .right-details {
@@ -149,8 +152,8 @@
                 .overview {
                     display: flex;
                     flex-direction: row;
-                    width: 90%;
-                    margin: 2rem;
+                    width: 95%;
+                    margin: 2rem auto;
                     border: 3px solid $primary_color;
 
                     .left {
@@ -181,8 +184,8 @@
                 .cast {
                     display: flex;
                     flex-direction: column;
-                    width: 90%;
-                    margin: 2rem;
+                    width: 95%;
+                    margin: 2rem auto;
                     border: 3px solid $primary_color;
 
                     .top {
@@ -205,6 +208,10 @@
 
                             .img {
                                 width: 150px;
+
+                                h2 {
+                                    font-size: 3rem;
+                                }
                             }
                         }
                     }
@@ -215,8 +222,8 @@
                 .seasons {
                     display: flex;
                     flex-direction: column;
-                    width: 90%;
-                    margin: 2rem;
+                    width: 95%;
+                    margin: 2rem auto;
                     border: 3px solid $primary_color;
 
                     .top {
@@ -232,7 +239,19 @@
                     }
 
                     .items-container {
-                        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+
+                        .item {
+                            height: 380px;
+
+                            .img {
+                                width: 200px;
+
+                                h2 {
+                                    font-size: 3rem;
+                                }
+                            }
+                        }
                     }
 
                 }
@@ -302,11 +321,12 @@
     }
 
     .modal-container {
-        background: rgba(black, 0.8);
+        background: rgba(black, 0.9);
         position: fixed;
+        margin-top: 100px;
         width: 100vw;
-        height: 90vh;
-        bottom: 0;
+        height: calc(100vh - 100px);
+        top: 0;
         left: 0;
         z-index: 3;
         transition: all 0.2s ease-out;
@@ -317,7 +337,7 @@
         }
 
         .modal {
-            background: rgba(black, 0.5);
+            background: rgba(black, 0.8);
             width: 70%;
             height: 90%;
             margin: auto;
@@ -327,13 +347,7 @@
             // align-items: center;
             flex-direction: row;
 
-            img {
-                width: 430px;
-                object-fit: cover;
-                object-position: center;
-                // opacity: 0.3;
-                // filter: blur(6px);
-            }
+
 
             .close-btn {
                 position: fixed;
@@ -359,7 +373,6 @@
                 .season-title {
                     border-bottom: 3px solid $fourth_color;
                     padding: 1rem;
-                    flex: 1;
 
                     h1 {
                         font-family: "teko";
@@ -370,48 +383,65 @@
                     }
                 }
 
-                .episodes {
+                .middle {
+                    width: 100%;
                     display: flex;
                     flex-direction: row;
-                    align-items: center;
-                    justify-content: space-evenly;
-                    padding: 1rem;
-                    flex: 6;
-                    // margin: 4rem 3rem;
+                    // align-items: center;
+                    // justify-content: center;
 
-                    h1 {
-                        color: $fourth_color;
-                        font-family: "teko";
-                        letter-spacing: 3px;
-                        flex: 1;
-                        font-size: 4rem;
+                    .img {
+                        flex: 2;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
 
+                        img {
+                            width: 100%;
+                            height: auto;
+                            object-fit: contain;
+                            object-position: center;
+                        }
                     }
 
-                    ul {
-                        list-style: none;
-                        color: white;
-                        font-size: 2rem;
-                        flex: 3;
-                        border-left: 2px solid $fourth_color;
-                        padding: 1rem;
+                    .episodes {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: space-evenly;
+                        flex: 4;
 
-                        li {
-                            padding: 3px;
-                            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                        h1 {
+                            color: white;
+                            font-family: "teko";
+                            letter-spacing: 3px;
+                            font-size: 3rem;
 
                         }
 
+                        ul {
+                            list-style: none;
+                            color: white;
+                            font-size: 2rem;
+                            border-top: 2px solid $fourth_color;
+
+                            li {
+
+                                padding: 0.6rem;
+                                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+                            }
+
+                        }
                     }
                 }
 
                 .season-overview {
-                    flex: 2;
                     padding: 2rem;
                     background: rgba(rgb(51, 51, 51), 0.6);
 
                     p {
-                        font-size: 2.5rem;
+                        font-size: 2rem;
                         color: white;
                         text-align: justify;
                     }

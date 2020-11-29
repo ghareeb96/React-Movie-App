@@ -2,9 +2,11 @@
 
 
 .favourites {
+    margin-top: 200px;
+
     .container {
         width: 90%;
-        margin: 5vh auto;
+        margin: 10vh auto 5vh auto;
         border: 2px $secondary_color solid;
         border-radius: 10px;
 
