@@ -1,68 +1,38 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# MyMDb App
+MyMDb is an App implemented by React.js liberary with additional packages and liberaries such as react router and material UI, The App uses TMDB Api to Get Movies and TvShows either by searching it or browsing the trending and top rated ones
+It Also uses the user Local Storage to save the watch list and favourite movies, TvShows and Persons saved by the user
 
-## Available Scripts
 
-In the project directory, you can run:
+## Features
+* Getting the trending, Top-Rated and popular Movies , TvShows and Persons
 
-### `npm start`
+* Searching for any Movie, TvShow and Person by its name
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* Getting the Full Details for a Movie by clicking "More Details" button
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+**Overview, Cast, Similar Movies and Recommended Movies depending on the geners of the Movie**
 
-### `npm test`
+* Getting the Full Details for a TvShow by clicking "More Details" button
+**Overview, Cast, Seasons of the Show, Similar TvShows and Recommended TvShows depending on the geners of the Show**
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* Getting the Full Details for a Person by clicking "More Details" button
+**A list if full credits for the Person (Actor) for Movies and TvShows the Persons involved in**
 
-### `npm run build`
+* The user can make his own watch list of Movies and TvShows by adding it from the details Page, it is saved in the local storage by the item Id and Type to make the getting function easier
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* The user can make his own Favourits of Movies, TvShows and Persons by adding it from the details Page, it is saved in the local storage by the item Id and Type to make the getting function easier
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+* The app is fully responsive for any device
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Technologies used 
+* Html
+* Css 
+* Scss
+* React.js
+* React Router
+* Material UI
+* Javascript
+* JSON & AJAX
+* Using API & local Storage
+* gh-pages To publish the App on github
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
