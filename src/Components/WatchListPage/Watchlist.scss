@@ -1,7 +1,9 @@
 @import "../mainStyles.scss";
 
 .watchlist {
-    margin-top: 200px;
+    margin-top: 150px;
+    overflow: auto;
+    height: auto;
 
     .container {
         width: 90%;

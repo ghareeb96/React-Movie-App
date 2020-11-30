@@ -4,16 +4,15 @@
 
     .search-form {
         width: 50%;
-        margin: 200px auto;
+        margin: 200px auto 0 auto;
 
     }
 
     .container {
         width: 90%;
-        margin: 5vh auto;
+        margin: 100px auto;
         border: 2px $secondary_color solid;
         border-radius: 10px;
-        // margin-bottom: 3rem;
 
         .more {
             width: 100%;

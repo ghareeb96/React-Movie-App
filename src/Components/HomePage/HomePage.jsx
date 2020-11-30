@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import "./homePage.scss";
 import ItemsContainer from "../ItemsContainer/ItemsContainer"
 import { Planets } from 'react-preloaders';
+import background from "./1.jpg";
 
 const HomePage = () => {
     const [loading, setLoading] = useState(true);
@@ -44,9 +45,12 @@ const HomePage = () => {
         <>
             <div className="home-page" >
 
-                <div className="slogan">
-                    <h2>MyMdb</h2>
-                    <h4>Discover, Search and Make Your Watchlist</h4>
+                <div className="background">
+                    <img src={background} alt="" />
+                    <div className="slogan">
+                        <h2>MyMdb</h2>
+                        <h4>Discover, Search and Make Your Watchlist</h4>
+                    </div>
                 </div>
 
                 <div className="container">

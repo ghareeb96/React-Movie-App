@@ -1,14 +1,12 @@
 @import "../mainStyles.scss";
 
 .movie-details {
-    // display: none;
-    height: 90vh;
+    min-height: calc(100vh - 100px);
     width: 100%;
-    margin: auto;
+    margin-top: 100px;
     overflow: hidden;
     background: $tirtiary_color;
     position: relative;
-    // border: 3px solid $secondary_color;
 
 
 
@@ -17,7 +15,7 @@
         top: 0;
         left: 0;
         width: 100%;
-        height: 100%;
+        height: calc(100vh - 100px);
         display: flex;
         flex-direction: row;
         z-index: 1;
@@ -52,10 +50,13 @@
             background: $primary_color;
             border-right: 3px solid $secondary_color;
             z-index: 2;
+            min-width: 300px;
 
             .poster {
                 width: 90%;
                 height: 70%;
+                display: flex;
+                align-items: center;
 
                 img {
                     width: 100%;
@@ -116,9 +117,12 @@
                     justify-content: center;
                     border-bottom: 4px solid $secondary_color;
                     background: $primary_color;
+                    font-family: "teko";
+                    letter-spacing: 2px;
 
                     h1 {
-                        font-size: 3.5rem;
+                        font-size: 4rem;
+                        text-align: center;
                     }
                 }
 
@@ -133,6 +137,8 @@
                     h2 {
                         font-size: 2.5rem;
                         color: $fourth_color;
+                        text-align: center;
+
                     }
                 }
 
@@ -145,6 +151,7 @@
                         flex-direction: row;
                         align-items: center;
                         justify-content: center;
+                        flex-wrap: wrap;
 
                         li {
                             list-style: none;
@@ -161,8 +168,8 @@
                 .overview {
                     display: flex;
                     flex-direction: row;
-                    width: 90%;
-                    margin: 2rem;
+                    width: 95%;
+                    margin: 2rem auto;
                     border: 3px solid $primary_color;
 
                     .left {
@@ -193,8 +200,8 @@
                 .cast {
                     display: flex;
                     flex-direction: column;
-                    width: 90%;
-                    margin: 2rem;
+                    width: 95%;
+                    margin: 2rem auto;
                     border: 3px solid $primary_color;
 
                     .top {
@@ -210,7 +217,19 @@
                     }
 
                     .items-container {
-                        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+
+                        .item {
+                            height: 290px;
+
+                            .img {
+                                width: 150px;
+
+                                h2 {
+                                    font-size: 3rem;
+                                }
+                            }
+                        }
                     }
                 }
 
@@ -218,8 +237,8 @@
                 .recommends {
                     display: flex;
                     flex-direction: column;
-                    width: 90%;
-                    margin: 2rem;
+                    width: 95%;
+                    margin: 2rem auto;
                     border: 3px solid $primary_color;
 
                     .top {
@@ -236,11 +255,159 @@
 
                     .items-container {
                         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+
+                        .item {
+                            height: 350px;
+
+                            .img {
+                                width: 200px;
+
+                                h2 {
+                                    font-size: 3rem;
+                                }
+                            }
+                        }
                     }
                 }
 
 
             }
+        }
+
+
+    }
+}
+
+@media screen and (max-width : 1022px) {
+    .movie-details {
+
+
+        .details {
+
+
+
+
+            .right-section {
+
+                .right-details {
+
+                    .similar,
+                    .recommends {
+
+                        .items-container {
+                            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+
+                            .item {
+                                height: 300px;
+
+                                .img {
+                                    width: 160px;
+
+                                    h2 {
+                                        font-size: 2.5rem;
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+
+
+
+
+                }
+            }
+
+
+        }
+
+
+    }
+}
+
+@media screen and (max-width : 768px) {
+    .movie-details {
+        margin-top: 150px;
+        overflow: auto;
+
+        .details {
+            flex-direction: column;
+            height: auto;
+
+            .left-section {
+                height: auto;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-evenly;
+                border-right: none;
+                border-bottom: 4px solid $secondary_color;
+
+                .poster {
+                    width: 60%;
+                    height: auto;
+                    min-width: 350px;
+
+                    img {
+                        width: 70%;
+
+                    }
+                }
+
+                .btns {
+                    width: 60%;
+                }
+            }
+
+            .right-section {
+
+                .right-details {
+                    .title {
+
+                        h1 {
+                            font-size: 3rem;
+                        }
+                    }
+
+                    .overview {
+                        flex-direction: column;
+
+
+                        .left {
+                            padding: 1rem;
+
+                        }
+
+                    }
+
+                    .similar,
+                    .recommends {
+
+                        .items-container {
+                            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+
+                            .item {
+                                height: 300px;
+
+                                .img {
+                                    width: 160px;
+
+                                    h2 {
+                                        font-size: 2.5rem;
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+
+
+
+
+                }
+            }
+
+
         }
 
 

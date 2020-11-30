@@ -1,8 +1,8 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./TVShows.scss";
 import { Planets } from 'react-preloaders';
 import ItemsContainer from '../ItemsContainer/ItemsContainer';
-
+import CloseIcon from '@material-ui/icons/Close';
 const api_key = "137436a3a883e2b94597a24e32d9d6b8";
 
 
@@ -226,10 +226,10 @@ const TVShows = ({ match }) => {
 
 
 
-                                <div className={`modal-container ${season.modal ? "open" : "close"}`}>
+                                <div className={`modal-container ${season.modal ? "open" : "close"}`} onClick={(e) => (e.target.classList.contains("open")) ? setSeason({ modal: false }) : ""}>
                                     {season.season ?
                                         <div className="modal">
-                                            <div className="close-btn" onClick={() => setSeason({ modal: false })}>&#10005;</div>
+                                            <div className="close-btn" onClick={() => setSeason({ modal: false })}><CloseIcon className="close-icon" /></div>
                                             <div className="modal-details">
                                                 <div className="season-title">
                                                     <h1>{season.season.name}</h1>
