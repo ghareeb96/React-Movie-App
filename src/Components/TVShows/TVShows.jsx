@@ -72,7 +72,6 @@ const TVShows = ({ match }) => {
         fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=${api_key}`)
             .then(res => res.json())
             .then(data => getTvShow(data))
-        // .then(setSeasons(tvShow.seasons))
     }
 
     const getCredits = () => {
@@ -100,7 +99,6 @@ const TVShows = ({ match }) => {
                 season: data,
                 modal: true
             }))
-        // .then(season => console.log(season))
     }
     let firstRender = true;
     useEffect(() => {

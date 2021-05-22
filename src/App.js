@@ -6,14 +6,14 @@ import {
   Route,
 } from "react-router-dom";
 import Header from './Components/Header/Header';
-import HomePage from './Components/HomePage/HomePage';
-import WatchList from './Components/WatchListPage/WatchList';
-import Favourites from './Components/FavouritesPage/Favourites';
-import Search from './Components/SearchPage/Search';
-import TopRated from './Components/TopRatedPage/TopRated';
-import Movies from './Components/Movies/Movies';
-import TVShows from './Components/TVShows/TVShows';
-import Persons from './Components/Persons/Persons';
+import HomePage from './Pages/HomePage/HomePage';
+// import WatchList from './Pages/WatchListPage/WatchList';
+// import Favourites from './Pages/FavouritesPage/Favourites';
+// import Search from './Pages/SearchPage/Search';
+// import TopRated from './Pages/TopRatedPage/TopRated';
+// import Movies from './Pages/Movies/Movies';
+// import TVShows from './Pages/TVShows/TVShows';
+// import Persons from './Pages/Persons/Persons';
 
 
 const App = () => {
@@ -21,15 +21,17 @@ const App = () => {
 
   return (
     <div >
-      <Router>
-        <Header />
-        <Switch>
+      <div className="container">
 
-          <Route exact path="/React-Movie-App/" >
-            <HomePage />
-          </Route>
+        <Router>
+          <Header />
+          <Switch>
 
-          <Route exact path="/Favourites" >
+            <Route exact path="/React-Movie-App/" >
+              <HomePage />
+            </Route>
+
+            {/* <Route exact path="/Favourites" >
             <Favourites />
           </Route>
 
@@ -49,11 +51,12 @@ const App = () => {
 
           <Route exact path="/TVShows/:id" component={TVShows} />
 
-          <Route exact path="/Persons/:id" component={Persons} />
+          <Route exact path="/Persons/:id" component={Persons} /> */}
 
-        </Switch>
+          </Switch>
 
-      </Router>
+        </Router>
+      </div>
 
     </div>
   )

@@ -1,243 +1,241 @@
-@import "../mainStyles.scss";
+@import "../../app.scss";
 
-header {
-    width: 100%;
+
+.header-container {
+    width: 100vw;
+    height: 100px;
     position: relative;
-    height: 100%;
-    overflow: hidden;
+    left: 50%;
+    margin-left: -50vw;
+    background: #f9f9f9;
+    box-shadow: 0 2px 15px;
 
-    .static-bg {
-        width: 100%;
+    header {
+        width: 85%;
         height: 100%;
-        position: fixed;
-        z-index: -1;
-        top: 0;
-        left: 0;
-
-        &::after {
-            content: "";
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            background-color: rgba($tirtiary_color, 0.4)
-        }
-
-        img {
-            width: 100%;
-            height: 100%;
-            object-position: center;
-            object-fit: cover;
-        }
-
-    }
-
-    nav {
-        position: fixed;
-        width: 100%;
-        height: 100px;
+        margin: 0 auto;
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        background: $primary-color;
-        border-bottom: solid 4px $secondary_color;
-        z-index: 3;
-        top: 0;
-        left: 0;
 
         .logo-container {
-            a {
-                text-decoration: none;
-                border-right: 3px solid white;
+            width: 120px;
 
-            }
-
-            width: 35%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            .logo {
-                background-color: $fourth_color;
-                border-radius: 8px;
-                width: 150px;
-                text-align: center;
-                height: 55px;
-                line-height: 55px;
-                margin: 0 10px;
-
-
-
-                h1 {
-                    color: black;
-                    font-family: logoFont;
-                    font-size: 4rem;
-                    font-weight: 500;
-
-                    span {
-                        color: rgb(77, 77, 77);
-                    }
-                }
-
-            }
-
-            .logo-slogan {
-
-                p {
-                    color: white;
-                    font-family: "teko";
-                    font-size: 2.5rem;
-                    text-align: left;
-                    margin-left: 10px;
-                    width: 150px;
-                    line-height: 30px;
-                }
-
+            img {
+                width: 100%;
+                height: auto;
             }
         }
 
-        ul {
-            width: 55%;
+        .search-bar {
+            border: 1px solid #4d4d4d;
+            width: 220px;
+            padding: 10px;
+            border-radius: 25px;
             display: flex;
             flex-direction: row;
-            list-style: none;
-            justify-content: space-around;
+            align-items: center;
+            justify-content: space-between;
+            height: 35px;
+            background: #eee;
 
 
-            li {
+            input {
+                font-size: 0.9rem;
+                border: none;
+                outline: none;
+                letter-spacing: 1px;
+                width: 90%;
+                background: #eee;
 
-                a {
-                    font-family: 'Bebas Neue', cursive;
-                    color: $fourth_color;
-                    padding: 0.6rem 1rem;
-                    border-radius: 5px;
-                    outline: none;
-                    text-decoration: none;
-                    transition: all 0.2s ease-out;
-                    font-size: 2.5rem;
-                    display: flex;
+            }
 
-                    &:hover {
-                        background: $secondary-color;
+            button {
+                background: none;
+                border: none;
+                outline: none;
+                // height: 100%;
+                width: 10%;
+                cursor: pointer;
+
+                i {
+                    font-size: 2rem;
+                }
+            }
+
+            &:focus-within {
+                border: 1px solid $main-color;
+
+                button {
+                    color: $main-color;
+                }
+            }
+        }
+
+        .nav-links {
+
+            ul {
+                width: 450px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                list-style: none;
+
+                li {
+
+                    a {
+                        display: flex;
+                        align-items: center;
+                        color: black;
+                        text-decoration: none;
+                        font-size: 1rem;
+                        font-weight: 600;
+                        letter-spacing: 1px;
+
                     }
 
                     .icon {
-                        font-size: 2.5rem;
+                        font-size: 1.5rem;
                     }
-                }
-            }
-        }
-    }
 
-}
+                    .active {
+                        color: $main-color;
+                        font-weight: 700;
+                        position: relative;
+                        padding: 3px;
 
-@media screen and (max-width : 1028px) {
-    header {
-        nav {
-            .logo-container {
-                width: 40%;
+                        &:before,
+                        &:after {
+                            content: "";
+                            position: absolute;
+                            width: 100%;
+                            height: 1px;
+                            background: $main-color;
+                            top: 0;
+                            left: 0;
+                        }
 
-                .logo-slogan {
-                    p {
-                        font-size: 2rem;
-                        width: 130px;
-                    }
-                }
-            }
-
-            ul {
-                width: 55%;
-                justify-content: space-evenly;
-
-                li {
-                    a {
-                        padding: 0.6rem 1rem;
-                        font-size: 1.8rem;
-
-                        .icon {
-                            font-size: 1.8rem;
+                        &:after {
+                            bottom: 0;
+                            top: auto;
                         }
                     }
+
                 }
             }
         }
-
     }
 }
 
-@media screen and (max-width : 768px) {
-    header {
-        nav {
-            flex-direction: column;
-            height: 150px;
-            justify-content: space-evenly;
-
-            .logo-container {
-                width: 85%;
-            }
-
-            ul {
-                width: 85%;
-            }
-        }
-
-    }
-}
-
-@media screen and (max-width : 475px) {
-    header {
-        nav {
-
-            .logo-container {
-                width: 95%;
-
-                a {
-                    border: none;
-                }
-
-                .logo {
-
-                    width: 100px;
-                    height: 40px;
-                    line-height: 40px;
-                    margin: 0 10px;
-
-                    h1 {
-                        font-size: 2.8rem;
-                        font-weight: 500;
-
-                    }
-
-                }
-
-                .logo-slogan {
-
-                    display: none;
-
-                }
 
 
-            }
+// @media screen and (max-width : 1028px) {
+//     header {
+//         nav {
+//             .logo-container {
+//                 width: 40%;
 
-            ul {
-                width: 100%;
+//                 .logo-slogan {
+//                     p {
+//                         font-size: 2rem;
+//                         width: 130px;
+//                     }
+//                 }
+//             }
 
-                li {
+//             ul {
+//                 width: 55%;
+//                 justify-content: space-evenly;
 
-                    a {
-                        padding: 0.2rem 0.5rem;
-                        font-size: 1.6rem;
+//                 li {
+//                     a {
+//                         padding: 0.6rem 1rem;
+//                         font-size: 1.8rem;
 
-                        .icon {
-                            font-size: 1.6rem;
-                        }
-                    }
-                }
-            }
+//                         .icon {
+//                             font-size: 1.8rem;
+//                         }
+//                     }
+//                 }
+//             }
+//         }
 
-        }
+//     }
+// }
 
-    }
-}
+// @media screen and (max-width : 768px) {
+//     header {
+//         nav {
+//             flex-direction: column;
+//             height: 150px;
+//             justify-content: space-evenly;
+
+//             .logo-container {
+//                 width: 85%;
+//             }
+
+//             ul {
+//                 width: 85%;
+//             }
+//         }
+
+//     }
+// }
+
+// @media screen and (max-width : 475px) {
+//     header {
+//         nav {
+
+//             .logo-container {
+//                 width: 95%;
+
+//                 a {
+//                     border: none;
+//                 }
+
+//                 .logo {
+
+//                     width: 100px;
+//                     height: 40px;
+//                     line-height: 40px;
+//                     margin: 0 10px;
+
+//                     h1 {
+//                         font-size: 2.8rem;
+//                         font-weight: 500;
+
+//                     }
+
+//                 }
+
+//                 .logo-slogan {
+
+//                     display: none;
+
+//                 }
+
+
+//             }
+
+//             ul {
+//                 width: 100%;
+
+//                 li {
+
+//                     a {
+//                         padding: 0.2rem 0.5rem;
+//                         font-size: 1.6rem;
+
+//                         .icon {
+//                             font-size: 1.6rem;
+//                         }
+//                     }
+//                 }
+//             }
+
+//         }
+
+//     }
+// }

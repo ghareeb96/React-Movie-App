@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="107.341" height="57.812" viewBox="0 0 107.341 57.812">
+  <defs>
+    <style>
+      .cls-1, .cls-3 {
+        font-size: 26px;
+        font-family: Impact;
+        letter-spacing: 0.03em;
+      }
+
+      .cls-2, .cls-3 {
+        fill: #b33951;
+      }
+    </style>
+  </defs>
+  <g id="Group_1" data-name="Group 1" transform="translate(-105.808 -21.028)">
+    <text id="MDb" class="cls-1" transform="translate(149 55)"><tspan x="0" y="0">MDb</tspan></text>
+    <g id="Group_2" data-name="Group 2" transform="translate(-3)">
+      <g id="screen" transform="translate(108.808 21.028)">
+        <path id="Path_1" data-name="Path 1" class="cls-2" d="M1.817,0H107.341V48.861H67.76v5.521H74.12v3.43H33.09v-3.43h6.359V48.861H0V0Zm101.9,2.764H3.625V46.09H103.707l.009-43.326Z"/>
+      </g>
+      <text id="A_" data-name="A+" class="cls-3" transform="translate(124 55)"><tspan x="0" y="0">A+</tspan></text>
+    </g>
+  </g>
+</svg>

@@ -1,18 +1,29 @@
-@import "./Components/mainStyles.scss";
+$main-color : #B33951;
 
 html {
-    font-size: 10px;
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
 }
 
 body {
     width: 100%;
-    height: 100vh;
-    background: $tirtiary_color;
+    min-height: 100vh;
+}
+
+.container {
+    width: 85%;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 3rem;
+    letter-spacing: 1px;
 }

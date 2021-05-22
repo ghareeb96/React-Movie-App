@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import "./Header.scss";
-import staticBg from "./static-bg.jpg"
-import { AddToQueue, Star, Search, Grade } from '@material-ui/icons';
+import Logo from "./Logo.png";
+import { AddToQueue, Star, Search, Favorite } from '@material-ui/icons';
 
 const Nav = () => {
 
@@ -16,55 +16,48 @@ const Nav = () => {
 
     })
     return (
-
-        <header>
-            <div className="static-bg">
-                <img src={staticBg} alt="" />
-            </div>
-            <nav>
+        <div className="header-container">
+            <header>
                 <div className="logo-container">
-                    <Link className="links" to="/React-Movie-App/">
-                        <div className="logo">
-                            <h1><span>My</span>Mdb</h1>
-                        </div>
-                    </Link>
-                    <div className="logo-slogan">
-                        <p>Discover something new to Watch</p>
-                    </div>
+                    <img src={Logo} alt="Logo" />
                 </div>
 
-                <ul>
+                <div className="search-bar">
+                    <input type="text" placeholder="Search Here ..." id="search-input" />
+                    <button id="search-btn">
+                        <i><Search className="icon" /></i>
+                    </button>
 
-                    <li>
-                        <Link className="links" to="/Search">
-                            <i><Search className="icon" /></i>&nbsp;
-                            Search
+                </div>
+
+                <div className="nav-links">
+
+                    <ul>
+
+                        <li>
+                            <Link className="link active" to="/TopRated">
+                                <i><Star className="icon" /></i>&nbsp; Top Rated
                         </Link>
-                    </li>
+                        </li>
 
 
-                    <li>
-                        <Link className="links" to="/TopRated">
-                            <i><Grade className="icon" /></i>&nbsp; Top Rated
+                        <li>
+                            <Link className="link" to="/WatchList">
+                                <i><AddToQueue className="icon" /></i>&nbsp; Watchlist
                         </Link>
-                    </li>
+                        </li>
 
-
-                    <li>
-                        <Link className="links" to="/WatchList">
-                            <i><AddToQueue className="icon" /></i>&nbsp; Watch List
+                        <li>
+                            <Link className="link" to="/Favourites">
+                                <i><Favorite className="icon" /></i>&nbsp; Favourites
                         </Link>
-                    </li>
+                        </li>
+                    </ul>
+                </div>
 
-                    <li>
-                        <Link className="links" to="/Favourites">
-                            <i><Star className="icon" /></i>&nbsp; Favourites
-                        </Link>
-                    </li>
-                </ul>
+            </header>
+        </div>
 
-            </nav>
-        </header>
     )
 }
 

@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cac14762-fdb7-4b0d-b1ea-74502ba57cdf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/home.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/movie.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/movie.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/movies.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/movies.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
