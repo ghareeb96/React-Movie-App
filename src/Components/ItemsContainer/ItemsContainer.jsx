@@ -1,14 +1,14 @@
 import React from 'react'
 import "./ItemsContainer.scss";
-import Item from "./Item/Item"
+import Card from "../Card/Card"
 
 
-const ItemsContainer = (props) => {
+const ItemsContainer = ({ items, scroll_type }) => {
 
 
     return (
         <div className="items-container">
-            {props.items.filter(item => (item.poster_path || item.profile_path))
+            {/* {items.filter(item => (item.poster_path || item.profile_path))
                 .filter(item => item.original_language !== "ja")
                 .map((item) => (
                     <Item
@@ -16,10 +16,10 @@ const ItemsContainer = (props) => {
                         type={`${item.first_air_date ? "tvShow" :
                             item.known_for_department ? "person" : "movie"}`}
                         key={`${item.id} ${item.name ? item.name : item.title} `}
-                        detailsId={props.detailsId}
+                    // detailsId={detailsId}
                     />
-                ))}
-            <div className="scroll-handler" id={`${props.scroll_type === "movie" ? "movie" : "tv"}`} style={{ top: (window.scrollY - 94) + "px" }}></div>
+                ))} */}
+            {/* <div className="scroll-handler" id={`${scroll_type === "movie" ? "movie" : "tv"}`} style={{ top: (window.scrollY - 94) + "px" }}></div> */}
         </div>
     )
 }

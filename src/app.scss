@@ -6,6 +6,13 @@ html {
     overflow-y: auto;
 }
 
+@mixin fullWidth {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    margin-left: -50vw;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -23,7 +30,42 @@ body {
     margin: 0 auto;
 }
 
+.headline {
+    h3 {
+        position: relative;
+        padding: 3px 0;
+        display: inline;
+
+        &:before,
+        &:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: $main-color;
+
+        }
+
+        &:after {
+            top: auto;
+            bottom: 0;
+        }
+    }
+}
+
 h1 {
     font-size: 3rem;
+    letter-spacing: 1px;
+}
+
+h2 {
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+}
+
+h3 {
+    font-size: 2rem;
     letter-spacing: 1px;
 }

@@ -1,0 +1,245 @@
+@import "../../app.scss";
+
+.card {
+    width: 250px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    // justify-content: center;
+
+    .img {
+        width: 90%;
+        height: auto;
+
+        img {
+            width: 100%;
+            height: auto;
+
+        }
+    }
+}
+
+// // @import "../../mainStyles.scss";
+// $movie : #330000;
+// $tvShow : #001736;
+// $person : #113600;
+
+
+// .item {
+//     position: relative;
+//     display: flex;
+//     flex-direction: column;
+//     height: 450px;
+
+//     .img {
+//         width: 250px;
+//         height: auto;
+//         overflow: hidden;
+//         flex: 6;
+
+
+//         img {
+//             width: 100%;
+//             height: 100%;
+//             object-position: center;
+//             object-fit: cover;
+//             pointer-events: none;
+
+//         }
+
+//         .popup {
+//             position: absolute;
+//             top: 0;
+//             left: 0;
+//             background: rgba(black, 0.8);
+//             width: 100%;
+//             height: 100%;
+//             display: flex;
+//             align-items: center;
+//             justify-content: center;
+//             opacity: 0;
+//             transition: all 0.2s ease-out;
+
+//             &:hover {
+//                 opacity: 1;
+//             }
+
+
+//             h2 {
+//                 font-family: "teko";
+//                 color: white;
+//                 font-size: 4.5rem;
+//                 letter-spacing: 2px;
+//                 text-align: center;
+//             }
+//         }
+//     }
+
+//     a {
+//         height: 100%;
+//         z-index: 2;
+//         flex: 1;
+
+//         button {
+//             width: 100%;
+//             height: 100%;
+//             background: $primary_color;
+//             color: white;
+//             outline: none;
+//             border: none;
+//             cursor: pointer;
+//             margin: 0;
+//             font-size: 3rem;
+//             letter-spacing: 2px;
+//             padding: 0.5rem;
+//             font-family: "teko";
+//             transition: all 0.2s ease-out;
+//             border-top: 4px solid $primary_color;
+
+//             &:hover {
+//                 background-color: $secondary_color;
+//             }
+//         }
+//     }
+// }
+
+// .tvShow {
+//     border: 4px solid $tvShow;
+
+//     a {
+
+//         button {
+//             background: $tvShow;
+//             border-top: 4px solid $tvShow;
+
+//             &:hover {
+//                 background-color: lighten($tvShow, 5);
+//             }
+//         }
+//     }
+// }
+
+// .person {
+//     border: 4px solid $person;
+
+//     a {
+
+//         button {
+//             background: $person;
+//             border-top: 4px solid $person;
+
+//             &:hover {
+//                 background-color: lighten($person, 5);
+//             }
+//         }
+//     }
+// }
+
+// .movie {
+//     border: 4px solid $movie;
+
+//     a {
+
+//         button {
+//             background: $movie;
+//             border-top: 4px solid $movie;
+
+//             &:hover {
+//                 background-color: lighten($movie, 5);
+//             }
+//         }
+//     }
+// }
+
+// @media screen and (max-width : 930px) {
+//     .item {
+//         height: 370px;
+
+//         .img {
+//             width: 200px;
+
+//             .popup {
+
+//                 h2 {
+
+//                     font-size: 2.7rem;
+//                 }
+//             }
+//         }
+
+//         a {
+
+//             button {
+
+//                 font-size: 2.7rem;
+//                 letter-spacing: 2px;
+//                 padding: 0.5rem;
+
+//             }
+//         }
+
+
+//     }
+// }
+
+// @media screen and (max-width : 768px) {
+//     .item {
+//         height: 290px;
+
+//         .img {
+//             width: 150px;
+
+//             .popup {
+
+//                 h2 {
+
+//                     font-size: 2.4rem;
+//                 }
+//             }
+//         }
+
+//         a {
+
+//             button {
+
+//                 font-size: 2.4rem;
+//                 letter-spacing: 2px;
+//                 padding: 0.5rem;
+
+//             }
+//         }
+
+
+//     }
+// }
+
+// @media screen and (max-width : 410px) {
+//     .item {
+//         height: 400px;
+
+//         .img {
+//             width: 220px;
+
+//             .popup {
+
+//                 h2 {
+
+//                     font-size: 2.4rem;
+//                 }
+//             }
+//         }
+
+//         a {
+
+//             button {
+
+//                 font-size: 2.4rem;
+//                 letter-spacing: 2px;
+//                 padding: 0.5rem;
+
+//             }
+//         }
+
+
+//     }
+// }

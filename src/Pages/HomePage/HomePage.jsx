@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import "./homePage.scss";
+import ItemsContainer from "../../Components/ItemsContainer/ItemsContainer"
+import Slider from "../../Components/Slider/Slider"
+import background from "./background.png"
+import { ExpandMore } from '@material-ui/icons';
 import { Planets } from 'react-preloaders';
 
 const HomePage = () => {
@@ -41,8 +45,32 @@ const HomePage = () => {
 
     return (
         <div className="home-page" >
+            <div className="hero-section">
 
+                <div className="background">
+                    <img src={background} alt="bg" />
+                </div>
 
+                <div className="slogan">
+                    <h1><span>Discover</span> something new to watch</h1>
+                    <h2><span>Make</span> your own Watchlist</h2>
+                </div>
+
+                <button className="arrow">
+                    <i><ExpandMore className="icon" /></i>
+                </button>
+            </div>
+
+            <div className="trending-section">
+                <div className="headline">
+                    <h3>Trending This Week</h3>
+                </div>
+                {/* <ItemsContainer
+                    items={trending}
+                    scroll_type="movie" /> */}
+                <Slider
+                    items={trending} />
+            </div>
 
         </div>
     )

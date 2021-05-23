@@ -2,13 +2,10 @@
 
 
 .header-container {
-    width: 100vw;
+    @include fullWidth;
     height: 100px;
-    position: relative;
-    left: 50%;
-    margin-left: -50vw;
-    background: #f9f9f9;
-    box-shadow: 0 2px 15px;
+    background: #ffffff;
+    box-shadow: 0 0 8px;
 
     header {
         width: 85%;
@@ -38,7 +35,7 @@
             align-items: center;
             justify-content: space-between;
             height: 35px;
-            background: #eee;
+            background: #f0f0f0;
 
 
             input {
@@ -47,7 +44,7 @@
                 outline: none;
                 letter-spacing: 1px;
                 width: 90%;
-                background: #eee;
+                background: #f0f0f0;
 
             }
 
