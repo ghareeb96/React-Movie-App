@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import "./homePage.scss";
-import ItemsContainer from "../../Components/ItemsContainer/ItemsContainer"
+import CardsContainer from "../../Components/CardsContainer/CardsContainer"
 import Slider from "../../Components/Slider/Slider"
 import background from "./background.png"
 import { ExpandMore } from '@material-ui/icons';
-import { Planets } from 'react-preloaders';
+// import { Planets } from 'react-preloaders';
 
 const HomePage = () => {
     const [loading, setLoading] = useState(true);
@@ -65,11 +65,11 @@ const HomePage = () => {
                 <div className="headline">
                     <h3>Trending This Week</h3>
                 </div>
-                {/* <ItemsContainer
-                    items={trending}
-                    scroll_type="movie" /> */}
                 <Slider
                     items={trending} />
+                <CardsContainer
+                    items={popularMovies}
+                />
             </div>
 
         </div>

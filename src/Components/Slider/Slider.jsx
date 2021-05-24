@@ -1,10 +1,27 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import "./Slider.scss";
 import Card from "../Card/Card"
-import { ArrowBackIos, ArrowForwardIos } from '@material-ui/icons';
 
 const Slider = ({ items }) => {
-    const [sliderPos, setSliderPos] = useState(90)
+    const [sliderPos, setSliderPos] = useState(40)
+
+
+
+    const slideRight = () => {
+        if (Math.abs(sliderPos) + window.innerWidth < 5000) {
+            setSliderPos(sliderPos - 250)
+        } else {
+            setSliderPos(40)
+        }
+
+    }
+
+    useEffect(() => {
+        const sliding = setInterval(() => {
+            slideRight()
+        }, 2000);
+        return () => clearInterval(sliding);
+    }, [sliderPos]);
 
     return (
         <div className="slider">
@@ -15,21 +32,15 @@ const Slider = ({ items }) => {
                     ))}
                 </div>
             </div>
-            <button className="left-slider" onClick={() => {
+            {/* <button className="left-slider" onClick={() => {
                 if (sliderPos < 90) {
-                    setSliderPos(sliderPos + 500)
+                    setSliderPos(sliderPos + 250)
                 }
             }
             }
-            ><i className="icon"><ArrowBackIos /></i></button>
-            <button className="right-slider" onClick={() => {
-                if (sliderPos > -3490) {
-
-                    setSliderPos(sliderPos - 500)
-                }
-            }
-            }
-            ><i className="icon"><ArrowForwardIos /></i></button>
+            ><i ><ArrowForwardIos className="icon" /></i></button>
+            <button className="right-slider" onClick={() => slideRight()}
+            ><i ><ArrowForwardIos className="icon" /></i></button> */}
         </div>
 
 

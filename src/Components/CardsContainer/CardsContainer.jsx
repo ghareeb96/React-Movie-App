@@ -1,13 +1,13 @@
 import React from 'react'
-import "./ItemsContainer.scss";
+import "./CardsContainer.scss";
 import Card from "../Card/Card"
 
 
-const ItemsContainer = ({ items, scroll_type }) => {
+const CardsContainer = ({ items }) => {
 
 
     return (
-        <div className="items-container">
+        <div className="cards-container">
             {/* {items.filter(item => (item.poster_path || item.profile_path))
                 .filter(item => item.original_language !== "ja")
                 .map((item) => (
@@ -24,4 +24,4 @@ const ItemsContainer = ({ items, scroll_type }) => {
     )
 }
 
-export default ItemsContainer;
+export default CardsContainer;
