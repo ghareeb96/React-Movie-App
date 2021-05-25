@@ -18,8 +18,9 @@ const Nav = () => {
     return (
         <div className="header-container">
             <header>
-                <div className="logo-container">
+                <div className="logo-container"><Link className="link" to="/React-Movie-App">
                     <img src={Logo} alt="Logo" />
+                </Link>
                 </div>
 
                 <div className="search-bar">
@@ -35,7 +36,7 @@ const Nav = () => {
                     <ul>
 
                         <li>
-                            <Link className="link active" to="/TopRated">
+                            <Link className="link" to="/TopRated">
                                 <i><Star className="icon" /></i>&nbsp; Top Rated
                         </Link>
                         </li>

@@ -13,6 +13,7 @@ const Slider = ({ items }) => {
         } else {
             setSliderPos(40)
         }
+        console.log(Math.abs(sliderPos) + window.innerWidth)
 
     }
 
@@ -26,9 +27,10 @@ const Slider = ({ items }) => {
     return (
         <div className="slider">
             <div className="slider-content">
-                <div className="cards-container" style={{ left: `${sliderPos}px` }}>
+                <div className="slider-cards-container" style={{ left: `${sliderPos}px` }}>
                     {items.map(item => (
-                        <Card cardData={item} />
+                        <Card cardData={item}
+                            key={`${item.id} ${item.name ? item.name : item.title} `} />
                     ))}
                 </div>
             </div>

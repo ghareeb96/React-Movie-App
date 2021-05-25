@@ -1,53 +1,53 @@
-@import "../mainStyles.scss";
+@import "../../app.scss";
 
-.top-rated {
-    margin-top: 200px;
+// .top-rated {
+//     margin-top: 200px;
 
-    .container {
-        width: 90%;
-        margin: 10vh auto 5vh auto;
-        border: 2px $secondary_color solid;
-        border-radius: 10px;
-        // margin-bottom: 3rem;
+//     .container {
+//         width: 90%;
+//         margin: 10vh auto 5vh auto;
+//         border: 2px $secondary_color solid;
+//         border-radius: 10px;
+//         // margin-bottom: 3rem;
 
-        .legend {
-            height: auto;
-            background: $primary-color;
+//         .legend {
+//             height: auto;
+//             background: $primary-color;
 
-            h3 {
-                color: $fourth_color;
-                text-align: center;
-                font-size: 3rem;
-                padding: 1rem;
-            }
-        }
+//             h3 {
+//                 color: $fourth_color;
+//                 text-align: center;
+//                 font-size: 3rem;
+//                 padding: 1rem;
+//             }
+//         }
 
-        .more {
-            width: 100%;
-            background: $secondary_color;
-            font-size: 3rem;
-            border: none;
-            outline: none;
-            cursor: pointer;
-            padding: 1rem;
+//         .more {
+//             width: 100%;
+//             background: $secondary_color;
+//             font-size: 3rem;
+//             border: none;
+//             outline: none;
+//             cursor: pointer;
+//             padding: 1rem;
 
 
-            a {
-                color: $fourth_color;
-                text-decoration: none;
-                width: 100%;
-                display: block;
-                text-align: center;
-            }
+//             a {
+//                 color: $fourth_color;
+//                 text-decoration: none;
+//                 width: 100%;
+//                 display: block;
+//                 text-align: center;
+//             }
 
-        }
-    }
+//         }
+//     }
 
-    .divider {
-        height: 5px;
-        width: 90%;
-        background-color: $fourth_color;
-        margin: 20px auto;
-    }
+//     .divider {
+//         height: 5px;
+//         width: 90%;
+//         background-color: $fourth_color;
+//         margin: 20px auto;
+//     }
 
-}
+// }

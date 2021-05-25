@@ -7,10 +7,10 @@ import {
 } from "react-router-dom";
 import Header from './Components/Header/Header';
 import HomePage from './Pages/HomePage/HomePage';
+import TopRated from './Pages/TopRatedPage/TopRated';
 // import WatchList from './Pages/WatchListPage/WatchList';
 // import Favourites from './Pages/FavouritesPage/Favourites';
 // import Search from './Pages/SearchPage/Search';
-// import TopRated from './Pages/TopRatedPage/TopRated';
 // import Movies from './Pages/Movies/Movies';
 // import TVShows from './Pages/TVShows/TVShows';
 // import Persons from './Pages/Persons/Persons';
@@ -31,6 +31,10 @@ const App = () => {
               <HomePage />
             </Route>
 
+            <Route exact path="/TopRated">
+              <TopRated />
+            </Route>
+
             {/* <Route exact path="/Favourites" >
             <Favourites />
           </Route>
@@ -43,9 +47,6 @@ const App = () => {
             <Search />
           </Route>
 
-          <Route exact path="/TopRated">
-            <TopRated />
-          </Route>
 
           <Route exact path="/Movies/:id" component={Movies} />
 

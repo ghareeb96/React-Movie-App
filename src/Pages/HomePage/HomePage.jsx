@@ -4,10 +4,8 @@ import CardsContainer from "../../Components/CardsContainer/CardsContainer"
 import Slider from "../../Components/Slider/Slider"
 import background from "./background.png"
 import { ExpandMore } from '@material-ui/icons';
-// import { Planets } from 'react-preloaders';
 
 const HomePage = () => {
-    const [loading, setLoading] = useState(true);
     const api_key = "137436a3a883e2b94597a24e32d9d6b8";
 
     //* =============Popular Movies====================
@@ -32,7 +30,6 @@ const HomePage = () => {
         fetch(`https://api.themoviedb.org/3/trending/all/week?api_key=${api_key}`)
             .then(res => res.json())
             .then(data => setTrending(data.results))
-            .then(setLoading(false))
     }
 
 
@@ -61,16 +58,31 @@ const HomePage = () => {
                 </button>
             </div>
 
-            <div className="trending-section">
+            <div className="section" id="trending-section">
                 <div className="headline">
                     <h3>Trending This Week</h3>
                 </div>
                 <Slider
                     items={trending} />
+            </div>
+            <div className="section" id="top-movies">
+                <div className="headline">
+                    <h3>Popular Movies</h3>
+                </div>
                 <CardsContainer
                     items={popularMovies}
                 />
             </div>
+            <div className="section" id="top-series">
+                <div className="headline">
+                    <h3>Popular Series</h3>
+                </div>
+                <CardsContainer
+                    items={popularTV}
+                />
+            </div>
+
+
 
         </div>
     )

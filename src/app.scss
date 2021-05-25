@@ -1,4 +1,5 @@
 $main-color : #B33951;
+$section-background : #eeeeee;
 
 html {
     scroll-behavior: smooth;
@@ -31,7 +32,7 @@ body {
 }
 
 .headline {
-    margin: 50px 0;
+    margin: 150px 0 30px 0;
 
     h3 {
         position: relative;
@@ -54,6 +55,31 @@ body {
             top: auto;
             bottom: 0;
         }
+    }
+}
+
+.section {
+    margin-bottom: 50px;
+}
+
+button.load-more {
+    @include fullWidth;
+    height: 50px;
+    cursor: pointer;
+    color: white;
+    background: $main-color;
+    outline: none;
+    border: none;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .icon {
+        font-size: 5rem;
+        // height: 100%;
     }
 }
 

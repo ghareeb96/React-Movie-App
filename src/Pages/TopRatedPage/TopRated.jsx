@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import "./TopRated.scss";
-import ItemsContainer from "../ItemsContainer/ItemsContainer"
-import { Planets } from 'react-preloaders';
+import CardsContainer from "../../Components/CardsContainer/CardsContainer"
+import { ExpandMore } from '@material-ui/icons';
 
 
 
@@ -9,8 +9,6 @@ const TopRated = () => {
     const api_key = "137436a3a883e2b94597a24e32d9d6b8";
     const [movie_page, setMoviePage] = useState(1);
     const [tv_page, setTVPage] = useState(1);
-    const [loading, setLoading] = useState(true);
-
 
 
     const [topRatedMovies, setTopRatedMovies] = useState([]);
@@ -34,51 +32,49 @@ const TopRated = () => {
                 .then(data => {
                     setTopRatedTV(oldArray => oldArray.concat(data.results));
                 })
-                .then(setLoading(false))
         }
         get_top_tv();
     }, [tv_page]);
 
 
     return (
-        <>
-            <div className="top-rated" >
-                <div className="container" id="movieContainer">
-                    <div className="legend">
-                        <h3>Top Rated Movies</h3>
-                    </div>
-                    <div>
-                        <ItemsContainer
-                            items={topRatedMovies}
-                            scroll_type="movie" />
-                    </div>
-                    <div className="more">
-                        <a href="#movie" onClick={() => setMoviePage(movie_page + 1)}>Load More</a>
-                    </div>
+        <div className="top-rated" >
+            <div className="section" id="movieContainer">
+                <div className="headline">
+                    <h3>Top Rated Movies</h3>
                 </div>
-
-                <div className="divider"></div>
-
-                <div id="tvContainer" className="container">
-                    <div className="legend">
-                        <h3>Top Rated TV Shows</h3>
-                    </div>
-                    <div>
-                        <ItemsContainer
-                            items={topRatedTV}
-                            scroll_type="tv" />
-                    </div>
-                    <div className="more">
-                        <a href="#tv" onClick={() => setTVPage(tv_page + 1)}>Load More</a>
-                    </div>
+                <div>
+                    <CardsContainer
+                        items={topRatedMovies}
+                    // scroll_type="movie"
+                    />
                 </div>
+                {/* <div className="more">
+                        <a href="#movie" >Load More</a>
+                    </div> */}
+                <button className="load-more" onClick={() => setMoviePage(movie_page + 1)}>See More</button>
             </div>
 
-            <Planets
-                color="#fdc325"
-                background="#011A27"
-                customLoading={loading} />
-        </>
+            {/* <div className="divider"></div> */}
+
+            <div className="section" id="tvContainer">
+                <div className="headline">
+                    <h3>Top Rated TV Shows</h3>
+                </div>
+                <div>
+
+                    <CardsContainer
+                        items={topRatedTV}
+                    // scroll_type="tv"
+                    />
+                </div>
+                <button className="load-more" onClick={() => setTVPage(tv_page + 1)}>See More</button>
+                {/* <div className="load-more">
+                        <a href="#tv" >Load More</a>
+                    </div> */}
+            </div>
+        </div>
+
     )
 }
 
