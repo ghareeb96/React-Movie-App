@@ -1,27 +1,4 @@
-@import "../mainStyles.scss";
+@import "../../app.scss";
 
 
-.favourites {
-    margin-top: 150px;
-    overflow: auto;
-    height: auto;
-
-    .container {
-        width: 90%;
-        margin: 10vh auto 5vh auto;
-        border: 2px $secondary_color solid;
-        border-radius: 10px;
-
-        .legend {
-            height: auto;
-            background: $primary-color;
-
-            h3 {
-                color: $fourth_color;
-                text-align: center;
-                font-size: 3rem;
-                padding: 1rem;
-            }
-        }
-    }
-}
+.favourites {}

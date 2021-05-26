@@ -143,7 +143,6 @@ const Search = () => {
                     <div className="searched-container">
                         <CardsContainer
                             items={searchedItems}
-                        // scroll_type="movie" 
                         />
                         <button className="load-more" onClick={() => setPage(page + 1)}>See More</button>
 

@@ -83,6 +83,7 @@
                 li {
 
                     a {
+                        padding: 3px;
                         display: flex;
                         align-items: center;
                         color: black;
@@ -101,7 +102,6 @@
                         color: $main-color;
                         font-weight: 700;
                         position: relative;
-                        padding: 3px;
 
                         &:before,
                         &:after {

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import "./Header.scss";
 import Logo from "./Logo.png";
 import { AddToQueue, Star, Search, Favorite } from '@material-ui/icons';
@@ -18,9 +18,9 @@ const Nav = () => {
     return (
         <div className="header-container">
             <header>
-                <div className="logo-container"><Link className="link" to="/React-Movie-App">
+                <div className="logo-container"><NavLink className="link" to="/React-Movie-App">
                     <img src={Logo} alt="Logo" />
-                </Link>
+                </NavLink>
                 </div>
 
 
@@ -29,21 +29,21 @@ const Nav = () => {
                     <ul>
 
                         <li>
-                            <Link className="link" to="/Search">
+                            <NavLink className="link" to="/Search">
                                 <i><Search className="icon" /></i>&nbsp; Search
-                        </Link>
+                        </NavLink>
                         </li>
 
                         <li>
-                            <Link className="link" to="/TopRated">
+                            <NavLink className="link" to="/TopRated">
                                 <i><Star className="icon" /></i>&nbsp; Top Rated
-                        </Link>
+                        </NavLink>
                         </li>
 
                         <li>
-                            <Link className="link" to="/MyLists">
+                            <NavLink className="link" to="/MyLists">
                                 <i><Favorite className="icon" /></i>&nbsp; My Lists
-                        </Link>
+                        </NavLink>
                         </li>
 
                         <li>

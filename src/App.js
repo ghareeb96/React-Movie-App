@@ -9,6 +9,7 @@ import Header from './Components/Header/Header';
 import Home from './Pages/Home/Home';
 import TopRated from './Pages/TopRated/TopRated';
 import Search from './Pages/Search/Search';
+import MyLists from "./Pages/MyLists/MyLists"
 // import WatchList from './Pages/WatchListPage/WatchList';
 // import Favourites from './Pages/FavouritesPage/Favourites';
 // import Movies from './Pages/Movies/Movies';
@@ -39,17 +40,12 @@ const App = () => {
               <Search />
             </Route>
 
-
-            {/* <Route exact path="/Favourites" >
-            <Favourites />
-          </Route>
-
-          <Route exact path="/WatchList">
-            <WatchList />
-          </Route>
+            <Route exact path="/MyLists">
+              <MyLists />
+            </Route>
 
 
-
+            {/*
           <Route exact path="/Movies/:id" component={Movies} />
 
           <Route exact path="/TVShows/:id" component={TVShows} />
