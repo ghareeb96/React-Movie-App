@@ -6,11 +6,11 @@ import {
   Route,
 } from "react-router-dom";
 import Header from './Components/Header/Header';
-import HomePage from './Pages/HomePage/HomePage';
-import TopRated from './Pages/TopRatedPage/TopRated';
+import Home from './Pages/Home/Home';
+import TopRated from './Pages/TopRated/TopRated';
+import Search from './Pages/Search/Search';
 // import WatchList from './Pages/WatchListPage/WatchList';
 // import Favourites from './Pages/FavouritesPage/Favourites';
-// import Search from './Pages/SearchPage/Search';
 // import Movies from './Pages/Movies/Movies';
 // import TVShows from './Pages/TVShows/TVShows';
 // import Persons from './Pages/Persons/Persons';
@@ -28,12 +28,17 @@ const App = () => {
           <Switch>
 
             <Route exact path="/React-Movie-App/" >
-              <HomePage />
+              <Home />
             </Route>
 
             <Route exact path="/TopRated">
               <TopRated />
             </Route>
+
+            <Route exact path="/Search">
+              <Search />
+            </Route>
+
 
             {/* <Route exact path="/Favourites" >
             <Favourites />
@@ -43,9 +48,6 @@ const App = () => {
             <WatchList />
           </Route>
 
-          <Route exact path="/Search">
-            <Search />
-          </Route>
 
 
           <Route exact path="/Movies/:id" component={Movies} />

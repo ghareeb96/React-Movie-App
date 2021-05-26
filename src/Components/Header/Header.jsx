@@ -23,17 +23,16 @@ const Nav = () => {
                 </Link>
                 </div>
 
-                <div className="search-bar">
-                    <input type="text" placeholder="Search Here ..." id="search-input" />
-                    <button id="search-btn">
-                        <i><Search className="icon" /></i>
-                    </button>
-
-                </div>
 
                 <div className="nav-links">
 
                     <ul>
+
+                        <li>
+                            <Link className="link" to="/Search">
+                                <i><Search className="icon" /></i>&nbsp; Search
+                        </Link>
+                        </li>
 
                         <li>
                             <Link className="link" to="/TopRated">
@@ -41,18 +40,20 @@ const Nav = () => {
                         </Link>
                         </li>
 
-
                         <li>
-                            <Link className="link" to="/WatchList">
-                                <i><AddToQueue className="icon" /></i>&nbsp; Watchlist
+                            <Link className="link" to="/MyLists">
+                                <i><Favorite className="icon" /></i>&nbsp; My Lists
                         </Link>
                         </li>
 
                         <li>
-                            <Link className="link" to="/Favourites">
-                                <i><Favorite className="icon" /></i>&nbsp; Favourites
-                        </Link>
+                            <Link className="link sign-in" to="/SignIn">
+                                <button className="btn sign-in-btn">
+                                    Sign In
+                            </button>
+                            </Link>
                         </li>
+
                     </ul>
                 </div>
 

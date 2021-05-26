@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import "./homePage.scss";
+import "./Home.scss";
 import CardsContainer from "../../Components/CardsContainer/CardsContainer"
 import Slider from "../../Components/Slider/Slider"
 import background from "./background.png"

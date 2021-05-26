@@ -25,55 +25,55 @@
             }
         }
 
-        .search-bar {
-            border: 1px solid #4d4d4d;
-            width: 220px;
-            padding: 10px;
-            border-radius: 25px;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
-            height: 35px;
-            background: #f0f0f0;
+        // .search-bar {
+        //     border: 1px solid #4d4d4d;
+        //     width: 220px;
+        //     padding: 10px;
+        //     border-radius: 25px;
+        //     display: flex;
+        //     flex-direction: row;
+        //     align-items: center;
+        //     justify-content: space-between;
+        //     height: 35px;
+        //     background: #f0f0f0;
 
 
-            input {
-                font-size: 0.9rem;
-                border: none;
-                outline: none;
-                letter-spacing: 1px;
-                width: 90%;
-                background: #f0f0f0;
+        //     input {
+        //         font-size: 0.9rem;
+        //         border: none;
+        //         outline: none;
+        //         letter-spacing: 1px;
+        //         width: 90%;
+        //         background: #f0f0f0;
 
-            }
+        //     }
 
-            button {
-                background: none;
-                border: none;
-                outline: none;
-                // height: 100%;
-                width: 10%;
-                cursor: pointer;
+        //     button {
+        //         background: none;
+        //         border: none;
+        //         outline: none;
+        //         // height: 100%;
+        //         width: 10%;
+        //         cursor: pointer;
 
-                i {
-                    font-size: 2rem;
-                }
-            }
+        //         i {
+        //             font-size: 2rem;
+        //         }
+        //     }
 
-            &:focus-within {
-                border: 1px solid $main-color;
+        //     &:focus-within {
+        //         border: 1px solid $main-color;
 
-                button {
-                    color: $main-color;
-                }
-            }
-        }
+        //         button {
+        //             color: $main-color;
+        //         }
+        //     }
+        // }
 
         .nav-links {
 
             ul {
-                width: 450px;
+                width: 500px;
                 display: flex;
                 flex-direction: row;
                 align-items: center;
@@ -120,6 +120,17 @@
                         }
                     }
 
+                }
+
+                .sign-in-btn {
+                    background: $main-color;
+                    color: white;
+                    font-size: 14px;
+                    padding: 0.4rem 0.6rem;
+                    border-radius: 5px;
+                    font-weight: 600;
+                    letter-spacing: 1px;
+                    margin-left: 20px;
                 }
             }
         }

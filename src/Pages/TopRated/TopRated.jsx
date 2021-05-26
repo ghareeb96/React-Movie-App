@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import "./TopRated.scss";
 import CardsContainer from "../../Components/CardsContainer/CardsContainer"
-import { ExpandMore } from '@material-ui/icons';
-
-
 
 const TopRated = () => {
     const api_key = "137436a3a883e2b94597a24e32d9d6b8";
@@ -46,16 +43,12 @@ const TopRated = () => {
                 <div>
                     <CardsContainer
                         items={topRatedMovies}
-                    // scroll_type="movie"
                     />
                 </div>
-                {/* <div className="more">
-                        <a href="#movie" >Load More</a>
-                    </div> */}
+
                 <button className="load-more" onClick={() => setMoviePage(movie_page + 1)}>See More</button>
             </div>
 
-            {/* <div className="divider"></div> */}
 
             <div className="section" id="tvContainer">
                 <div className="headline">
@@ -65,13 +58,10 @@ const TopRated = () => {
 
                     <CardsContainer
                         items={topRatedTV}
-                    // scroll_type="tv"
                     />
                 </div>
                 <button className="load-more" onClick={() => setTVPage(tv_page + 1)}>See More</button>
-                {/* <div className="load-more">
-                        <a href="#tv" >Load More</a>
-                    </div> */}
+
             </div>
         </div>
 
