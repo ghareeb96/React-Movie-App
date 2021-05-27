@@ -10,35 +10,8 @@
         width: 85%;
         margin: 0 auto;
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        grid-gap: 2rem;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        grid-gap: 3rem;
         justify-items: center;
     }
 }
-
-// .items-container {
-//     position: relative;
-//     background: rgba($tirtiary_color, 0.7);
-
-//     .scroll-handler {
-//         position: absolute;
-//     }
-// }
-
-// @media screen and (max-width : 930px) {
-//     .items-container {
-//         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-//     }
-// }
-
-// @media screen and (max-width : 768px) {
-//     .items-container {
-//         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-//     }
-// }
-
-// @media screen and (max-width : 410px) {
-//     .items-container {
-//         grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-//     }
-// }

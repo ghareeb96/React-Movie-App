@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import "./Header.scss";
 import Logo from "./Logo.png";
-import { AddToQueue, Star, Search, Favorite } from '@material-ui/icons';
+import { ArrowUpward, Star, Search, Favorite } from '@material-ui/icons';
 
 const Nav = () => {
 
@@ -16,7 +16,7 @@ const Nav = () => {
 
     })
     return (
-        <div className="header-container">
+        <div className="header-container" id="header">
             <header>
                 <div className="logo-container"><NavLink className="link" to="/React-Movie-App">
                     <img src={Logo} alt="Logo" />
@@ -58,6 +58,13 @@ const Nav = () => {
                 </div>
 
             </header>
+            <div className="back-to-top">
+                <a className="btn" href="#header">
+                    <i>
+                        <ArrowUpward className="icon" />
+                    </i>
+                </a>
+            </div>
         </div>
 
     )

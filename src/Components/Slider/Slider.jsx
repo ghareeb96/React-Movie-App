@@ -4,8 +4,8 @@ import Card from "../Card/Card"
 
 const Slider = ({ items }) => {
     const [sliderPos, setSliderPos] = useState(40)
-
-
+    const [stopSlide, setStopSlide] = useState(false)
+    let sliding
 
     const slideRight = () => {
         if (Math.abs(sliderPos) + window.innerWidth < 5000) {
@@ -18,15 +18,28 @@ const Slider = ({ items }) => {
     }
 
     useEffect(() => {
-        const sliding = setInterval(() => {
-            slideRight()
-        }, 2000);
-        return () => clearInterval(sliding);
+        if (!stopSlide) {
+            sliding = setInterval(() => {
+                slideRight()
+            }, 2000);
+            return () => clearInterval(sliding);
+        }
     }, [sliderPos]);
 
     return (
         <div className="slider">
-            <div className="slider-content">
+            <div
+                className="slider-content"
+                onMouseEnter={() => {
+                    setStopSlide(true)
+                    clearInterval(sliding)
+                }
+                }
+                onMouseLeave={() => {
+                    setStopSlide(false)
+                    slideRight()
+                }}
+            >
                 <div className="slider-cards-container" style={{ left: `${sliderPos}px` }}>
                     {items.map(item => (
                         <Card cardData={item}

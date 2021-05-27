@@ -10,8 +10,6 @@ import Home from './Pages/Home/Home';
 import TopRated from './Pages/TopRated/TopRated';
 import Search from './Pages/Search/Search';
 import MyLists from "./Pages/MyLists/MyLists"
-// import WatchList from './Pages/WatchListPage/WatchList';
-// import Favourites from './Pages/FavouritesPage/Favourites';
 // import Movies from './Pages/Movies/Movies';
 // import TVShows from './Pages/TVShows/TVShows';
 // import Persons from './Pages/Persons/Persons';
