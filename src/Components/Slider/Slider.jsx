@@ -1,21 +1,32 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import "./Slider.scss";
 import Card from "../Card/Card"
 
 const Slider = ({ items }) => {
-    const [sliderPos, setSliderPos] = useState(40)
+    const [sliderPos, setSliderPos] = useState(0)
+    const [sliderWidth, setSliderWidth] = useState(null)
+    const [slider, setSlider] = useState(null)
     const [stopSlide, setStopSlide] = useState(false)
     let sliding
 
     const slideRight = () => {
-        if (Math.abs(sliderPos) + window.innerWidth < 5000) {
-            setSliderPos(sliderPos - 250)
+        if (Math.abs(sliderPos) + window.innerWidth < sliderWidth) {
+            setSliderPos(sliderPos - sliderWidth / slider.children.length)
         } else {
-            setSliderPos(40)
+            setSliderPos(0)
         }
-        console.log(Math.abs(sliderPos) + window.innerWidth)
-
     }
+
+    useEffect(() => {
+        if (sliderWidth === null) {
+            const getWidth = setTimeout(() => {
+                setSliderWidth(slider.getBoundingClientRect().width)
+            },
+                2000)
+            return () => clearTimeout(getWidth)
+        }
+    }, [slider]);
+
 
     useEffect(() => {
         if (!stopSlide) {
@@ -24,11 +35,12 @@ const Slider = ({ items }) => {
             }, 2000);
             return () => clearInterval(sliding);
         }
-    }, [sliderPos]);
+    }, [sliderPos, sliderWidth]);
 
     return (
         <div className="slider">
             <div
+
                 className="slider-content"
                 onMouseEnter={() => {
                     setStopSlide(true)
@@ -40,22 +52,19 @@ const Slider = ({ items }) => {
                     slideRight()
                 }}
             >
-                <div className="slider-cards-container" style={{ left: `${sliderPos}px` }}>
+                <div
+                    className="slider-cards-container"
+                    style={{ left: `${sliderPos}px` }}
+                    ref={(el) => {
+                        setSlider(el)
+                    }}
+                >
                     {items.map(item => (
                         <Card cardData={item}
                             key={`${item.id} ${item.name ? item.name : item.title} `} />
                     ))}
                 </div>
             </div>
-            {/* <button className="left-slider" onClick={() => {
-                if (sliderPos < 90) {
-                    setSliderPos(sliderPos + 250)
-                }
-            }
-            }
-            ><i ><ArrowForwardIos className="icon" /></i></button>
-            <button className="right-slider" onClick={() => slideRight()}
-            ><i ><ArrowForwardIos className="icon" /></i></button> */}
         </div>
 
 

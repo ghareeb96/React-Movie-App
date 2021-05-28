@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import "./Persons.scss";
+import "./Person.scss";
 import { Link } from "react-router-dom";
 import { Planets } from 'react-preloaders';
-import ItemsContainer from '../ItemsContainer/ItemsContainer';
+// import ItemsContainer from '../ItemsContainer/ItemsContainer';
 
 const api_key = "137436a3a883e2b94597a24e32d9d6b8";
 
@@ -83,7 +83,7 @@ const Persons = ({ match }) => {
     if (credits) {
         return (
             <>
-                <div className="person-details">
+                {/* <div className="person-details">
                     <div className="details">
                         <div className="bg-img">
                         </div>
@@ -140,7 +140,7 @@ const Persons = ({ match }) => {
                     color="#fdc325"
                     background="#011A27"
                     customLoading={loading}
-                    time={2000} />
+                    time={2000} /> */}
             </>
 
         )

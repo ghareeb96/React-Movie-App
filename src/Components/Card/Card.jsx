@@ -31,10 +31,9 @@ const Card = ({ cardData }) => {
                         </h4>
                     </div>
 
-                    <Link to={`/${cardData.first_air_date ? "TVShows" :
-                        // cardData.episode_count ? `Seasons` :
-                        cardData.known_for_department ? "Persons" :
-                            "Movies"}/${cardData.id}`}
+                    <Link to={`/${cardData.first_air_date ? "TV" :
+                        cardData.known_for_department ? "Person" :
+                            "Movie"}/${cardData.id}`}
                         className="btn details-btn"
                     >
                         More Details

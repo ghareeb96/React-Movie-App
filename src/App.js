@@ -10,9 +10,9 @@ import Home from './Pages/Home/Home';
 import TopRated from './Pages/TopRated/TopRated';
 import Search from './Pages/Search/Search';
 import MyLists from "./Pages/MyLists/MyLists"
-// import Movies from './Pages/Movies/Movies';
-// import TVShows from './Pages/TVShows/TVShows';
-// import Persons from './Pages/Persons/Persons';
+import Movie from './Pages/Movie/Movie';
+import TV from './Pages/TV/TV';
+import Person from './Pages/Person/Person';
 
 
 const App = () => {
@@ -42,13 +42,11 @@ const App = () => {
               <MyLists />
             </Route>
 
+            <Route exact path="/Movie/:id" component={Movie} />
 
-            {/*
-          <Route exact path="/Movies/:id" component={Movies} />
+            <Route exact path="/TV/:id" component={TV} />
 
-          <Route exact path="/TVShows/:id" component={TVShows} />
-
-          <Route exact path="/Persons/:id" component={Persons} /> */}
+            <Route exact path="/Person/:id" component={Person} />
 
           </Switch>
 
