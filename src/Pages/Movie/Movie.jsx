@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import "./Movie.scss";
-import { Link } from "react-router-dom";
-import { Planets } from 'react-preloaders';
-// import ItemsContainer from '../ItemsContainer/ItemsContainer';
+// import { Link } from "react-router-dom";
+// import { Planets } from 'react-preloaders';
+import CardContainer from '../../Components/CardsContainer/CardsContainer';
+import Slider from "../../Components/Slider/Slider"
 
 const api_key = "137436a3a883e2b94597a24e32d9d6b8";
 
@@ -122,41 +123,32 @@ const Movies = ({ match }) => {
     if (movie.genres) {
         return (
             <>
-                {/* <div className="movie-details">
-                    <div className="details">
-                        <div className="bg-img">
+                <div className="details-page movie-page">
+
+                    <div className="details-container">
+                        <div className="background static-bg">
                             <img src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`} />
-                        </div>
-                        <div className="left-section">
-                            <div className="poster">
-                                <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="" />
-                            </div>
-                            <div className="btns">
-                                <button className={watchlisted ? "watch-list done" : "watch-list"} onClick={addToWatchlist}>{watchlisted ? "In Your Watchlist" : "Add To Watchlist"}</button>
-                                <button className={favourited ? "favourite done" : "favourite"} onClick={addToFav}>{favourited ? "Favourite" : "Add To Favourite"}</button>
-                            </div>
+                            <div className="background-overlay"></div>
                         </div>
 
-                        <div className="right-section">
-
-                            <div className="right-details">
-                                <div className="title">
-                                    <h1>
-                                        {`${movie.original_title}  (${movie.release_date.slice(0, 4)})`}
-                                    </h1>
+                        <div className="main-details">
+                            <div className="left-section">
+                                <div className="poster">
+                                    <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="" />
                                 </div>
+                                <div className="btn-container">
+                                    <button className={watchlisted ? "btn watchlist-btn btn-checked" : "btn watchlist-btn"} onClick={addToWatchlist}>{watchlisted ? "In Your Watchlist" : "Add To Watchlist"}</button>
+                                    <button className={favourited ? "btn favourite-btn btn-checked" : "btn favourite-btn"} onClick={addToFav}>{favourited ? "Favourite" : "Add To Favourite"}</button>
+                                </div>
+                            </div>
 
-                                {movie.tagline !== "" ?
-
-                                    <div className="tagline">
-                                        <h2>"{movie.tagline}"</h2>"
-                                    </div>
-
-                                    :
-                                    ""
-                                }
-
-
+                            <div className="right-section">
+                                <div className="title">
+                                    <h3>
+                                        {`${movie.original_title}`}
+                                        <span>{` (${movie.release_date.slice(0, 4)})`}</span>
+                                    </h3>
+                                </div>
                                 <div className="genres">
                                     <ul>
                                         {movie.genres.map(item => {
@@ -164,7 +156,32 @@ const Movies = ({ match }) => {
                                         })}
                                     </ul>
                                 </div>
-                                {movie.overview ?
+
+                                {movie.tagline !== "" ?
+
+                                    <div className="tagline">
+                                        <h5>"{movie.tagline}"</h5>
+                                    </div>
+
+                                    :
+                                    ""
+                                }
+
+                                {credits.length === 0 ? "" :
+                                    <div className="cast">
+                                        <div className="headline">
+                                            <h5>Cast</h5>
+                                        </div>
+                                        <div id="cast-slider">
+
+                                            <Slider
+                                                items={credits} />
+                                        </div>
+                                    </div>
+                                }
+
+
+                                {/* {movie.overview ?
                                     <div className="overview">
                                         <div className="left">
                                             <h2>Overview</h2>
@@ -173,19 +190,26 @@ const Movies = ({ match }) => {
                                             <p>{movie.overview}</p>
                                         </div>
                                     </div>
-                                    : ""}
+                                    : ""} */}
+                            </div>
 
-                                {credits.length === 0 ? "" :
-                                    <div className="cast">
-                                        <div className="top">
-                                            <h2>Cast</h2>
-                                        </div>
-                                        <div className="body">
-                                            <ItemsContainer
-                                                items={credits} />
-                                        </div>
-                                    </div>
-                                }
+                        </div>
+
+
+
+
+
+                        {/* <div >
+                            <div>
+
+
+
+
+
+
+
+
+
                                 {
                                     similar.length === 0 ? "" :
                                         <div className="similar">
@@ -193,7 +217,7 @@ const Movies = ({ match }) => {
                                                 <h2>Similar</h2>
                                             </div>
                                             <div className="body">
-                                                <ItemsContainer
+                                                <CardContainer
                                                     items={similar}
                                                 />
                                             </div>
@@ -207,17 +231,17 @@ const Movies = ({ match }) => {
                                                 <h2>Recommendations</h2>
                                             </div>
                                             <div className="body">
-                                                <ItemsContainer
+                                                <CardContainer
                                                     items={recommends} />
                                             </div>
                                         </div>
                                 }
                             </div>
-                        </div>
+                        </div> */}
 
 
                     </div>
-                </div> */}
+                </div>
 
             </>
 

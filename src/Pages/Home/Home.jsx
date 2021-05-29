@@ -62,8 +62,10 @@ const HomePage = () => {
                 <div className="headline">
                     <h3>Trending This Week</h3>
                 </div>
-                <Slider
-                    items={trending} />
+                <div id="trending-slider">
+                    <Slider
+                        items={trending} />
+                </div>
             </div>
             <div className="section" id="top-movies">
                 <div className="headline">

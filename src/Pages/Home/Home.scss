@@ -42,7 +42,7 @@
             justify-content: space-between;
 
             span {
-                color: $main-color;
+                color: $secondary-color;
             }
 
             h2 {
@@ -64,6 +64,13 @@
                 font-size: 6rem;
                 color: $main-color;
             }
+        }
+    }
+
+    #trending-section {
+        #trending-slider {
+            height: 400px;
+            @include fullWidth;
         }
     }
 }
