@@ -1,8 +1,8 @@
 @import "../../app.scss";
 
 .card {
-    width: 220px;
-    height: 350px;
+    width: 200px;
+    height: 320px;
     background-color: transparent;
     perspective: 1000px;
 
@@ -60,24 +60,24 @@
                     font-weight: 400;
                     text-align: center;
                     line-height: 3rem;
+                    font-size: clamp(1.2rem, 1.5rem, 1.8rem);
                 }
             }
 
             .details-btn {
                 height: 15%;
-                width: 100%;
+                width: 80%;
+                margin: 0 auto;
                 background: $main-color;
                 color: white;
-                border-radius: 5px;
+                border-radius: 3px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                font-size: 1.4rem;
-                letter-spacing: 1px;
+                letter-spacing: 0;
+                padding: 0.2rem;
                 font-weight: 600;
-
-
-
+                font-size: clamp(0.8rem, 1rem, 1.2rem);
             }
         }
 

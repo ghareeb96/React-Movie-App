@@ -6,6 +6,7 @@ import InputBase from '@material-ui/core/InputBase';
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 import CardsContainer from "../../Components/CardsContainer/CardsContainer"
+import { ExpandMore } from '@material-ui/icons';
 
 const api_key = "137436a3a883e2b94597a24e32d9d6b8";
 
@@ -144,7 +145,7 @@ const Search = () => {
                         <CardsContainer
                             items={searchedItems}
                         />
-                        <button className="load-more" onClick={() => setPage(page + 1)}>See More</button>
+                        <button className="load-more" onClick={() => setPage(page + 1)}><ExpandMore className="icon" /></button>
 
                     </div>
                     : ""

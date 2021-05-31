@@ -59,10 +59,11 @@ const Slider = ({ items }) => {
                         setSlider(el)
                     }}
                 >
-                    {items.map(item => (
-                        <Card cardData={item}
-                            key={`${item.id} ${item.name ? item.name : item.title} `} />
-                    ))}
+                    {items.filter(item => (item.poster_path || item.profile_path))
+                        .map(item => (
+                            <Card cardData={item}
+                                key={`${item.id} ${item.name ? item.name : item.title} `} />
+                        ))}
                 </div>
             </div>
         </div>

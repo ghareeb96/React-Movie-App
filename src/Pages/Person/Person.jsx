@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import "./Person.scss";
-import { Link } from "react-router-dom";
-import { Planets } from 'react-preloaders';
-// import ItemsContainer from '../ItemsContainer/ItemsContainer';
+import CardContainer from '../../Components/CardsContainer/CardsContainer';
+import Slider from "../../Components/Slider/Slider"
+import { FavoriteBorder, Favorite } from '@material-ui/icons';
 
 const api_key = "137436a3a883e2b94597a24e32d9d6b8";
 
@@ -15,7 +15,6 @@ const Persons = ({ match }) => {
     const [popular, setPopular] = useState([]);
     const [favourites, setFavourites] = useState([]);
     const [id, setId] = useState(match.params.id);
-    const [loading, setLoading] = useState(true)
 
 
     useEffect(() => {
@@ -50,13 +49,24 @@ const Persons = ({ match }) => {
         fetch(`https://api.themoviedb.org/3/person/${id}?api_key=${api_key}`)
             .then(res => res.json())
             .then(data => getPerson(data))
-            .then(setLoading(false))
     }
 
     const getCredits = () => {
+        const ids = [];
         fetch(`https://api.themoviedb.org/3/person/${id}/combined_credits?api_key=${api_key}`)
             .then(res => res.json())
-            .then(data => setCredits(data.cast))
+            .then(data => {
+                data.cast.map((item) => {
+                    if (ids.includes(item.id)) {
+                        return
+                    } else {
+                        setCredits(prev => [...prev, item])
+                        ids.push(item.id)
+                    }
+                })
+                // console.log(data)
+
+            })
     }
     const getPopular = () => {
         fetch(`https://api.themoviedb.org/3/person/popular?api_key=${api_key}`)
@@ -81,66 +91,80 @@ const Persons = ({ match }) => {
     }, [favourites])
 
     if (credits) {
+
         return (
             <>
-                {/* <div className="person-details">
-                    <div className="details">
-                        <div className="bg-img">
-                        </div>
-                        <div className="left-section">
-                            <div className="poster">
-                                <img src={`https://image.tmdb.org/t/p/w500${person.profile_path}`} alt="" />
-                            </div>
-                            <div className="btns">
-                                <button className={favourited ? "favourite done" : "favourite"} onClick={addToFav}>{favourited ? "Favourite" : "Add To Favourite"}</button>
-                            </div>
-                        </div>
 
-                        <div className="right-section">
+                <div className="details-page person-page">
+                    <div className="details-container">
 
-                            <div className="right-details">
-                                <div className="title">
-                                    <h1>
-                                        {person.name}
-                                    </h1>
+                        <div className="main-details">
+
+                            <div className="left-section">
+                                <div className="poster">
+                                    <img src={`https://image.tmdb.org/t/p/w500${person.profile_path}`} alt="" />
                                 </div>
-                                {
-                                    <div className="credits">
-                                        <div className="top">
-                                            <h2>Credits</h2>
-                                        </div>
-                                        <div className="body">
-                                            <ItemsContainer
-                                                items={credits} />
-                                        </div>
-                                    </div>
-                                }
+                                <div className="btn-container">
+                                    <button className={favourited ? "btn favourite-btn btn-checked" : "btn favourite-btn"} onClick={addToFav}>
+                                        {favourited ?
+                                            <div className="btn-content"><Favorite className="icon" /><span> Favourite</span></div>
+                                            : <div className="btn-content"><FavoriteBorder className="icon" /><span> Add To Favourite</span></div>
+                                        }</button>                            </div>
+                            </div>
 
+                            <div className="right-section">
+
+                                <div className="title">
+                                    <h3>
+                                        {person.name}
+                                    </h3>
+                                </div>
 
                                 {
-                                    <div className="popular">
-                                        <div className="top">
-                                            <h2>Popular Persons</h2>
+                                    person.biography ?
+                                        <div className="bio">
+                                            <div className="headline">
+                                                <h6>Biography</h6>
+                                            </div>
+                                            <p>
+                                                {person.biography}
+                                            </p>
                                         </div>
-                                        <div className="body">
-                                            <ItemsContainer
-                                                items={popular} />
-                                        </div>
-                                    </div>
+                                        :
+
+                                        ""
                                 }
 
 
                             </div>
                         </div>
 
+                        {
+                            <div className="credits">
+                                <div className="headline">
+                                    <h5>Works</h5>
+                                </div>
+                                <CardContainer
+                                    items={credits} />
+                            </div>
+                        }
+
+
+                        {
+                            <div className="popular">
+                                <div className="headline">
+                                    <h5>Popular Actors</h5>
+                                </div>
+
+                                <div className="popular-slider">
+                                    <Slider
+                                        items={popular} />
+                                </div>
+                            </div>
+                        }
 
                     </div>
                 </div>
-                <Planets
-                    color="#fdc325"
-                    background="#011A27"
-                    customLoading={loading}
-                    time={2000} /> */}
             </>
 
         )

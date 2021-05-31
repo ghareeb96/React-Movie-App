@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import "./TopRated.scss";
 import CardsContainer from "../../Components/CardsContainer/CardsContainer"
+import { ExpandMore } from '@material-ui/icons';
 
 const TopRated = () => {
     const api_key = "137436a3a883e2b94597a24e32d9d6b8";
@@ -46,7 +47,7 @@ const TopRated = () => {
                     />
                 </div>
 
-                <button className="load-more" onClick={() => setMoviePage(movie_page + 1)}>See More</button>
+                <button className="load-more" onClick={() => setMoviePage(movie_page + 1)}><ExpandMore className="icon" /></button>
             </div>
 
 
@@ -60,7 +61,7 @@ const TopRated = () => {
                         items={topRatedTV}
                     />
                 </div>
-                <button className="load-more" onClick={() => setTVPage(tv_page + 1)}>See More</button>
+                <button className="load-more" onClick={() => setTVPage(tv_page + 1)}><ExpandMore className="icon" /></button>
 
             </div>
         </div>

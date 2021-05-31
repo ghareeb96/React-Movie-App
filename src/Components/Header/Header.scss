@@ -3,7 +3,7 @@
 
 .header-container {
     @include fullWidth;
-    height: 100px;
+    height: 70px;
     background: #ffffff;
     box-shadow: 0 0 8px;
 
@@ -17,7 +17,7 @@
         justify-content: space-between;
 
         .logo-container {
-            width: 120px;
+            width: 100px;
 
             img {
                 width: 100%;

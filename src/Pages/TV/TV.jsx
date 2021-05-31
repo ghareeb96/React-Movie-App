@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import "./TV.scss";
-import { Planets } from 'react-preloaders';
-// import ItemsContainer from '../ItemsContainer/ItemsContainer';
-// import CloseIcon from '@material-ui/icons/Close';
+import { FavoriteBorder, Favorite, Queue, LibraryAddCheck } from '@material-ui/icons';
+import CardContainer from '../../Components/CardsContainer/CardsContainer';
+import Slider from "../../Components/Slider/Slider"
+
 const api_key = "137436a3a883e2b94597a24e32d9d6b8";
 
 
@@ -17,7 +18,6 @@ const TVShows = ({ match }) => {
     const [favourites, setFavourites] = useState([]);
     const [watchlist, setWatchlist] = useState([]);
     const [id, setId] = useState(match.params.id);
-    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         setId(match.params.id);
@@ -90,7 +90,6 @@ const TVShows = ({ match }) => {
         fetch(`https://api.themoviedb.org/3/tv/${id}/recommendations?api_key=${api_key}`)
             .then(res => res.json())
             .then(data => setRecommends(data.results))
-            .then(setLoading(false))
     }
     const getSeason = (season_no) => {
         fetch(`https://api.themoviedb.org/3/tv/${id}/season/${season_no}?api_key=${api_key}`)
@@ -140,31 +139,42 @@ const TVShows = ({ match }) => {
         return (
             <>
 
-                {/* <div className="tv-details">
+                <div className="details-page tv-page">
 
-                    <div className="details">
-                        <div className="bg-img">
+                    <div className="details-container">
+                        <div className="background static-bg">
                             <img src={`https://image.tmdb.org/t/p/w500${tvShow.backdrop_path}`} />
-                        </div>
-                        <div className="left-section">
-                            <div className="poster">
-                                <img src={`https://image.tmdb.org/t/p/w500${tvShow.poster_path}`} alt="" />
-                            </div>
-                            <div className="btns">
-                                <button className={watchlisted ? "watch-list done" : "watch-list"} onClick={addToWatchlist}>{watchlisted ? "In Your Watchlist" : "Add To Watchlist"}</button>
-                                <button className={favourited ? "favourite done" : "favourite"} onClick={addToFav}>{favourited ? "Favourite" : "Add To Favourite"}</button>
-                            </div>
+                            <div className="background-overlay"></div>
                         </div>
 
-                        <div className="right-section">
-
-                            <div className="right-details">
-                                <div className="title">
-                                    <h1>
-                                        {`${tvShow.original_name}  (${tvShow.first_air_date.slice(0, 4)} - ${tvShow.last_air_date.slice(0, 4)})`}
-                                    </h1>
+                        <div className="main-details">
+                            <div className="left-section">
+                                <div className="poster">
+                                    <img src={`https://image.tmdb.org/t/p/w500${tvShow.poster_path}`} alt="" />
                                 </div>
 
+                                <div className="btn-container">
+                                    <button className={watchlisted ? "btn watchlist-btn btn-checked" : "btn watchlist-btn"} onClick={addToWatchlist}>
+                                        {watchlisted ?
+                                            <div className="btn-content"><LibraryAddCheck className="icon" /><span> Watchlist</span></div>
+                                            : <div className="btn-content"><Queue className="icon" /><span> Add To Watchlist</span></div>}</button>
+                                    <button className={favourited ? "btn favourite-btn btn-checked" : "btn favourite-btn"} onClick={addToFav}>
+                                        {favourited ?
+                                            <div className="btn-content"><Favorite className="icon" /><span> Favourite</span></div>
+                                            : <div className="btn-content"><FavoriteBorder className="icon" /><span> Add To Favourite</span></div>
+                                        }</button>
+                                </div>
+                            </div>
+
+                            <div className="right-section">
+
+                                <div className="title">
+                                    <h3>
+                                        {`${tvShow.original_name}`}
+                                        <span>{` (${tvShow.first_air_date.slice(0, 4)} - ${tvShow.last_air_date.slice(0, 4)})`}</span>
+                                    </h3>
+
+                                </div>
 
                                 <div className="genres">
                                     <ul>
@@ -173,28 +183,29 @@ const TVShows = ({ match }) => {
                                         })}
                                     </ul>
                                 </div>
-                                {tvShow.overview ?
-                                    <div className="overview">
-                                        <div className="left">
-                                            <h2>Overview</h2>
-                                        </div>
-                                        <div className="right">
-                                            <p>{tvShow.overview}</p>
-                                        </div>
-                                    </div>
-                                    : ""}
+
+
                                 {credits.length === 0 ? "" :
                                     <div className="cast">
-                                        <div className="top">
-                                            <h2>Cast</h2>
+                                        <div className="headline">
+                                            <h5>Cast</h5>
                                         </div>
-                                        <div className="body">
-                                            <ItemsContainer
+                                        <div id="cast-slider">
+
+                                            <Slider
                                                 items={credits} />
                                         </div>
                                     </div>
+
+
                                 }
-                                {
+
+                                {tvShow.overview ?
+                                    <div className="overview">
+                                        <p>{tvShow.overview}</p>
+                                    </div>
+                                    : ""}
+                                {/* {
                                     tvShow.seasons.length === 0 ? "" :
                                         <div className="seasons">
                                             <div className="top">
@@ -220,11 +231,11 @@ const TVShows = ({ match }) => {
                                             </div>
                                         </div>
 
-                                }
+                                } */}
 
 
 
-                                <div className={`modal-container ${season.modal ? "open" : "close"}`} onClick={(e) => (e.target.classList.contains("open")) ? setSeason({ modal: false }) : ""}>
+                                {/* <div className={`modal-container ${season.modal ? "open" : "close"}`} onClick={(e) => (e.target.classList.contains("open")) ? setSeason({ modal: false }) : ""}>
                                     {season.season ?
                                         <div className="modal">
                                             <div className="close-btn" onClick={() => setSeason({ modal: false })}><CloseIcon className="close-icon" /></div>
@@ -253,48 +264,41 @@ const TVShows = ({ match }) => {
                                             </div>
                                         </div>
                                         : ""}
-                                </div>
+                                </div> */}
 
 
 
 
-                                {
-                                    similar.length === 0 ? "" :
-                                        <div className="similar">
-                                            <div className="top">
-                                                <h2>Similar</h2>
-                                            </div>
-                                            <div className="body">
 
-                                                <ItemsContainer
-                                                    items={similar} />
-                                            </div>
-                                        </div>
-                                }
-
-                                {
-                                    recommends.length === 0 ? "" :
-                                        <div className="recommends">
-                                            <div className="top">
-                                                <h2>Recommendations</h2>
-                                            </div>
-                                            <div className="body">
-                                                <ItemsContainer
-                                                    items={recommends} />
-                                            </div>
-                                        </div>
-                                }
                             </div>
                         </div>
 
-
                     </div>
+
+
+                    {
+                        similar.length === 0 ? "" :
+                            <div className="section similar-section">
+                                <div className="headline">
+                                    <h4>Similar</h4>
+                                </div>
+                                <CardContainer
+                                    items={similar}
+                                />
+                            </div>
+                    }
+
+                    {
+                        recommends.length === 0 ? "" :
+                            <div className="section recommends-section">
+                                <div className="headline">
+                                    <h4>Recommendations</h4>
+                                </div>
+                                <CardContainer
+                                    items={recommends} />
+                            </div>
+                    }
                 </div>
-                <Planets
-                    color="#fdc325"
-                    background="#011A27"
-                    customLoading={loading}
-                    time={2000} /> */}
             </>
         )
 

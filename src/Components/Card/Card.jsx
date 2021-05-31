@@ -36,7 +36,7 @@ const Card = ({ cardData }) => {
                             "Movie"}/${cardData.id}`}
                         className="btn details-btn"
                     >
-                        More Details
+                        View Details
             </Link>
                 </div>
             </div>

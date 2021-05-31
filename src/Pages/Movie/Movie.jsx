@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import "./Movie.scss";
-// import { Link } from "react-router-dom";
-// import { Planets } from 'react-preloaders';
+import { FavoriteBorder, Favorite, Queue, LibraryAddCheck } from '@material-ui/icons';
 import CardContainer from '../../Components/CardsContainer/CardsContainer';
 import Slider from "../../Components/Slider/Slider"
 
@@ -18,7 +17,6 @@ const Movies = ({ match }) => {
     const [favourites, setFavourites] = useState([]);
     const [watchlist, setWatchlist] = useState([]);
     const [id, setId] = useState(match.params.id);
-    const [loading, setLoading] = useState(true)
 
 
     useEffect(() => {
@@ -90,7 +88,6 @@ const Movies = ({ match }) => {
         fetch(`https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${api_key}`)
             .then(res => res.json())
             .then(data => setRecommends(data.results))
-            .then(setLoading(false))
     }
 
     useEffect(() => {
@@ -137,8 +134,15 @@ const Movies = ({ match }) => {
                                     <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="" />
                                 </div>
                                 <div className="btn-container">
-                                    <button className={watchlisted ? "btn watchlist-btn btn-checked" : "btn watchlist-btn"} onClick={addToWatchlist}>{watchlisted ? "In Your Watchlist" : "Add To Watchlist"}</button>
-                                    <button className={favourited ? "btn favourite-btn btn-checked" : "btn favourite-btn"} onClick={addToFav}>{favourited ? "Favourite" : "Add To Favourite"}</button>
+                                    <button className={watchlisted ? "btn watchlist-btn btn-checked" : "btn watchlist-btn"} onClick={addToWatchlist}>
+                                        {watchlisted ?
+                                            <div className="btn-content"><LibraryAddCheck className="icon" /><span> Watchlist</span></div>
+                                            : <div className="btn-content"><Queue className="icon" /><span> Add To Watchlist</span></div>}</button>
+                                    <button className={favourited ? "btn favourite-btn btn-checked" : "btn favourite-btn"} onClick={addToFav}>
+                                        {favourited ?
+                                            <div className="btn-content"><Favorite className="icon" /><span> Favourite</span></div>
+                                            : <div className="btn-content"><FavoriteBorder className="icon" /><span> Add To Favourite</span></div>
+                                        }</button>
                                 </div>
                             </div>
 
@@ -181,66 +185,38 @@ const Movies = ({ match }) => {
                                 }
 
 
-                                {/* {movie.overview ?
+                                {movie.overview ?
                                     <div className="overview">
-                                        <div className="left">
-                                            <h2>Overview</h2>
-                                        </div>
-                                        <div className="right">
-                                            <p>{movie.overview}</p>
-                                        </div>
+                                        <p>{movie.overview}</p>
                                     </div>
-                                    : ""} */}
+                                    : ""}
                             </div>
 
                         </div>
-
-
-
-
-
-                        {/* <div >
-                            <div>
-
-
-
-
-
-
-
-
-
-                                {
-                                    similar.length === 0 ? "" :
-                                        <div className="similar">
-                                            <div className="top">
-                                                <h2>Similar</h2>
-                                            </div>
-                                            <div className="body">
-                                                <CardContainer
-                                                    items={similar}
-                                                />
-                                            </div>
-                                        </div>
-                                }
-
-                                {
-                                    recommends.length === 0 ? "" :
-                                        <div className="recommends">
-                                            <div className="top">
-                                                <h2>Recommendations</h2>
-                                            </div>
-                                            <div className="body">
-                                                <CardContainer
-                                                    items={recommends} />
-                                            </div>
-                                        </div>
-                                }
-                            </div>
-                        </div> */}
-
-
                     </div>
+
+                    {
+                        similar.length === 0 ? "" :
+                            <div className="section similar-section">
+                                <div className="headline">
+                                    <h4>Similar</h4>
+                                </div>
+                                <CardContainer
+                                    items={similar}
+                                />
+                            </div>
+                    }
+
+                    {
+                        recommends.length === 0 ? "" :
+                            <div className="section recommends-section">
+                                <div className="headline">
+                                    <h4>Recommendations</h4>
+                                </div>
+                                <CardContainer
+                                    items={recommends} />
+                            </div>
+                    }
                 </div>
 
             </>

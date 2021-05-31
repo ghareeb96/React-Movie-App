@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import "./Header.scss";
 import Logo from "./Logo.png";
-import { ArrowUpward, Star, Search, Favorite } from '@material-ui/icons';
+import { ArrowUpward, Star, Search, List } from '@material-ui/icons';
 
 const Nav = () => {
 
@@ -42,7 +42,7 @@ const Nav = () => {
 
                         <li>
                             <NavLink className="link" to="/MyLists">
-                                <i><Favorite className="icon" /></i>&nbsp; My Lists
+                                <i><List className="icon" /></i>&nbsp; My Lists
                         </NavLink>
                         </li>
 
