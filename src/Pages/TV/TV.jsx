@@ -205,25 +205,21 @@ const TVShows = ({ match }) => {
                                         <p>{tvShow.overview}</p>
                                     </div>
                                     : ""}
-                                {/* {
+                                {
                                     tvShow.seasons.length === 0 ? "" :
                                         <div className="seasons">
-                                            <div className="top">
-                                                <h2>Seasons</h2>
+                                            <div className="headline">
+                                                <h6>
+                                                    Seasons
+                                                </h6>
                                             </div>
-                                            <div className="body">
-                                                {tvShow.seasons.filter(item => (item.poster_path || item.profile_path))
+                                            <div className="seasons-container">
+
+                                                {tvShow.seasons.filter(item => (item.poster_path))
                                                     .map(item => (
-                                                        <div className="season" key={item.id} onClick={() =>
-                                                            getSeason(item.season_number)
-                                                        }>
+                                                        <div className="season" key={item.id}>
                                                             <div className="img">
                                                                 <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} alt="poster" />
-                                                                <div className="popup">
-                                                                    <h2>
-                                                                        {item.name}
-                                                                    </h2>
-                                                                </div>
                                                             </div>
                                                         </div>
                                                     ))
@@ -231,45 +227,7 @@ const TVShows = ({ match }) => {
                                             </div>
                                         </div>
 
-                                } */}
-
-
-
-                                {/* <div className={`modal-container ${season.modal ? "open" : "close"}`} onClick={(e) => (e.target.classList.contains("open")) ? setSeason({ modal: false }) : ""}>
-                                    {season.season ?
-                                        <div className="modal">
-                                            <div className="close-btn" onClick={() => setSeason({ modal: false })}><CloseIcon className="close-icon" /></div>
-                                            <div className="modal-details">
-                                                <div className="season-title">
-                                                    <h1>{season.season.name}</h1>
-                                                </div>
-                                                <div className="middle">
-                                                    <div className="img">
-                                                        <img src={`https://image.tmdb.org/t/p/w500${season.season.poster_path}`} alt="" />
-                                                    </div>
-                                                    <div className="episodes">
-                                                        <h1>Episodes</h1>
-                                                        <ul>
-                                                            {season.season.episodes.map((item, index) => (
-                                                                <li>{`${index + 1} : ${item.name}`}</li>
-                                                            ))}
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                {season.season.overview ?
-                                                    <div className="season-overview">
-                                                        <p>{season.season.overview}</p>
-                                                    </div>
-                                                    : ""}
-                                            </div>
-                                        </div>
-                                        : ""}
-                                </div> */}
-
-
-
-
-
+                                }
                             </div>
                         </div>
 

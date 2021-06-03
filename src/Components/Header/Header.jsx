@@ -1,8 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import "./Header.scss";
 import Logo from "./Logo.png";
-import { ArrowUpward, Star, Search, List } from '@material-ui/icons';
+import { ArrowUpward, Star, Search, List, Menu } from '@material-ui/icons';
+
+import { gsap } from "gsap";
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 
 const Nav = () => {
 
@@ -15,9 +19,29 @@ const Nav = () => {
         }
 
     })
+    let header = useRef(null)
+    let headerContainer = useRef(null)
+
+    useEffect(() => {
+        gsap.to(header, {
+            scrollTrigger: {
+                trigger: header,
+                toggleClass: "show-btn",
+                start: "bottom+=100 top",
+                end: "bottom+=100000"
+            }
+        })
+    })
     return (
-        <div className="header-container" id="header">
-            <header>
+        <div className="header-container" id="header" ref={el => (headerContainer = el)}>
+            <header ref={el => (header = el)}>
+                <div className="back-to-top">
+                    <a className="btn" href="#header">
+                        <i>
+                            <ArrowUpward className="icon" />
+                        </i>
+                    </a>
+                </div>
                 <div className="logo-container"><NavLink className="link" to="/React-Movie-App">
                     <img src={Logo} alt="Logo" />
                 </NavLink>
@@ -48,7 +72,7 @@ const Nav = () => {
 
                         <li>
                             <Link className="link sign-in" to="/SignIn">
-                                <button className="btn sign-in-btn">
+                                <button disabled className="btn sign-in-btn">
                                     Sign In
                             </button>
                             </Link>
@@ -57,14 +81,10 @@ const Nav = () => {
                     </ul>
                 </div>
 
+                <div className="menu-btn" onClick={() => headerContainer.classList.toggle("active-header")}>
+                    <Menu className="icon menu-icon" id="menu-icon" />
+                </div>
             </header>
-            <div className="back-to-top">
-                <a className="btn" href="#header">
-                    <i>
-                        <ArrowUpward className="icon" />
-                    </i>
-                </a>
-            </div>
         </div>
 
     )

@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import "./Home.scss";
 import CardsContainer from "../../Components/CardsContainer/CardsContainer"
 import Slider from "../../Components/Slider/Slider"
 import background from "./background.png"
 import { ExpandMore } from '@material-ui/icons';
+
+import { gsap } from "gsap";
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 
 const HomePage = () => {
     const api_key = "137436a3a883e2b94597a24e32d9d6b8";
@@ -39,6 +43,22 @@ const HomePage = () => {
         get_trends();
     }, []);
 
+    let arrow = useRef(null)
+    useEffect(() => {
+        gsap.fromTo(arrow, {
+            y: 0,
+            opacity: 0.5
+        },
+            {
+                y: 40,
+                opacity: 1,
+                repeat: -1,
+                duration: 2,
+                delay: 0.5,
+                ease: gsap.linear
+            })
+    })
+
 
     return (
         <div className="home-page" >
@@ -53,9 +73,9 @@ const HomePage = () => {
                     <h2><span>Make</span> your own Watchlist</h2>
                 </div>
 
-                <button className="arrow">
+                <a href="#trending-section" className="arrow" ref={el => (arrow = el)}>
                     <i><ExpandMore className="icon" /></i>
-                </button>
+                </a>
             </div>
 
             <div className="section" id="trending-section">

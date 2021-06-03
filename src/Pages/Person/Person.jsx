@@ -53,6 +53,7 @@ const Persons = ({ match }) => {
 
     const getCredits = () => {
         const ids = [];
+        setCredits([]);
         fetch(`https://api.themoviedb.org/3/person/${id}/combined_credits?api_key=${api_key}`)
             .then(res => res.json())
             .then(data => {
@@ -64,8 +65,6 @@ const Persons = ({ match }) => {
                         ids.push(item.id)
                     }
                 })
-                // console.log(data)
-
             })
     }
     const getPopular = () => {

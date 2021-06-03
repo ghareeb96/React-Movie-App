@@ -1,7 +1,7 @@
 import React from 'react'
 import "./Card.scss";
 import { Link } from "react-router-dom";
-
+import { Star } from '@material-ui/icons';
 
 
 
@@ -23,12 +23,24 @@ const Card = ({ cardData }) => {
 
 
                 <div className="back-card">
-                    <div className="title">
-                        <h4>
-                            {cardData.name ?
-                                cardData.original_name ? cardData.original_name : cardData.name
-                                : cardData.original_title}
-                        </h4>
+                    <div className="card-info">
+
+                        <div className="title">
+                            <h4>
+                                {cardData.name ?
+                                    cardData.original_name ? cardData.original_name : cardData.name
+                                    : cardData.original_title}
+                            </h4>
+                        </div>
+                        {
+                            cardData.vote_average ?
+                                <div className="rate">
+                                    <Star className="icon" />
+                                    <span>{cardData.vote_average}</span>
+                                </div>
+
+                                : ""
+                        }
                     </div>
 
                     <Link to={`/${cardData.first_air_date ? "TV" :
