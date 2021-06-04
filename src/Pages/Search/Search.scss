@@ -98,6 +98,60 @@
     }
 }
 
+@media screen and (max-width : 900px) {
+    .search-page {
+
+        .search-options {
+
+            width: 60%;
+            margin: 0 auto;
+
+
+
+            .search-type {
+                .radio-group {
+                    flex-direction: column;
+                    align-items: flex-start;
+
+                    .radio-container {
+                        margin: 10px 25px 0 0;
+                    }
+
+
+
+                }
+            }
+
+        }
+    }
+}
+
+
+@media screen and (max-width : 600px) {
+    .search-page {
+
+        .search-options {
+
+            .search-type {
+                flex-direction: column;
+                align-items: flex-start;
+
+                .radio-group {
+                    margin-left: 50px;
+
+                    .radio-container {
+                        margin: 10px 25px 0 0;
+                    }
+
+
+
+                }
+            }
+
+        }
+    }
+}
+
 
 // .search {
 

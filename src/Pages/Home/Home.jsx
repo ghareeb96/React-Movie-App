@@ -97,7 +97,7 @@ const HomePage = () => {
             </div>
             <div className="section" id="top-series">
                 <div className="headline">
-                    <h3>Popular Series</h3>
+                    <h3>Popular Tv Shows</h3>
                 </div>
                 <CardsContainer
                     items={popularTV}

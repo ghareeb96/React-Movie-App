@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         alignItems: 'center',
         width: "60%",
+        minWidth: "300px",
         height: "60px",
         margin: "50px auto"
     },

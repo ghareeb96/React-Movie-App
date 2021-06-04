@@ -32,6 +32,12 @@ const Nav = () => {
             }
         })
     })
+
+    const hideNav = () => {
+        if (headerContainer.classList.contains("active-header")) {
+            headerContainer.classList.remove("active-header");
+        }
+    }
     return (
         <div className="header-container" id="header" ref={el => (headerContainer = el)}>
             <header ref={el => (header = el)}>
@@ -42,7 +48,7 @@ const Nav = () => {
                         </i>
                     </a>
                 </div>
-                <div className="logo-container"><NavLink className="link" to="/React-Movie-App">
+                <div className="logo-container"><NavLink className="link" to="/React-Movie-App" onClick={hideNav}>
                     <img src={Logo} alt="Logo" />
                 </NavLink>
                 </div>
@@ -53,25 +59,25 @@ const Nav = () => {
                     <ul>
 
                         <li>
-                            <NavLink className="link" to="/Search">
+                            <NavLink className="link" to="/Search" onClick={hideNav}>
                                 <i><Search className="icon" /></i>&nbsp; Search
                         </NavLink>
                         </li>
 
                         <li>
-                            <NavLink className="link" to="/TopRated">
+                            <NavLink className="link" to="/TopRated" onClick={hideNav}>
                                 <i><Star className="icon" /></i>&nbsp; Top Rated
                         </NavLink>
                         </li>
 
                         <li>
-                            <NavLink className="link" to="/MyLists">
+                            <NavLink className="link" to="/MyLists" onClick={hideNav}>
                                 <i><List className="icon" /></i>&nbsp; My Lists
                         </NavLink>
                         </li>
 
                         <li>
-                            <Link className="link sign-in" to="/SignIn">
+                            <Link className="link sign-in" to="/SignIn" onClick={hideNav}>
                                 <button disabled className="btn sign-in-btn">
                                     Sign In
                             </button>
