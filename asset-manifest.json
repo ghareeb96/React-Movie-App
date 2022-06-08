@@ -1,23 +1,22 @@
 {
   "files": {
-    "main.css": "/React-Movie-App/static/css/main.e666efd0.chunk.css",
-    "main.js": "/React-Movie-App/static/js/main.224fba5b.chunk.js",
-    "main.js.map": "/React-Movie-App/static/js/main.224fba5b.chunk.js.map",
-    "runtime-main.js": "/React-Movie-App/static/js/runtime-main.5e18f0ac.js",
-    "runtime-main.js.map": "/React-Movie-App/static/js/runtime-main.5e18f0ac.js.map",
-    "static/js/2.7c0926ab.chunk.js": "/React-Movie-App/static/js/2.7c0926ab.chunk.js",
-    "static/js/2.7c0926ab.chunk.js.map": "/React-Movie-App/static/js/2.7c0926ab.chunk.js.map",
+    "main.css": "/React-Movie-App/static/css/main.83550c1f.css",
+    "main.js": "/React-Movie-App/static/js/main.ac1a1807.js",
+    "static/media/background.png": "/React-Movie-App/static/media/background.a2c1699b14ef7ceeab7d.png",
+    "static/media/img.jpg": "/React-Movie-App/static/media/img.de5664ffab9fe6082a9b.jpg",
+    "static/media/search.svg": "/React-Movie-App/static/media/search.dcc917b4aaedba50220f7e8a520b49a2.svg",
+    "static/media/arrow-up.svg": "/React-Movie-App/static/media/arrow-up.3aa96e478bcbe55169905bd81b8ba763.svg",
+    "static/media/list.svg": "/React-Movie-App/static/media/list.a8ced0bf99e5c01a73f191058d00cf36.svg",
+    "static/media/menu.svg": "/React-Movie-App/static/media/menu.2e8b080c16d330d8c82f3b2e90f0f001.svg",
     "index.html": "/React-Movie-App/index.html",
-    "precache-manifest.06805943aab7d11785b2f36d90274185.js": "/React-Movie-App/precache-manifest.06805943aab7d11785b2f36d90274185.js",
-    "service-worker.js": "/React-Movie-App/service-worker.js",
-    "static/css/main.e666efd0.chunk.css.map": "/React-Movie-App/static/css/main.e666efd0.chunk.css.map",
-    "static/js/2.7c0926ab.chunk.js.LICENSE": "/React-Movie-App/static/js/2.7c0926ab.chunk.js.LICENSE",
-    "static/media/background.png": "/React-Movie-App/static/media/background.eb050f20.png"
+    "static/media/left-arrow.svg": "/React-Movie-App/static/media/left-arrow.c46368244a2098b56168ee50a7e8cde6.svg",
+    "static/media/right-arrow.svg": "/React-Movie-App/static/media/right-arrow.ce9d0c158f822728ecb9f307657606bb.svg",
+    "static/media/star.svg": "/React-Movie-App/static/media/star.0b2b733025d3c123092b5a066ccb8753.svg",
+    "main.83550c1f.css.map": "/React-Movie-App/static/css/main.83550c1f.css.map",
+    "main.ac1a1807.js.map": "/React-Movie-App/static/js/main.ac1a1807.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.5e18f0ac.js",
-    "static/js/2.7c0926ab.chunk.js",
-    "static/css/main.e666efd0.chunk.css",
-    "static/js/main.224fba5b.chunk.js"
+    "static/css/main.83550c1f.css",
+    "static/js/main.ac1a1807.js"
   ]
 }
