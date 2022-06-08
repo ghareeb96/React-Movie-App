@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import "./TV.scss";
 import { FavoriteBorder, Favorite, Queue, LibraryAddCheck } from '@material-ui/icons';
 import CardContainer from '../../Components/CardsContainer/CardsContainer';
 import Slider from "../../Components/Slider/Slider"
 
-const api_key = "137436a3a883e2b94597a24e32d9d6b8";
 
 
-const TVShows = ({ match }) => {
+const TVShows = ({ match, api_key }) => {
 
 
     const [tvShow, getTvShow] = useState({});
@@ -147,116 +145,123 @@ const TVShows = ({ match }) => {
                             <div className="background-overlay"></div>
                         </div>
 
-                        <div className="main-details">
-                            <div className="left-section">
-                                <div className="poster">
-                                    <img src={`https://image.tmdb.org/t/p/w500${tvShow.poster_path}`} alt="" />
+                        <div className="container">
+
+                            <div className="main-details">
+                                <div className="left-section">
+                                    <div className="poster">
+                                        <img src={`https://image.tmdb.org/t/p/w500${tvShow.poster_path}`} alt="" />
+                                    </div>
+
+                                    <div className="btn-container">
+                                        <button className={watchlisted ? "btn watchlist-btn btn-checked" : "btn watchlist-btn"} onClick={addToWatchlist}>
+                                            {watchlisted ?
+                                                <div className="btn-content"><LibraryAddCheck className="icon" /><span> Watchlist</span></div>
+                                                : <div className="btn-content"><Queue className="icon" /><span> Add To Watchlist</span></div>}</button>
+                                        <button className={favourited ? "btn favourite-btn btn-checked" : "btn favourite-btn"} onClick={addToFav}>
+                                            {favourited ?
+                                                <div className="btn-content"><Favorite className="icon" /><span> Favourite</span></div>
+                                                : <div className="btn-content"><FavoriteBorder className="icon" /><span> Add To Favourite</span></div>
+                                            }</button>
+                                    </div>
                                 </div>
 
-                                <div className="btn-container">
-                                    <button className={watchlisted ? "btn watchlist-btn btn-checked" : "btn watchlist-btn"} onClick={addToWatchlist}>
-                                        {watchlisted ?
-                                            <div className="btn-content"><LibraryAddCheck className="icon" /><span> Watchlist</span></div>
-                                            : <div className="btn-content"><Queue className="icon" /><span> Add To Watchlist</span></div>}</button>
-                                    <button className={favourited ? "btn favourite-btn btn-checked" : "btn favourite-btn"} onClick={addToFav}>
-                                        {favourited ?
-                                            <div className="btn-content"><Favorite className="icon" /><span> Favourite</span></div>
-                                            : <div className="btn-content"><FavoriteBorder className="icon" /><span> Add To Favourite</span></div>
-                                        }</button>
-                                </div>
-                            </div>
+                                <div className="right-section">
 
-                            <div className="right-section">
+                                    <div className="title">
+                                        <h3>
+                                            {`${tvShow.original_name}`}
+                                            <span>{` (${tvShow.first_air_date.slice(0, 4)} - ${tvShow.last_air_date.slice(0, 4)})`}</span>
+                                        </h3>
 
-                                <div className="title">
-                                    <h3>
-                                        {`${tvShow.original_name}`}
-                                        <span>{` (${tvShow.first_air_date.slice(0, 4)} - ${tvShow.last_air_date.slice(0, 4)})`}</span>
-                                    </h3>
+                                    </div>
 
-                                </div>
-
-                                <div className="genres">
-                                    <ul>
-                                        {tvShow.genres.map(item => {
-                                            return (<li key={item.id} >{item.name}</li>)
-                                        })}
-                                    </ul>
-                                </div>
-
-
-                                {credits.length === 0 ? "" :
-                                    <div className="cast">
-                                        <div className="headline">
-                                            <h5>Cast</h5>
-                                        </div>
-                                        <div id="cast-slider">
-
-                                            <Slider
-                                                items={credits} />
-                                        </div>
+                                    <div className="genres">
+                                        <ul>
+                                            {tvShow.genres.map(item => {
+                                                return (<li key={item.id} >{item.name}</li>)
+                                            })}
+                                        </ul>
                                     </div>
 
 
-                                }
-
-                                {tvShow.overview ?
-                                    <div className="overview">
-                                        <p>{tvShow.overview}</p>
-                                    </div>
-                                    : ""}
-                                {
-                                    tvShow.seasons.length === 0 ? "" :
-                                        <div className="seasons">
+                                    {credits.length === 0 ? "" :
+                                        <div className="cast">
                                             <div className="headline">
-                                                <h6>
-                                                    Seasons
-                                                </h6>
+                                                <h5>Cast</h5>
                                             </div>
-                                            <div className="seasons-container">
+                                            <div id="cast-slider">
 
-                                                {tvShow.seasons.filter(item => (item.poster_path))
-                                                    .map(item => (
-                                                        <div className="season" key={item.id}>
-                                                            <div className="img">
-                                                                <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} alt="poster" />
-                                                            </div>
-                                                        </div>
-                                                    ))
-                                                }
+                                                <Slider
+                                                    items={credits}
+                                                    container='cast-slider'
+                                                    fullWidth={false} />
                                             </div>
                                         </div>
 
-                                }
-                            </div>
-                        </div>
 
+                                    }
+
+                                    {tvShow.overview ?
+                                        <div className="overview">
+                                            <p>{tvShow.overview}</p>
+                                        </div>
+                                        : ""}
+                                    {
+                                        tvShow.seasons.length === 0 ? "" :
+                                            <div className="seasons">
+                                                <div className="headline">
+                                                    <h6>
+                                                        Seasons
+                                                    </h6>
+                                                </div>
+                                                <div className="seasons-container">
+
+                                                    {tvShow.seasons.filter(item => (item.poster_path))
+                                                        .map(item => (
+                                                            <div className="season" key={item.id}>
+                                                                <div className="img">
+                                                                    <img src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} alt="poster" />
+                                                                </div>
+                                                            </div>
+                                                        ))
+                                                    }
+                                                </div>
+                                            </div>
+
+                                    }
+                                </div>
+                            </div>
+
+
+
+                            {
+                                similar.length === 0 ? "" :
+                                    <div className="section similar-section">
+                                        <div className="headline">
+                                            <h4>Similar</h4>
+                                        </div>
+                                        <CardContainer
+                                            items={similar}
+                                        />
+                                    </div>
+                            }
+
+                            {
+                                recommends.length === 0 ? "" :
+                                    <div className="section recommends-section">
+                                        <div className="headline">
+                                            <h4>Recommendations</h4>
+                                        </div>
+                                        <CardContainer
+                                            items={recommends} />
+                                    </div>
+                            }
+                        </div>
                     </div>
 
-
-                    {
-                        similar.length === 0 ? "" :
-                            <div className="section similar-section">
-                                <div className="headline">
-                                    <h4>Similar</h4>
-                                </div>
-                                <CardContainer
-                                    items={similar}
-                                />
-                            </div>
-                    }
-
-                    {
-                        recommends.length === 0 ? "" :
-                            <div className="section recommends-section">
-                                <div className="headline">
-                                    <h4>Recommendations</h4>
-                                </div>
-                                <CardContainer
-                                    items={recommends} />
-                            </div>
-                    }
                 </div>
+
             </>
         )
 

@@ -5,9 +5,10 @@
     height: 320px;
     background-color: transparent;
     perspective: 1000px;
+    
 
     &:hover .inner-card {
-        transform: rotateY(180deg) scale(1.1);
+        transform: rotateY(180deg);
     }
 
     .inner-card {
@@ -64,7 +65,8 @@
                     font-weight: 400;
                     text-align: center;
                     line-height: 2rem;
-                    font-size: clamp(1.2rem, 1.5rem, 1.8rem);
+                    font-size: 1.2rem;
+                    letter-spacing: 0;
                 }
             }
 
@@ -74,9 +76,9 @@
                 margin-top: 15px;
 
                 .icon {
-                    color: rgb(255, 230, 0);
+                    color: rgb(255, 217, 0);
                     margin-right: 10px;
-                    font-size: 1.8rem;
+                    width: 30px;
                 }
 
                 span {
@@ -87,7 +89,7 @@
 
             .details-btn {
                 height: 15%;
-                width: 80%;
+                width: 100%;
                 margin: 0 auto;
                 background: $main-color;
                 color: white;

@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react'
 import "./Watchlist.scss";
 import CardsContainer from '../CardsContainer/CardsContainer';
 
-const api_key = "137436a3a883e2b94597a24e32d9d6b8";
 
-const WatchList = () => {
+const WatchList = ({api_key}) => {
 
     const [storedItems, setItem] = useState([]);
 

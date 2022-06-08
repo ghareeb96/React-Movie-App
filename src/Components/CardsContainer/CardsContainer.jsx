@@ -15,13 +15,9 @@ const CardsContainer = ({ items }) => {
                     .map((item) => (
                         <Card
                             cardData={item}
-                            // type={`${item.first_air_date ? "tvShow" :
-                            //     item.known_for_department ? "person" : "movie"}`}
                             key={`${item.id} ${item.name ? item.name : item.title} `}
-                        // detailsId={detailsId}
                         />
                     ))}
-                {/* <div className="scroll-handler" id={`${scroll_type === "movie" ? "movie" : "tv"}`} style={{ top: (window.scrollY - 94) + "px" }}></div> */}
             </div>
         </div>
     )

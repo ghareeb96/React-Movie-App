@@ -16,44 +16,43 @@ import Person from './Pages/Person/Person';
 
 
 const App = () => {
+  const api_key = process.env.REACT_APP_API_KEY;
 
 
   return (
     <div >
-      <div className="container">
 
         <Router>
           <Header />
           <Switch>
 
             <Route exact path="/React-Movie-App/" >
-              <Home />
+              <Home api_key = {api_key}/>
             </Route>
 
             <Route exact path="/TopRated">
-              <TopRated />
+              <TopRated api_key = {api_key} />
             </Route>
 
             <Route exact path="/Search">
-              <Search />
+              <Search api_key = {api_key} />
             </Route>
 
             <Route exact path="/MyLists">
-              <MyLists />
+              <MyLists api_key = {api_key} />
             </Route>
 
-            <Route exact path="/Movie/:id" component={Movie} />
+            <Route exact path="/Movie/:id" render={(props)=> <Movie {...props} api_key={api_key} />} />
 
-            <Route exact path="/TV/:id" component={TV} />
+            <Route exact path="/TV/:id" render={(props)=> <TV {...props} api_key={api_key} />} />
 
-            <Route exact path="/Person/:id" component={Person} />
+            <Route exact path="/Person/:id" render={(props)=> <Person {...props} api_key={api_key} />} />
 
           </Switch>
 
         </Router>
       </div>
 
-    </div>
   )
 }
 

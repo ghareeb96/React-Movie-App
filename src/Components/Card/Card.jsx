@@ -2,6 +2,7 @@ import React from 'react'
 import "./Card.scss";
 import { Link } from "react-router-dom";
 import { Star } from '@material-ui/icons';
+import img from './img.jpg'
 
 
 
@@ -12,6 +13,7 @@ const Card = ({ cardData }) => {
             <div className="inner-card">
                 <div className="front-card">
                     <div className="img">
+                        {/* <img src={img} alt="poster" /> */}
                         {cardData.poster_path ?
                             <img src={`https://image.tmdb.org/t/p/w500${cardData.poster_path}`} alt="poster" />
                             :

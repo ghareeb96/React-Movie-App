@@ -3,8 +3,8 @@ import "./TopRated.scss";
 import CardsContainer from "../../Components/CardsContainer/CardsContainer"
 import { ExpandMore } from '@material-ui/icons';
 
-const TopRated = () => {
-    const api_key = "137436a3a883e2b94597a24e32d9d6b8";
+const TopRated = ({api_key}) => {
+    
     const [movie_page, setMoviePage] = useState(1);
     const [tv_page, setTVPage] = useState(1);
 

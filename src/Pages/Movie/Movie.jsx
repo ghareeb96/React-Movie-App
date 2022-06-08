@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import "./Movie.scss";
 import { FavoriteBorder, Favorite, Queue, LibraryAddCheck } from '@material-ui/icons';
 import CardContainer from '../../Components/CardsContainer/CardsContainer';
 import Slider from "../../Components/Slider/Slider"
 
-const api_key = "137436a3a883e2b94597a24e32d9d6b8";
 
 
-const Movies = ({ match }) => {
+
+const Movies = ({ match, api_key }) => {
 
 
     const [movie, getMovie] = useState({});
@@ -124,100 +123,107 @@ const Movies = ({ match }) => {
 
                     <div className="details-container">
                         <div className="background static-bg">
-                            <img src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`} />
+                            <img src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`} alt='poster background' />
                             <div className="background-overlay"></div>
                         </div>
 
-                        <div className="main-details">
-                            <div className="left-section">
-                                <div className="poster">
-                                    <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="" />
-                                </div>
-                                <div className="btn-container">
-                                    <button className={watchlisted ? "btn watchlist-btn btn-checked" : "btn watchlist-btn"} onClick={addToWatchlist}>
-                                        {watchlisted ?
-                                            <div className="btn-content"><LibraryAddCheck className="icon" /><span> Watchlist</span></div>
-                                            : <div className="btn-content"><Queue className="icon" /><span> Add To Watchlist</span></div>}</button>
-                                    <button className={favourited ? "btn favourite-btn btn-checked" : "btn favourite-btn"} onClick={addToFav}>
-                                        {favourited ?
-                                            <div className="btn-content"><Favorite className="icon" /><span> Favourite</span></div>
-                                            : <div className="btn-content"><FavoriteBorder className="icon" /><span> Add To Favourite</span></div>
-                                        }</button>
-                                </div>
-                            </div>
+                        <div className="container">
 
-                            <div className="right-section">
-                                <div className="title">
-                                    <h3>
-                                        {`${movie.original_title}`}
-                                        <span>{` (${movie.release_date.slice(0, 4)})`}</span>
-                                    </h3>
-                                </div>
-                                <div className="genres">
-                                    <ul>
-                                        {movie.genres.map(item => {
-                                            return (<li key={item.id} >{item.name}</li>)
-                                        })}
-                                    </ul>
+                            <div className="main-details">
+                                <div className="left-section">
+                                    <div className="poster">
+                                        <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="poster" />
+                                    </div>
+                                    <div className="btn-container">
+                                        <button className={watchlisted ? "btn watchlist-btn btn-checked" : "btn watchlist-btn"} onClick={addToWatchlist}>
+                                            {watchlisted ?
+                                                <div className="btn-content"><LibraryAddCheck className="icon" /><span> Watchlist</span></div>
+                                                : <div className="btn-content"><Queue className="icon" /><span> Add To Watchlist</span></div>}</button>
+                                        <button className={favourited ? "btn favourite-btn btn-checked" : "btn favourite-btn"} onClick={addToFav}>
+                                            {favourited ?
+                                                <div className="btn-content"><Favorite className="icon" /><span> Favourite</span></div>
+                                                : <div className="btn-content"><FavoriteBorder className="icon" /><span> Add To Favourite</span></div>
+                                            }</button>
+                                    </div>
                                 </div>
 
-                                {movie.tagline !== "" ?
-
-                                    <div className="tagline">
-                                        <h5>"{movie.tagline}"</h5>
+                                <div className="right-section">
+                                    <div className="title">
+                                        <h3>
+                                            {`${movie.original_title}`}
+                                            <span>{` (${movie.release_date.slice(0, 4)})`}</span>
+                                        </h3>
+                                    </div>
+                                    <div className="genres">
+                                        <ul>
+                                            {movie.genres.map(item => {
+                                                return (<li key={item.id} >{item.name}</li>)
+                                            })}
+                                        </ul>
                                     </div>
 
-                                    :
-                                    ""
-                                }
+                                    {movie.tagline !== "" ?
 
-                                {credits.length === 0 ? "" :
-                                    <div className="cast">
+                                        <div className="tagline">
+                                            <h5>"{movie.tagline}"</h5>
+                                        </div>
+
+                                        :
+                                        ""
+                                    }
+
+                                    {credits.length === 0 ? "" :
+                                        <div className="cast" >
+                                            <div className="headline">
+                                                <h5>Cast</h5>
+                                            </div>
+
+                                            <div id="cast-slider">
+                                                <Slider
+                                                    items={credits}
+                                                    container='cast-slider'
+                                                    fullWidth={false}
+                                                />
+                                            </div>
+                                        </div>
+                                    }
+
+
+                                    {movie.overview ?
+                                        <div className="overview">
+                                            <p>{movie.overview}</p>
+                                        </div>
+                                        : ""}
+                                </div>
+
+                            </div>
+
+                            {
+                                similar.length === 0 ? "" :
+                                    <div className="section similar-section">
                                         <div className="headline">
-                                            <h5>Cast</h5>
+                                            <h4>Similar</h4>
                                         </div>
-                                        <div id="cast-slider">
+                                        <CardContainer
+                                            items={similar}
+                                        />
+                                    </div>
+                            }
 
-                                            <Slider
-                                                items={credits} />
+                            {
+                                recommends.length === 0 ? "" :
+                                    <div className="section recommends-section">
+                                        <div className="headline">
+                                            <h4>Recommendations</h4>
                                         </div>
+                                        <CardContainer
+                                            items={recommends} />
                                     </div>
-                                }
-
-
-                                {movie.overview ?
-                                    <div className="overview">
-                                        <p>{movie.overview}</p>
-                                    </div>
-                                    : ""}
-                            </div>
-
+                            }
                         </div>
                     </div>
-
-                    {
-                        similar.length === 0 ? "" :
-                            <div className="section similar-section">
-                                <div className="headline">
-                                    <h4>Similar</h4>
-                                </div>
-                                <CardContainer
-                                    items={similar}
-                                />
-                            </div>
-                    }
-
-                    {
-                        recommends.length === 0 ? "" :
-                            <div className="section recommends-section">
-                                <div className="headline">
-                                    <h4>Recommendations</h4>
-                                </div>
-                                <CardContainer
-                                    items={recommends} />
-                            </div>
-                    }
                 </div>
+
 
             </>
 

@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import "./Favourites.scss";
 import CardsContainer from '../CardsContainer/CardsContainer';
-const api_key = "137436a3a883e2b94597a24e32d9d6b8";
 
-const Favourites = () => {
+const Favourites = ({api_key}) => {
 
     const [storedItems, setItem] = useState([]);
 

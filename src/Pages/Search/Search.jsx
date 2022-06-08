@@ -8,7 +8,6 @@ import SearchIcon from '@material-ui/icons/Search';
 import CardsContainer from "../../Components/CardsContainer/CardsContainer"
 import { ExpandMore } from '@material-ui/icons';
 
-const api_key = "137436a3a883e2b94597a24e32d9d6b8";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -35,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const Search = () => {
+const Search = ({api_key}) => {
 
     const [searchedItems, setSearchedItems] = useState([]);
     const [searchText, setSearchText] = useState("");

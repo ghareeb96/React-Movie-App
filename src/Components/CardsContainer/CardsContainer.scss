@@ -1,17 +1,13 @@
 @import "../../app.scss";
 
 .cards-section {
-    @include fullWidth;
-    background: $section-background;
-    padding: 2rem 0;
-    margin-top: 50px;
 
     .cards-container {
-        width: 85%;
-        margin: 0 auto;
+        width: 100%;
+        margin: 0 auto 100px auto;
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-        grid-gap: 3rem;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-gap: 2rem 1rem;
         justify-items: center;
     }
 }

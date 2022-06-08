@@ -2,90 +2,82 @@
 
 
 .slider {
-    width: 100%;
     height: 100%;
-    background: $section-background;
-    overflow: hidden;
+    width: 100%;
+    @include fullWidth;
+    position: relative;
 
-    .slider-content {
-        position: relative;
+    .arrow-container {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
         height: 100%;
+        width: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+        background: rgb(255, 255, 255);
+        opacity: 1;
+        cursor: pointer;
+        transition: all 0.2s linear;
 
-        .slider-cards-container {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            transition: all 0.6s ease-out;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
 
-            .card {
-                display: flex;
-                align-items: center;
-                justify-content: center;
+        &.right-arrow-container {
+            right: 0;
+            left: auto;
+        }
 
-                .inner-card {
-                    width: 85%;
-                    height: 85%;
-                }
+        .icon {
+            width: 30px;
+            opacity: 0.5;
+            transition: all 0.2s linear;
+
+        }
+
+        &:hover {
+            .icon {
+                opacity: 1;
             }
         }
     }
 
-    // button {
-    //     position: absolute;
-    //     height: 100%;
-    //     top: 0;
-    //     left: 0;
-    //     width: 80px;
-    //     border: none;
-    //     outline: none;
-    //     cursor: pointer;
-    //     display: flex;
-    //     align-items: center;
-    //     justify-content: center;
 
-    // i {
-    //     position: relative;
-
-    //     &:before {
-    //         content: "";
-    //         position: absolute;
-    //         top: 0;
-    //         left: 0;
-    //         border-radius: 50%;
-    //         width: 100%;
-    //         height: 100%;
-    //         background: rgba(#aaa, 0.5);
-
-    //     }
-
-    // }
-
-    // .icon {
-    //     font-size: 3rem;
-    //     // color: $main-color;
-    // }
-
-    // &.right-slider {
-    //     right: 0;
-    //     left: auto;
-    //     background: rgb(255, 255, 255);
-    //     background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 80%);
-    // }
-
-    // &.left-slider {
-    //     background: rgb(255, 255, 255);
-    //     background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 80%);
-
-    //     i {
-    //         transform: rotate(180deg);
-    //     }
-    // }
-    // }
+    .slider-items {
+        width: fit-content;
+        display: flex;
+        flex-direction: row;
+        transition: all 1s linear;
 
 
+        .card-container {
+            height: 400px;
+            width: 300px;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
+        }
 
+    }
 }
+
+@media screen and ( max-width : 800px ){
+    .slider {
+
+        .arrow-container {
+            width: 50px;
+
+    
+            .icon {
+                width: 15px;
+    
+            }
+
+        }
+
+    }
+}
+ 

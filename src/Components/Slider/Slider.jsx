@@ -1,73 +1,92 @@
 import React, { useState, useEffect, useRef } from 'react'
 import "./Slider.scss";
+import { ReactComponent as RightArrow } from './right-arrow.svg'
+import { ReactComponent as LeftArrow } from './left-arrow.svg'
 import Card from "../Card/Card"
 
-const Slider = ({ items }) => {
-    const [sliderPos, setSliderPos] = useState(0)
-    const [sliderWidth, setSliderWidth] = useState(null)
-    const [slider, setSlider] = useState(null)
-    const [stopSlide, setStopSlide] = useState(false)
-    let sliding
+const Slider = ({ items, container, fullWidth }) => {
 
-    const slideRight = () => {
-        if (Math.abs(sliderPos) + window.innerWidth < sliderWidth) {
-            setSliderPos(sliderPos - sliderWidth / slider.children.length)
-        } else {
-            setSliderPos(0)
+    let sliderWidth = useRef(null)
+    const initialPosition = 
+    fullWidth ? (window.innerWidth <= 800 ? 50 : 100)
+        : 50
+    
+    const [sliderPosition, setSliderPosition] = useState(initialPosition)
+
+    const renderedItems =
+        window.innerWidth <= 600 ? 1 :
+            window.innerWidth <= 800 ? 2 :
+                window.innerWidth <= 1000 ? 3 :
+                    window.innerWidth <= 1200 ? 4 : 5
+
+
+    const cardWidth = fullWidth ?
+        window.innerWidth <= 800 ? (window.innerWidth - 100) / renderedItems : (window.innerWidth - 200) / renderedItems
+        :
+        (document.getElementById(container)?.clientWidth - 100) / renderedItems
+
+
+
+    const leftSlide = () => {
+        if (sliderPosition < 50) {
+            setSliderPosition(sliderPosition + cardWidth)
         }
     }
 
-    useEffect(() => {
-        if (sliderWidth === null) {
-            const getWidth = setTimeout(() => {
-                setSliderWidth(slider.getBoundingClientRect().width)
-            },
-                2000)
-            return () => clearTimeout(getWidth)
+    const rightSlide = () => {
+        if(fullWidth){
+            if (Math.abs(sliderPosition - window.innerWidth) >= document.querySelector(".slider-items").getBoundingClientRect().width) {
+                setSliderPosition(initialPosition)
+            }
+            else {
+                setSliderPosition(sliderPosition - cardWidth)
+            }
+        }else{
+            const cardWidth = ((document.getElementById(container)?.clientWidth - 100) / renderedItems)
+
+            if (Math.abs(sliderPosition - document.getElementById(container)?.clientWidth) >= document.querySelector(".slider-items").getBoundingClientRect().width) {
+                setSliderPosition(initialPosition)
+            }
+            else {
+                setSliderPosition(sliderPosition - cardWidth)
+            }
         }
-    }, [slider]);
+    }
 
 
+
     useEffect(() => {
-        if (!stopSlide) {
-            sliding = setInterval(() => {
-                slideRight()
-            }, 2000);
-            return () => clearInterval(sliding);
-        }
-    }, [sliderPos, sliderWidth]);
+        let sliding = setInterval(() => {
+            rightSlide()
+        }, 4000);
+        return () => clearInterval(sliding)
+    }, [sliderPosition]);
+
 
     return (
-        <div className="slider">
-            <div
 
-                className="slider-content"
-                onMouseEnter={() => {
-                    setStopSlide(true)
-                    clearInterval(sliding)
-                }
-                }
-                onMouseLeave={() => {
-                    setStopSlide(false)
-                    slideRight()
-                }}
-            >
-                <div
-                    className="slider-cards-container"
-                    style={{ left: `${sliderPos}px` }}
-                    ref={(el) => {
-                        setSlider(el)
-                    }}
-                >
-                    {items.filter(item => (item.poster_path || item.profile_path))
+
+        <div className="slider" ref={el => sliderWidth = el}>
+            <div className="arrow-container left-arrow-container" onClick={leftSlide}>
+                <LeftArrow className='icon left-arrow' />
+            </div>
+            <div className="arrow-container right-arrow-container" onClick={rightSlide}>
+                <RightArrow className='icon right-arrow' />
+            </div>
+
+            <div className="slider-items" style={{ transform: `translateX(${sliderPosition}px)` }}>
+                {
+                    items.filter(item => (item.poster_path || item.profile_path))
                         .map(item => (
-                            <Card cardData={item}
-                                key={`${item.id} ${item.name ? item.name : item.title} `} />
-                        ))}
-                </div>
+                            <div className="card-container" style={{ width: cardWidth }}>
+
+                                <Card cardData={item}
+                                    key={`${item.id} ${item.name ? item.name : item.title} `} />
+                            </div>
+                        ))
+                }
             </div>
         </div>
-
 
     )
 }

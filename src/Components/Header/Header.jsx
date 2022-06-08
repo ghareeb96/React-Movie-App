@@ -2,96 +2,99 @@ import React, { useEffect, useRef } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import "./Header.scss";
 import Logo from "./Logo.png";
-import { ArrowUpward, Star, Search, List, Menu } from '@material-ui/icons';
-
+import { ReactComponent as Search } from './search.svg'
+import { ReactComponent as ArrowUp } from './arrow-up.svg'
+import { ReactComponent as Star } from './star.svg'
+import { ReactComponent as List } from './list.svg'
+import { ReactComponent as Menu } from './menu.svg'
 import { gsap } from "gsap";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
+
 const Nav = () => {
 
-    useEffect(() => {
-        if (localStorage.getItem("favourites") === null) {
-            localStorage.setItem("favourites", JSON.stringify([]));
-        }
-        if (localStorage.getItem("watchlist") === null) {
-            localStorage.setItem("watchlist", JSON.stringify([]));
-        }
 
-    })
-    let header = useRef(null)
-    let headerContainer = useRef(null)
+    let nav = useRef(null)
+    let arrow = useRef(null)
+
+
+    const toggleSidebar = () => {
+        const headerElement = document.getElementById("header");
+        headerElement.classList.toggle("open");
+    }
+
+    const closeSidebar = (e) => {
+        const headerElement = document.getElementById("header");
+        if (!e.target.classList.contains("nav-links") && headerElement.classList.contains("open")) {
+            headerElement.classList.remove("open");
+        }
+    }
+
+
 
     useEffect(() => {
-        gsap.to(header, {
+        gsap.to(arrow.current, {
             scrollTrigger: {
-                trigger: header,
+                trigger: arrow.current,
                 toggleClass: "show-btn",
-                start: "bottom+=100 top",
+                start: "bottom top",
                 end: "bottom+=100000"
             }
         })
     })
 
-    const hideNav = () => {
-        if (headerContainer.classList.contains("active-header")) {
-            headerContainer.classList.remove("active-header");
-        }
-    }
+
     return (
-        <div className="header-container" id="header" ref={el => (headerContainer = el)}>
-            <header ref={el => (header = el)}>
-                <div className="back-to-top">
-                    <a className="btn" href="#header">
-                        <i>
-                            <ArrowUpward className="icon" />
-                        </i>
-                    </a>
-                </div>
-                <div className="logo-container"><NavLink className="link" to="/React-Movie-App" onClick={hideNav}>
-                    <img src={Logo} alt="Logo" />
-                </NavLink>
+        <header id="header" ref={nav}>
+            <div className="container">
+
+                <div className="logo-container">
+                    <NavLink className="link" to="/React-Movie-App">
+                        <img src={Logo} alt="Logo" />
+                    </NavLink>
                 </div>
 
+                <nav ref={el => (nav = el)} onClick={closeSidebar}>
 
-                <div className="nav-links">
 
-                    <ul>
+                    <div className="nav-links">
+                        <ul>
+                            <li>
+                                <NavLink className="link" to="/Search">
+                                    <i><Search className="icon" /></i>&nbsp; Search
+                                </NavLink>
+                            </li>
 
-                        <li>
-                            <NavLink className="link" to="/Search" onClick={hideNav}>
-                                <i><Search className="icon" /></i>&nbsp; Search
-                        </NavLink>
-                        </li>
+                            <li>
+                                <NavLink className="link" to="/TopRated">
+                                    <i><Star className="icon" /></i>&nbsp; Top Rated
+                                </NavLink>
+                            </li>
 
-                        <li>
-                            <NavLink className="link" to="/TopRated" onClick={hideNav}>
-                                <i><Star className="icon" /></i>&nbsp; Top Rated
-                        </NavLink>
-                        </li>
+                            <li>
+                                <NavLink className="link" to="/MyLists">
+                                    <i><List className="icon" /></i>&nbsp; My Lists
+                                </NavLink>
+                            </li>
 
-                        <li>
-                            <NavLink className="link" to="/MyLists" onClick={hideNav}>
-                                <i><List className="icon" /></i>&nbsp; My Lists
-                        </NavLink>
-                        </li>
+                        </ul>
+                    </div>
 
-                        <li>
-                            <Link className="link sign-in" to="/SignIn" onClick={hideNav}>
-                                <button disabled className="btn sign-in-btn">
-                                    Sign In
-                            </button>
-                            </Link>
-                        </li>
+                    <div className="back-to-top" ref={arrow}>
+                        <a href="#header">
+                            <i>
+                                <ArrowUp className="icon" />
+                            </i>
+                        </a>
+                    </div>
+                </nav>
 
-                    </ul>
-                </div>
-
-                <div className="menu-btn" onClick={() => headerContainer.classList.toggle("active-header")}>
+                <div className="menu-btn" onClick={toggleSidebar}>
                     <Menu className="icon menu-icon" id="menu-icon" />
                 </div>
-            </header>
-        </div>
+            </div>
+        </header>
 
     )
 }
