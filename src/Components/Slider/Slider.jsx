@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import "./Slider.scss";
 import { ReactComponent as RightArrow } from './right-arrow.svg'
 import { ReactComponent as LeftArrow } from './left-arrow.svg'
@@ -6,7 +6,6 @@ import Card from "../Card/Card"
 
 const Slider = ({ items, container, fullWidth }) => {
 
-    let sliderWidth = useRef(null)
     const initialPosition = 
     fullWidth ? (window.innerWidth <= 800 ? 50 : 100)
         : 50
@@ -66,7 +65,7 @@ const Slider = ({ items, container, fullWidth }) => {
     return (
 
 
-        <div className="slider" ref={el => sliderWidth = el}>
+        <div className="slider">
             <div className="arrow-container left-arrow-container" onClick={leftSlide}>
                 <LeftArrow className='icon left-arrow' />
             </div>

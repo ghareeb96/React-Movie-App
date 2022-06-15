@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import CardContainer from '../../Components/CardsContainer/CardsContainer';
 import Slider from "../../Components/Slider/Slider"
 import './Person.scss';
-import { FavoriteBorder, Favorite } from '@material-ui/icons';
-
+import {ReactComponent as FavoriteBorder} from './FavoriteBorder.svg'
+import {ReactComponent as Favorite} from './Favorite.svg'
 
 
 const Persons = ({ match, api_key }) => {
@@ -18,6 +18,7 @@ const Persons = ({ match, api_key }) => {
 
     useEffect(() => {
         setId(match.params.id);
+        window.scrollTo(0, 0)
     }, [match.params.id])
 
     const addToFav = () => {

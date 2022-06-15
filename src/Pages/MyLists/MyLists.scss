@@ -1,27 +1,34 @@
 @import "../../app.scss";
 
 .my-lists {
-    margin-top: 50px;
-
+    width: 100%;
+    
     .filter-bar {
-        width: 250px;
-        margin: 0px auto;
+
+        margin-top: 50px;
+
+        width: 320px;
+        margin: 30px auto;
 
         ul {
             display: flex;
             flex-direction: row;
             list-style: none;
-            justify-content: space-between;
+            background: #eee;
+            width: 100%;
+            box-shadow: 0 0 4px #aaa;
 
             li {
-                padding: 3px 0;
+                width: 50%;
 
                 button {
+                    width: 100%;
+                    padding: 2.5rem 1.5rem;
                     background: none;
                     border: none;
                     outline: none;
                     font-weight: 500;
-                    font-size: 1.2rem;
+                    font-size: 1.4rem;
                     text-decoration: none;
                     cursor: pointer;
 
@@ -29,21 +36,10 @@
             }
 
             li.active {
-                position: relative;
-
-                &::after {
-                    content: "";
-                    position: absolute;
-                    width: 100%;
-                    height: 1px;
-                    background-color: $secondary-color;
-                    bottom: 0;
-                    left: 0;
-                }
-
                 button {
-                    font-weight: 700;
-                    color: $secondary-color;
+                    background-color: lighten($secondary-color, 10);
+                    color: #fff;
+                    font-weight: 600;
                 }
 
 

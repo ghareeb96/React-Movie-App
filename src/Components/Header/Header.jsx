@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import "./Header.scss";
 import Logo from "./Logo.png";
 import { ReactComponent as Search } from './search.svg'
@@ -15,7 +15,6 @@ gsap.registerPlugin(ScrollTrigger);
 const Nav = () => {
 
 
-    let nav = useRef(null)
     let arrow = useRef(null)
 
 
@@ -34,19 +33,19 @@ const Nav = () => {
 
 
     useEffect(() => {
-        gsap.to(arrow.current, {
+        gsap.to(arrow, {
             scrollTrigger: {
-                trigger: arrow.current,
+                trigger: arrow,
                 toggleClass: "show-btn",
                 start: "bottom top",
                 end: "bottom+=100000"
             }
         })
-    })
+    }, [])
 
 
     return (
-        <header id="header" ref={nav}>
+        <header id="header">
             <div className="container">
 
                 <div className="logo-container">
@@ -55,7 +54,7 @@ const Nav = () => {
                     </NavLink>
                 </div>
 
-                <nav ref={el => (nav = el)} onClick={closeSidebar}>
+                <nav onClick={closeSidebar}>
 
 
                     <div className="nav-links">
@@ -81,15 +80,15 @@ const Nav = () => {
                         </ul>
                     </div>
 
-                    <div className="back-to-top" ref={arrow}>
-                        <a href="#header">
-                            <i>
-                                <ArrowUp className="icon" />
-                            </i>
-                        </a>
-                    </div>
-                </nav>
 
+                </nav>
+                <div className="back-to-top" ref={el => arrow = el}>
+                    <a href="#header">
+                        <i>
+                            <ArrowUp className="icon" />
+                        </i>
+                    </a>
+                </div>
                 <div className="menu-btn" onClick={toggleSidebar}>
                     <Menu className="icon menu-icon" id="menu-icon" />
                 </div>

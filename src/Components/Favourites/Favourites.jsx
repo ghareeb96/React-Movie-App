@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import "./Favourites.scss";
 import CardsContainer from '../CardsContainer/CardsContainer';
 
-const Favourites = ({api_key}) => {
+const Favourites = ({ api_key }) => {
 
     const [storedItems, setItem] = useState([]);
 
@@ -16,14 +16,15 @@ const Favourites = ({api_key}) => {
     }, [])
 
     return (
-        <div className="favourites"  >
-            {storedItems.length === 0 ? "" :
-                <CardsContainer
-                    items={storedItems}
-                />
-            }
 
-        </div>
+        <div className="favourites"  >
+                {storedItems.length === 0 ? "" :
+                    <CardsContainer
+                        items={storedItems}
+                    />
+                }
+
+            </div>
     )
 }
 

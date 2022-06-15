@@ -1,53 +1,43 @@
 @import "../../app.scss";
 
-// .top-rated {
-//     margin-top: 200px;
+.top-rated{
 
-//     .container {
-//         width: 90%;
-//         margin: 10vh auto 5vh auto;
-//         border: 2px $secondary_color solid;
-//         border-radius: 10px;
-//         // margin-bottom: 3rem;
+    .filter-bar {
+        width: 320px;
+        margin: 30px auto;
 
-//         .legend {
-//             height: auto;
-//             background: $primary-color;
+        ul {
+            display: flex;
+            flex-direction: row;
+            list-style: none;
+            background: #eee;
+            width: 100%;
+            box-shadow: 0 0 4px #aaa;
+            li {
+                width: 50%;
+                button {
+                    width: 100%;
+                    padding: 2.5rem 1.5rem;
+                    background: none;
+                    border: none;
+                    outline: none;
+                    font-weight: 500;
+                    font-size: 1.4rem;
+                    text-decoration: none;
+                    cursor: pointer;
 
-//             h3 {
-//                 color: $fourth_color;
-//                 text-align: center;
-//                 font-size: 3rem;
-//                 padding: 1rem;
-//             }
-//         }
+                }
+            }
 
-//         .more {
-//             width: 100%;
-//             background: $secondary_color;
-//             font-size: 3rem;
-//             border: none;
-//             outline: none;
-//             cursor: pointer;
-//             padding: 1rem;
+            li.active {
+               button{
+                   background-color: lighten($secondary-color, 10);
+                   color: #fff;
+                   font-weight: 600;
+               }
 
 
-//             a {
-//                 color: $fourth_color;
-//                 text-decoration: none;
-//                 width: 100%;
-//                 display: block;
-//                 text-align: center;
-//             }
-
-//         }
-//     }
-
-//     .divider {
-//         height: 5px;
-//         width: 90%;
-//         background-color: $fourth_color;
-//         margin: 20px auto;
-//     }
-
-// }
+            }
+        }
+    }
+}

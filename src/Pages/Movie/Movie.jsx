@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { FavoriteBorder, Favorite, Queue, LibraryAddCheck } from '@material-ui/icons';
 import CardContainer from '../../Components/CardsContainer/CardsContainer';
 import Slider from "../../Components/Slider/Slider"
+import {ReactComponent as FavoriteBorder} from './FavoriteBorder.svg'
+import {ReactComponent as Favorite} from './Favorite.svg'
+import {ReactComponent as Queue} from './Queue.svg'
+import {ReactComponent as LibraryAddCheck} from './LibraryAddCheck.svg'
 
 
 
@@ -20,6 +23,7 @@ const Movies = ({ match, api_key }) => {
 
     useEffect(() => {
         setId(match.params.id);
+        window.scrollTo(0, 0)
     }, [match.params.id])
 
     const addToFav = () => {
@@ -134,17 +138,35 @@ const Movies = ({ match, api_key }) => {
                                     <div className="poster">
                                         <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="poster" />
                                     </div>
+                                    
                                     <div className="btn-container">
-                                        <button className={watchlisted ? "btn watchlist-btn btn-checked" : "btn watchlist-btn"} onClick={addToWatchlist}>
-                                            {watchlisted ?
+                                        
+                                        <button 
+                                            className={watchlisted ? "btn watchlist-btn btn-checked" : "btn watchlist-btn"} 
+                                            onClick={addToWatchlist}>
+                                            
+                                            {
+                                            watchlisted ?
                                                 <div className="btn-content"><LibraryAddCheck className="icon" /><span> Watchlist</span></div>
-                                                : <div className="btn-content"><Queue className="icon" /><span> Add To Watchlist</span></div>}</button>
-                                        <button className={favourited ? "btn favourite-btn btn-checked" : "btn favourite-btn"} onClick={addToFav}>
-                                            {favourited ?
+                                                : 
+                                                <div className="btn-content"><Queue className="icon" /><span> Add To Watchlist</span></div>
+                                            }
+                                        </button>
+                                        
+                                        
+                                        <button 
+                                            className={favourited ? "btn favourite-btn btn-checked" : "btn favourite-btn"} 
+                                            onClick={addToFav}>
+                                            {
+                                            favourited ?
                                                 <div className="btn-content"><Favorite className="icon" /><span> Favourite</span></div>
-                                                : <div className="btn-content"><FavoriteBorder className="icon" /><span> Add To Favourite</span></div>
-                                            }</button>
+                                                : 
+                                                <div className="btn-content"><FavoriteBorder className="icon" /><span> Add To Favourite</span></div>
+                                            }
+                                        </button>
+                                    
                                     </div>
+                                
                                 </div>
 
                                 <div className="right-section">

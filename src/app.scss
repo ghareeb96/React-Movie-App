@@ -18,7 +18,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Raleway', sans-serif;
 }
 
 @mixin fullWidth {
@@ -151,9 +151,6 @@ a {
 }
 
 
-
-
-
 .btn {
     border: none;
     outline: none;
@@ -224,7 +221,9 @@ a {
 
                     button {
                         margin-top: 15px;
-
+                        padding: 1rem;
+                        border-radius: 0;
+                        
                         &.btn-checked {
                             background: $secondary-color;
                         }
@@ -235,8 +234,14 @@ a {
                             align-items: center;
                             justify-content: center;
 
+                            span{
+                                font-size: 1rem;
+                                align-self: flex-end;
+                            }
                             .icon {
                                 margin-right: 10px;
+                                width: 20px;
+                                fill: #fff;
                             }
                         }
                     }

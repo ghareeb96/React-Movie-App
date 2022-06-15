@@ -46,7 +46,7 @@ header {
                     li {
 
                         a {
-                            padding: 3px;
+                            padding: 5px;
                             display: flex;
                             align-items: center;
                             color: black;
@@ -58,21 +58,21 @@ header {
                         }
 
                         .icon {
-                            width: 15px;
-                            height: 15px;
+                            width: 17px;
+                            height: 17px;
                         }
 
                         .active {
-                            color: $main-color;
                             font-weight: 700;
                             position: relative;
+                            color: $main-color;
 
                             &:before,
                             &:after {
                                 content: "";
                                 position: absolute;
                                 width: 100%;
-                                height: 1px;
+                                height: 2px;
                                 background: $main-color;
                                 top: 0;
                                 left: 0;
@@ -82,6 +82,9 @@ header {
                                 bottom: 0;
                                 top: auto;
                             }
+                            .icon {
+                                fill: $main-color;
+                            }
                         }
 
                     }
@@ -90,42 +93,42 @@ header {
 
 
 
-            .back-to-top {
-                position: fixed;
-                bottom: 50px;
-                right: 50px;
-                width: 50px;
-                height: 50px;
-                z-index: 3;
-                opacity: 0;
-                pointer-events: none;
-                transform: scale(0.5);
-                transition: all 0.3s ease-out;
+            
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            z-index: 3;
+            opacity: 0;
+            pointer-events: none;
+            transform: scale(0.5);
+            transition: all 0.3s ease-out;
 
-                a {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
+            a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                background-color: #fff;
+
+                .icon {
+                    fill: $main-color;
                     width: 100%;
                     height: 100%;
-                    border-radius: 50%;
-                    background-color: #fff;
-
-                    .icon {
-                        fill: $main-color;
-                        width: 100%;
-                        height: 100%;
-                    }
-                }
-
-                &.show-btn {
-                    opacity: 1;
-                    pointer-events: all;
-                    transform: scale(1);
                 }
             }
-        }
 
+            &.show-btn {
+                opacity: 1;
+                pointer-events: all;
+                transform: scale(1);
+            }
+        }
         .menu-btn {
             display: none;
         }

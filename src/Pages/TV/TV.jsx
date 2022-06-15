@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { FavoriteBorder, Favorite, Queue, LibraryAddCheck } from '@material-ui/icons';
+import {ReactComponent as FavoriteBorder} from './FavoriteBorder.svg'
+import {ReactComponent as Favorite} from './Favorite.svg'
+import {ReactComponent as Queue} from './Queue.svg'
+import {ReactComponent as LibraryAddCheck} from './LibraryAddCheck.svg'
 import CardContainer from '../../Components/CardsContainer/CardsContainer';
 import Slider from "../../Components/Slider/Slider"
 
@@ -19,6 +22,7 @@ const TVShows = ({ match, api_key }) => {
 
     useEffect(() => {
         setId(match.params.id);
+        window.scrollTo(0, 0)
     }, [match.params.id])
 
     const addToFav = () => {

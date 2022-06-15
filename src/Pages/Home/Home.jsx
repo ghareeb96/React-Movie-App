@@ -1,12 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import "./Home.scss";
 import CardsContainer from "../../Components/CardsContainer/CardsContainer"
 import Slider from "../../Components/Slider/Slider"
 import background from "./background.png"
 
-import { gsap } from "gsap";
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-gsap.registerPlugin(ScrollTrigger);
 
 const HomePage = ({api_key}) => {
 
