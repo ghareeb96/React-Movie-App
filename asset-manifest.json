@@ -1,22 +1,27 @@
 {
   "files": {
-    "main.css": "/React-Movie-App/static/css/main.83550c1f.css",
-    "main.js": "/React-Movie-App/static/js/main.ac1a1807.js",
-    "static/media/background.png": "/React-Movie-App/static/media/background.a2c1699b14ef7ceeab7d.png",
+    "main.css": "/React-Movie-App/static/css/main.82727ef2.css",
+    "main.js": "/React-Movie-App/static/js/main.f3acd792.js",
+    "static/media/background.png": "/React-Movie-App/static/media/background.80ef930834be684f3244.png",
     "static/media/img.jpg": "/React-Movie-App/static/media/img.de5664ffab9fe6082a9b.jpg",
     "static/media/search.svg": "/React-Movie-App/static/media/search.dcc917b4aaedba50220f7e8a520b49a2.svg",
+    "static/media/LibraryAddCheck.svg": "/React-Movie-App/static/media/LibraryAddCheck.8889ec33cb9af816e14e00effa67a922.svg",
+    "static/media/Search.svg": "/React-Movie-App/static/media/Search.8cfb7f55fb054cf70c2fe73b097aa4a9.svg",
+    "static/media/FavoriteBorder.svg": "/React-Movie-App/static/media/FavoriteBorder.f7ab74bf5262c82356fb4408385e89eb.svg",
+    "static/media/Queue.svg": "/React-Movie-App/static/media/Queue.3375a66edc2a33bc88346791906417f2.svg",
     "static/media/arrow-up.svg": "/React-Movie-App/static/media/arrow-up.3aa96e478bcbe55169905bd81b8ba763.svg",
-    "static/media/list.svg": "/React-Movie-App/static/media/list.a8ced0bf99e5c01a73f191058d00cf36.svg",
+    "static/media/list.svg": "/React-Movie-App/static/media/list.d1e8a8151553a9e23fa771409b312a8b.svg",
     "static/media/menu.svg": "/React-Movie-App/static/media/menu.2e8b080c16d330d8c82f3b2e90f0f001.svg",
     "index.html": "/React-Movie-App/index.html",
+    "static/media/Favorite.svg": "/React-Movie-App/static/media/Favorite.ad94ed937b201e17e3bdd336c7353db7.svg",
     "static/media/left-arrow.svg": "/React-Movie-App/static/media/left-arrow.c46368244a2098b56168ee50a7e8cde6.svg",
     "static/media/right-arrow.svg": "/React-Movie-App/static/media/right-arrow.ce9d0c158f822728ecb9f307657606bb.svg",
     "static/media/star.svg": "/React-Movie-App/static/media/star.0b2b733025d3c123092b5a066ccb8753.svg",
-    "main.83550c1f.css.map": "/React-Movie-App/static/css/main.83550c1f.css.map",
-    "main.ac1a1807.js.map": "/React-Movie-App/static/js/main.ac1a1807.js.map"
+    "main.82727ef2.css.map": "/React-Movie-App/static/css/main.82727ef2.css.map",
+    "main.f3acd792.js.map": "/React-Movie-App/static/js/main.f3acd792.js.map"
   },
   "entrypoints": [
-    "static/css/main.83550c1f.css",
-    "static/js/main.ac1a1807.js"
+    "static/css/main.82727ef2.css",
+    "static/js/main.f3acd792.js"
   ]
 }
