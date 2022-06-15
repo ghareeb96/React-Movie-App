@@ -41,7 +41,7 @@ const HomePage = ({api_key}) => {
 
 
     return (
-        <div className="home-page" >
+        <div className="home-page mt-70" >
 
             <div className="hero-section">
                 <div className="background">

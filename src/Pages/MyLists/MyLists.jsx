@@ -7,7 +7,7 @@ const TopRated = ({ api_key }) => {
     const [activeSection, setActiveSection] = useState("watchlist");
 
     return (
-        <div className="my-lists">
+        <div className="my-lists mt-70">
 
             <div className="container">
 

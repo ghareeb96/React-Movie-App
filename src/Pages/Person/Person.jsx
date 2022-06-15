@@ -94,7 +94,7 @@ const Persons = ({ match, api_key }) => {
         return (
             <>
 
-                <div className="details-page person-page">
+                <div className="details-page person-page mt-70">
                     <div className="details-container">
                         <div className="container">
 

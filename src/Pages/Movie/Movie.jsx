@@ -123,7 +123,7 @@ const Movies = ({ match, api_key }) => {
     if (movie.genres) {
         return (
             <>
-                <div className="details-page movie-page">
+                <div className="details-page movie-page mt-70">
 
                     <div className="details-container">
                         <div className="background static-bg">

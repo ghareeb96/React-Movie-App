@@ -61,7 +61,7 @@ const Search = ({ api_key }) => {
 
 
     return (
-        <div className="search-page" >
+        <div className="search-page mt-70" >
             <div className="container">
                 <div className="search-form">
 

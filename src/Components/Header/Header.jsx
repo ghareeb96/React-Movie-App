@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import "./Header.scss";
 import Logo from "./Logo.png";
@@ -15,7 +15,6 @@ gsap.registerPlugin(ScrollTrigger);
 const Nav = () => {
 
 
-    let arrow = useRef(null)
 
 
     const toggleSidebar = () => {
@@ -33,9 +32,9 @@ const Nav = () => {
 
 
     useEffect(() => {
-        gsap.to(arrow, {
+        gsap.to(document.querySelector('.back-to-top'), {
             scrollTrigger: {
-                trigger: arrow,
+                trigger: document.querySelector('.back-to-top'),
                 toggleClass: "show-btn",
                 start: "bottom top",
                 end: "bottom+=100000"
@@ -82,13 +81,7 @@ const Nav = () => {
 
 
                 </nav>
-                <div className="back-to-top" ref={el => arrow = el}>
-                    <a href="#header">
-                        <i>
-                            <ArrowUp className="icon" />
-                        </i>
-                    </a>
-                </div>
+
                 <div className="menu-btn" onClick={toggleSidebar}>
                     <Menu className="icon menu-icon" id="menu-icon" />
                 </div>

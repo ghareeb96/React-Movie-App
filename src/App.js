@@ -22,36 +22,35 @@ const App = () => {
   return (
     <div >
 
-        <Router>
-          <Header />
-          <Switch>
+      <Router>
+        <Header />
+        <Switch>
 
-            <Route exact path="/React-Movie-App/" >
-              <Home api_key = {api_key}/>
-            </Route>
+          <Route exact path="/React-Movie-App/" >
+            <Home api_key={api_key} />
+          </Route>
 
-            <Route exact path="/TopRated">
-              <TopRated api_key = {api_key} />
-            </Route>
+          <Route exact path="/TopRated">
+            <TopRated api_key={api_key} />
+          </Route>
 
-            <Route exact path="/Search">
-              <Search api_key = {api_key} />
-            </Route>
+          <Route exact path="/Search">
+            <Search api_key={api_key} />
+          </Route>
 
-            <Route exact path="/MyLists">
-              <MyLists api_key = {api_key} />
-            </Route>
+          <Route exact path="/MyLists">
+            <MyLists api_key={api_key} />
+          </Route>
 
-            <Route exact path="/Movie/:id" render={(props)=> <Movie {...props} api_key={api_key} />} />
+          <Route exact path="/Movie/:id" render={(props) => <Movie {...props} api_key={api_key} />} />
 
-            <Route exact path="/TV/:id" render={(props)=> <TV {...props} api_key={api_key} />} />
+          <Route exact path="/TV/:id" render={(props) => <TV {...props} api_key={api_key} />} />
 
-            <Route exact path="/Person/:id" render={(props)=> <Person {...props} api_key={api_key} />} />
+          <Route exact path="/Person/:id" render={(props) => <Person {...props} api_key={api_key} />} />
 
-          </Switch>
-
-        </Router>
-      </div>
+        </Switch>
+      </Router>
+    </div>
 
   )
 }

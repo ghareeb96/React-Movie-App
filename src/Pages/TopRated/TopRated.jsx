@@ -46,7 +46,7 @@ const TopRated = ({ api_key }) => {
     }, [])
     
     return (
-        <div className="top-rated" >
+        <div className="top-rated mt-70" >
             <div className="container">
 
                 <div className="section" id="movieContainer">

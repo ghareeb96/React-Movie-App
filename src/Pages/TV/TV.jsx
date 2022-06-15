@@ -141,7 +141,7 @@ const TVShows = ({ match, api_key }) => {
         return (
             <>
 
-                <div className="details-page tv-page">
+                <div className="details-page tv-page mt-70">
 
                     <div className="details-container">
                         <div className="background static-bg">
