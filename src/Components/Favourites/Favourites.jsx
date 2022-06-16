@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import "./Favourites.scss";
 import CardsContainer from '../CardsContainer/CardsContainer';
 
 const Favourites = ({ api_key }) => {
