@@ -1,5 +1,5 @@
 # A+MDb App
-A+MDb is an App implemented by React.js liberary with additional packages and liberaries such as react router, The App uses TMDB Api to Get Movies and TvShows either by searching it or browsing the trending and top rated ones
+A+MDb is an App implemented by React.js library with additional packages and libraries such as react router, The App uses TMDB Api to Get Movies and TvShows either by searching it or browsing the trending and top rated ones
 It Also uses the user Local Storage to save the watch list and favourite movies, TvShows and Persons saved by the user
 
 Demo: https://ghareeb96.github.io/React-Movie-App
